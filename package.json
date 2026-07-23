@@ -1,0 +1,34 @@
+{
+  "name": "firma-total",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "prepare:vendor": "node scripts/fetch-autoscript.mjs",
+    "generate:seo": "node scripts/generate-seo.mjs",
+    "predev": "npm run prepare:vendor && npm run generate:seo",
+    "dev": "vite",
+    "prebuild": "npm run prepare:vendor && npm run generate:seo",
+    "build": "vite build",
+    "test": "node --test",
+    "preview": "vite preview",
+    "deploy": "npm run build && wrangler pages deploy dist --project-name firmatotal --branch main"
+  },
+  "dependencies": {
+    "@signpdf/placeholder-pdf-lib": "^3.2.6",
+    "@signpdf/signer-p12": "^3.2.4",
+    "@signpdf/signpdf": "^3.2.5",
+    "@signpdf/utils": "^3.2.4",
+    "buffer": "^6.0.3",
+    "node-forge": "^1.3.1",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^5.4.530",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.4",
+    "vite": "^8.1.5",
+    "vite-plugin-node-polyfills": "^0.26.0"
+  }
+}
