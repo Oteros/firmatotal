@@ -43,7 +43,7 @@ button, a, input, select { outline-color: var(--blood-bright); outline-offset: 3
 .brand > span:last-child { color: var(--blood-bright); }
 .header-dash { color: var(--blood); font-size: 24px; }
 .lab-mark { display: flex; align-items: center; gap: 8px; font: 700 9px/1 "DM Mono"; text-decoration: none; }
-.lab-seal { display: grid; place-items: center; width: 25px; height: 25px; border: 1px solid var(--ink); border-radius: 50%; font-size: 16px; }
+.lab-mark img { width: 28px; height: 28px; object-fit: contain; }
 .site-header nav { margin-left: auto; display: flex; align-items: center; gap: 26px; }
 .site-header nav > a, .footer-bottom a { font: 700 10px/1 "DM Mono"; text-decoration: none; text-transform: uppercase; letter-spacing: .04em; }
 .site-header select {
@@ -199,7 +199,9 @@ input:not([type="checkbox"]):not([type="file"]) { width: 100%; padding: 12px; bo
 .footer-bottom { display: flex; align-items: center; gap: 35px; padding: 55px clamp(25px, 5vw, 75px); background: var(--white); }
 .brand.compact { font-size: 29px; }
 .footer-bottom p { margin: 0; color: var(--ink-soft); font-size: 13px; }
-.footer-bottom div { margin-left: auto; display: flex; gap: 22px; }
+.footer-bottom div { margin-left: auto; display: flex; align-items: center; gap: 22px; }
+.footer-lab { display: inline-flex; align-items: center; gap: 7px; }
+.footer-lab img { width: 22px; height: 22px; object-fit: contain; }
 
 [dir="rtl"] .site-header nav, [dir="rtl"] .footer-bottom div { margin-left: 0; margin-right: auto; }
 [dir="rtl"] .step-number { right: auto; left: 20px; }

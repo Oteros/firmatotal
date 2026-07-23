@@ -160,18 +160,18 @@ ${alternates(index)}
 <meta property="og:type" content="website"><meta property="og:site_name" content="Firma Total">
 <meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${canonical}"><meta name="twitter:card" content="summary">
-<link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/seo.css">
+<link rel="icon" type="image/png" sizes="512x512" href="/chapalab-mark.png"><link rel="stylesheet" href="/seo.css">
 <script type="application/ld+json">${schema}</script>
 </head>
 <body>
-<header class="header"><a class="brand" href="/?lang=${code}">firma<span>total.</span></a><b>·</b><a class="lab" href="https://www.chapalab.com">✺ CHAPALAB.COM</a><nav class="nav"><a href="/?lang=${code}#how">${esc(dict.how)}</a><a href="/?lang=${code}#privacy">${esc(dict.privacy)}</a><a href="/?lang=${code}#tool">${esc(dict.heroCta)}</a></nav></header>
+<header class="header"><a class="brand" href="/?lang=${code}">firma<span>total.</span></a><b>·</b><a class="lab" href="https://www.chapalab.com"><img src="/chapalab-mark.png" alt="" width="28" height="28"> CHAPALAB.COM</a><nav class="nav"><a href="/?lang=${code}#how">${esc(dict.how)}</a><a href="/?lang=${code}#privacy">${esc(dict.privacy)}</a><a href="/?lang=${code}#tool">${esc(dict.heroCta)}</a></nav></header>
 <main>
 <section class="hero"><div class="copy"><p class="eyebrow">${esc(dict.heroKicker)}</p><h1>${esc(title)}</h1><p class="lead">${esc(description)}</p><a class="cta" href="/?lang=${code}#tool">${esc(dict.heroCta)} ↓</a></div><div class="art" aria-hidden="true"><div class="collar"></div><div class="tie"></div><div class="nib"></div></div></section>
 <section class="proof"><p class="eyebrow">FIRMA TOTAL · LOCAL PDF WORKBENCH</p><h2>${esc(dict.toolTitle)}</h2><div class="grid">${proof.map((text, i) => `<article><strong>0${i+1} · ${esc(labels[code][i])}</strong><p>${esc(text)}</p></article>`).join("")}</div></section>
 <section class="legal"><div><p class="eyebrow">PAdES · VISIBLE SIGNATURE</p><h2>${esc(dict.legalTitle)}</h2></div><p>${esc(dict.legalBody)} ${esc(jurisdiction[code])}</p></section>
 <section class="related"><h2>${esc(dict.how)}</h2><div class="links">${siblingLinks}<a href="/?lang=${code}#tool">${esc(dict.heroCta)} →</a></div></section>
 </main>
-<footer><div class="manifesto"><span>${esc(dict.local)}</span><i>·</i><span>${esc(dict.noAccount)}</span><i>·</i><span>${esc(dict.pades)}</span></div><div class="footer"><a class="brand" href="/?lang=${code}">firma<span>total.</span></a><p>${esc(dict.footerTagline)}</p><nav><a href="https://github.com/Oteros/firmatotal" target="_blank" rel="noreferrer">${esc(dict.sourceCode)} ↗</a><a href="/?lang=${code}#how">${esc(dict.how)}</a><a href="/?lang=${code}#privacy">${esc(dict.privacy)}</a></nav></div></footer>
+<footer><div class="manifesto"><span>${esc(dict.local)}</span><i>·</i><span>${esc(dict.noAccount)}</span><i>·</i><span>${esc(dict.pades)}</span></div><div class="footer"><a class="brand" href="/?lang=${code}">firma<span>total.</span></a><p>${esc(dict.footerTagline)}</p><nav><a class="footer-lab" href="https://www.chapalab.com"><img src="/chapalab-mark.png" alt="" width="22" height="22"> CHAPALAB.COM</a><a href="https://github.com/Oteros/firmatotal" target="_blank" rel="noreferrer">${esc(dict.sourceCode)} ↗</a><a href="/?lang=${code}#how">${esc(dict.how)}</a><a href="/?lang=${code}#privacy">${esc(dict.privacy)}</a></nav></div></footer>
 </body></html>`;
 }
 
