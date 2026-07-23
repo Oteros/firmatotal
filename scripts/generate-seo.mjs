@@ -171,7 +171,7 @@ ${alternates(index)}
 <section class="legal"><div><p class="eyebrow">PAdES · VISIBLE SIGNATURE</p><h2>${esc(dict.legalTitle)}</h2></div><p>${esc(dict.legalBody)} ${esc(jurisdiction[code])}</p></section>
 <section class="related"><h2>${esc(dict.how)}</h2><div class="links">${siblingLinks}<a href="/?lang=${code}#tool">${esc(dict.heroCta)} →</a></div></section>
 </main>
-<footer><div class="manifesto"><span>${esc(dict.local)}</span><i>·</i><span>${esc(dict.noAccount)}</span><i>·</i><span>${esc(dict.pades)}</span></div><div class="footer"><a class="brand" href="/?lang=${code}">firma<span>total.</span></a><p>${esc(dict.footerTagline)}</p><nav><a href="/?lang=${code}#how">${esc(dict.how)}</a><a href="/?lang=${code}#privacy">${esc(dict.privacy)}</a></nav></div></footer>
+<footer><div class="manifesto"><span>${esc(dict.local)}</span><i>·</i><span>${esc(dict.noAccount)}</span><i>·</i><span>${esc(dict.pades)}</span></div><div class="footer"><a class="brand" href="/?lang=${code}">firma<span>total.</span></a><p>${esc(dict.footerTagline)}</p><nav><a href="https://github.com/Oteros/firmatotal" target="_blank" rel="noreferrer">${esc(dict.sourceCode)} ↗</a><a href="/?lang=${code}#how">${esc(dict.how)}</a><a href="/?lang=${code}#privacy">${esc(dict.privacy)}</a></nav></div></footer>
 </body></html>`;
 }
 

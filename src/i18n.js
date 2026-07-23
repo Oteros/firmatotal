@@ -71,6 +71,7 @@ const es = {
   statusDone: 'Documento preparado correctamente.',
   error: 'No se pudo completar la operación. Revisa el archivo y vuelve a intentarlo.',
   footerTagline: 'Firmar sin entregar tus documentos.',
+  sourceCode: 'Código público',
 }
 
 const en = {
@@ -128,6 +129,7 @@ const en = {
   statusDone: 'Document prepared successfully.',
   error: 'The operation could not be completed. Check the file and try again.',
   footerTagline: 'Sign without handing over your documents.',
+  sourceCode: 'Public source code',
 }
 
 const fr = {
@@ -185,6 +187,7 @@ const fr = {
   statusDone: 'Document préparé correctement.',
   error: 'L’opération a échoué. Vérifiez le fichier et réessayez.',
   footerTagline: 'Signez sans confier vos documents.',
+  sourceCode: 'Code source public',
 }
 
 const de = {
@@ -242,6 +245,7 @@ const de = {
   statusDone: 'Dokument erfolgreich vorbereitet.',
   error: 'Der Vorgang konnte nicht abgeschlossen werden. Datei prüfen und erneut versuchen.',
   footerTagline: 'Signieren, ohne Dokumente weiterzugeben.',
+  sourceCode: 'Öffentlicher Quellcode',
 }
 
 const it = {
@@ -299,6 +303,7 @@ const it = {
   statusDone: 'Documento preparato correttamente.',
   error: 'Operazione non completata. Controlla il file e riprova.',
   footerTagline: 'Firma senza consegnare i tuoi documenti.',
+  sourceCode: 'Codice sorgente pubblico',
 }
 
 const pt = {
@@ -356,6 +361,7 @@ const pt = {
   statusDone: 'Documento preparado corretamente.',
   error: 'Não foi possível concluir. Verifique o ficheiro e tente novamente.',
   footerTagline: 'Assine sem entregar os seus documentos.',
+  sourceCode: 'Código-fonte público',
 }
 
 const ca = {
@@ -381,7 +387,7 @@ const ca = {
   legalTitle: 'Una imatge no és un certificat',
   legalBody: 'La signatura visible expressa intenció. PAdES aporta integritat i identitat criptogràfiques. El valor legal depèn del certificat, el dispositiu i la llei.',
   statusReady: 'A punt per començar.', statusWorking: 'Processant el document…', statusDone: 'Document preparat correctament.',
-  error: 'No s’ha pogut completar. Revisa el fitxer i torna-ho a provar.', footerTagline: 'Signa sense lliurar els documents.',
+  error: 'No s’ha pogut completar. Revisa el fitxer i torna-ho a provar.', footerTagline: 'Signa sense lliurar els documents.', sourceCode: 'Codi font públic',
 }
 
 const eu = {
@@ -407,7 +413,7 @@ const eu = {
   legalTitle: 'Irudi bat ez da ziurtagiri bat',
   legalBody: 'Ikusizko sinadurak asmoa adierazten du. PAdESek osotasun eta identitate kriptografikoa gehitzen du. Lege-balioa ziurtagiriaren, gailuaren eta legearen araberakoa da.',
   statusReady: 'Hasteko prest.', statusWorking: 'Dokumentua prozesatzen…', statusDone: 'Dokumentua behar bezala prestatu da.',
-  error: 'Ezin izan da eragiketa osatu. Egiaztatu fitxategia eta saiatu berriro.', footerTagline: 'Sinatu dokumentuak eman gabe.',
+  error: 'Ezin izan da eragiketa osatu. Egiaztatu fitxategia eta saiatu berriro.', footerTagline: 'Sinatu dokumentuak eman gabe.', sourceCode: 'Iturburu-kode publikoa',
 }
 
 const gl = {
@@ -433,7 +439,7 @@ const gl = {
   legalTitle: 'Unha imaxe non é un certificado',
   legalBody: 'A sinatura visible expresa intención. PAdES engade integridade e identidade criptográfica. O valor legal depende do certificado, o dispositivo e a lei.',
   statusReady: 'Listo para comezar.', statusWorking: 'Procesando o documento…', statusDone: 'Documento preparado correctamente.',
-  error: 'Non se puido completar. Revisa o ficheiro e téntao de novo.', footerTagline: 'Asina sen entregar os teus documentos.',
+  error: 'Non se puido completar. Revisa o ficheiro e téntao de novo.', footerTagline: 'Asina sen entregar os teus documentos.', sourceCode: 'Código fonte público',
 }
 
 const bar = {
@@ -452,6 +458,7 @@ const bar = {
   legalTitle: 'A Bild is koa Zertifikat', statusReady: 'Startklar.', statusWorking: 'Dokument wird verarbeitet…',
   statusDone: 'Dokument is fertig.', error: 'Des hot ned klappt. Prüf de Datei und probier’s no amoi.',
   footerTagline: 'Signiern, ohne Dokumente herzugeben.',
+  sourceCode: 'Öffentlicher Quellcode',
 }
 
 const zh = {
@@ -475,7 +482,7 @@ const zh = {
   signAuto: '使用 AutoFirma 签名', installAuto: '下载 AutoFirma', autoLimit: '桌面电脑需安装 AutoFirma 1.9 或更高版本。',
   legalTitle: '图片不等于证书', legalBody: '可见签名表达意愿。PAdES 提供加密完整性和身份。法律效力取决于证书、设备及适用法律。',
   statusReady: '可以开始。', statusWorking: '正在处理文件…', statusDone: '文件已成功准备。',
-  error: '无法完成操作。请检查文件后重试。', footerTagline: '无需交出文件即可签名。',
+  error: '无法完成操作。请检查文件后重试。', footerTagline: '无需交出文件即可签名。', sourceCode: '公开源代码',
 }
 
 const ja = {
@@ -499,7 +506,7 @@ const ja = {
   signAuto: 'AutoFirmaで署名', installAuto: 'AutoFirmaを入手', autoLimit: 'パソコンにAutoFirma 1.9以降が必要です。',
   legalTitle: '画像は証明書ではありません', legalBody: '表示署名は意思を示します。PAdESは暗号学的な完全性と本人性を加えます。法的効力は証明書、端末、法律に依存します。',
   statusReady: '準備完了。', statusWorking: '文書を処理中…', statusDone: '文書を準備しました。',
-  error: '処理を完了できませんでした。ファイルを確認して再試行してください。', footerTagline: '文書を預けずに署名。',
+  error: '処理を完了できませんでした。ファイルを確認して再試行してください。', footerTagline: '文書を預けずに署名。', sourceCode: '公開ソースコード',
 }
 
 const ur = {
@@ -523,7 +530,7 @@ const ur = {
   signAuto: 'AutoFirma سے دستخط', installAuto: 'AutoFirma ڈاؤن لوڈ کریں', autoLimit: 'کمپیوٹر پر AutoFirma 1.9 یا جدید درکار ہے۔',
   legalTitle: 'تصویر سرٹیفکیٹ نہیں', legalBody: 'ظاہری دستخط نیت ظاہر کرتا ہے۔ PAdES کرپٹوگرافک سالمیت اور شناخت شامل کرتا ہے۔ قانونی حیثیت سرٹیفکیٹ، آلے اور قانون پر منحصر ہے۔',
   statusReady: 'شروع کرنے کے لیے تیار۔', statusWorking: 'دستاویز پر کام جاری ہے…', statusDone: 'دستاویز تیار ہو گئی۔',
-  error: 'عمل مکمل نہیں ہو سکا۔ فائل چیک کرکے دوبارہ کوشش کریں۔', footerTagline: 'دستاویز دیے بغیر دستخط کریں۔',
+  error: 'عمل مکمل نہیں ہو سکا۔ فائل چیک کرکے دوبارہ کوشش کریں۔', footerTagline: 'دستاویز دیے بغیر دستخط کریں۔', sourceCode: 'عوامی سورس کوڈ',
 }
 
 const ar = {
@@ -547,7 +554,7 @@ const ar = {
   signAuto: 'وقّع عبر AutoFirma', installAuto: 'نزّل AutoFirma', autoLimit: 'يتطلب AutoFirma 1.9 أو أحدث على الحاسوب.',
   legalTitle: 'الصورة ليست شهادة', legalBody: 'التوقيع المرئي يعبّر عن النية. يضيف PAdES سلامة وهوية مشفرتين. تعتمد القيمة القانونية على الشهادة والجهاز والقانون.',
   statusReady: 'جاهز للبدء.', statusWorking: 'جارٍ معالجة المستند…', statusDone: 'تم تجهيز المستند.',
-  error: 'تعذر إكمال العملية. تحقق من الملف وحاول مجدداً.', footerTagline: 'وقّع دون تسليم مستنداتك.',
+  error: 'تعذر إكمال العملية. تحقق من الملف وحاول مجدداً.', footerTagline: 'وقّع دون تسليم مستنداتك.', sourceCode: 'الشيفرة المصدرية العامة',
 }
 
 const hi = {
@@ -571,7 +578,7 @@ const hi = {
   signAuto: 'AutoFirma से हस्ताक्षर', installAuto: 'AutoFirma डाउनलोड करें', autoLimit: 'कंप्यूटर पर AutoFirma 1.9 या नया आवश्यक है।',
   legalTitle: 'चित्र प्रमाणपत्र नहीं है', legalBody: 'दिखाई देने वाला हस्ताक्षर इरादा दर्शाता है। PAdES क्रिप्टोग्राफ़िक अखंडता और पहचान जोड़ता है। कानूनी स्थिति प्रमाणपत्र, उपकरण और कानून पर निर्भर है।',
   statusReady: 'शुरू करने के लिए तैयार।', statusWorking: 'दस्तावेज़ संसाधित हो रहा है…', statusDone: 'दस्तावेज़ तैयार हो गया।',
-  error: 'प्रक्रिया पूरी नहीं हुई। फ़ाइल जाँचें और फिर प्रयास करें।', footerTagline: 'दस्तावेज़ सौंपे बिना हस्ताक्षर करें।',
+  error: 'प्रक्रिया पूरी नहीं हुई। फ़ाइल जाँचें और फिर प्रयास करें।', footerTagline: 'दस्तावेज़ सौंपे बिना हस्ताक्षर करें।', sourceCode: 'सार्वजनिक स्रोत कोड',
 }
 
 export const dictionaries = { es, en, fr, de, it, pt, ca, eu, gl, bar, zh, ja, ur, ar, hi }
@@ -594,4 +601,3 @@ export function createTranslator(locale) {
   const dictionary = dictionaries[locale] || dictionaries.en
   return (key) => dictionary[key] ?? dictionaries.en[key] ?? key
 }
-

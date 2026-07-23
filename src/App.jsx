@@ -72,7 +72,11 @@ function Footer({ t }) {
       <div className="footer-bottom">
         <a className="brand compact" href="#top"><span className="brand-firma">firma</span><span>total.</span></a>
         <p>{t("footerTagline")}</p>
-        <div><a href="#how">{t("how")}</a><a href="#privacy">{t("privacy")}</a></div>
+        <div>
+          <a href="https://github.com/Oteros/firmatotal" target="_blank" rel="noreferrer">{t("sourceCode")} ↗</a>
+          <a href="#how">{t("how")}</a>
+          <a href="#privacy">{t("privacy")}</a>
+        </div>
       </div>
     </footer>
   );
