@@ -7,6 +7,7 @@ import { PDFDocument } from "pdf-lib";
 import { dictionaries, languages } from "../src/i18n.js";
 import { applyVisualSignatures, placementToPdfRect } from "../src/lib/pdf-tools.js";
 import { signPdfWithP12 } from "../src/lib/pades.js";
+import { signWithAutoFirma } from "../src/lib/autofirma.js";
 
 const ONE_PIXEL_PNG =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M/wHwAF/gL+XhT2AAAAAElFTkSuQmCC";
@@ -85,4 +86,25 @@ test("P12 flow emits a structurally signed PAdES PDF", async () => {
   assert.match(binary, /\/SubFilter\s*\/ETSI\.CAdES\.detached/);
   assert.match(binary, /\/Contents\s*</);
   assert.equal(Buffer.from(signed.subarray(0, 5)).toString(), "%PDF-");
+});
+
+test("AutoFirma bridge returns raw PDF bytes instead of a wrapper object", async () => {
+  const expected = Buffer.from("%PDF-1.7\n%%EOF\n");
+  const previous = globalThis.AutoScript;
+  globalThis.AutoScript = {
+    cargarAppAfirma() {},
+    sign(data, algorithm, format, params, success) {
+      assert.equal(algorithm, "SHA256withRSA");
+      assert.equal(format, "PAdES");
+      assert.match(params, /mode=implicit/);
+      success(expected.toString("base64"), "certificate", "metadata");
+    },
+  };
+  try {
+    const signed = await signWithAutoFirma(new Uint8Array(expected), { locale: "es" });
+    assert.ok(signed instanceof Uint8Array);
+    assert.deepEqual(Buffer.from(signed), expected);
+  } finally {
+    globalThis.AutoScript = previous;
+  }
 });

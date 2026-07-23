@@ -1,4 +1,4 @@
-import { base64ToBytes, bytesToBase64 } from './pdf-tools'
+import { base64ToBytes, bytesToBase64 } from './pdf-tools.js'
 
 const localeMap = {
   es: 'es_ES',
@@ -46,7 +46,9 @@ export async function signWithAutoFirma(pdfBytes, metadata = {}) {
           const signed = base64ToBytes(signatureB64)
           const header = new TextDecoder().decode(signed.slice(0, 5))
           if (header !== '%PDF-') throw new Error('AUTOFIRMA_INVALID_RESULT')
-          resolve({ bytes: signed, certificateB64, extraData })
+          // Match the other signing backends: callers always receive raw PDF bytes.
+          // A wrapper object would be serialized by Blob as "[object Object]".
+          resolve(signed)
         } catch (error) {
           reject(error)
         }
