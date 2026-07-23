@@ -4,8 +4,8 @@ import path from "node:path";
 import test from "node:test";
 import forge from "node-forge";
 import { PDFDocument } from "pdf-lib";
-import { dictionaries, languages } from "../src/i18n.js";
-import { applyVisualSignatures, placementToPdfRect } from "../src/lib/pdf-tools.js";
+import { createTranslator, dictionaries, languages } from "../src/i18n.js";
+import { applyVisualSignatures, hasPdfSignatures, placementToPdfRect } from "../src/lib/pdf-tools.js";
 import { signPdfWithP12 } from "../src/lib/pades.js";
 import { signWithAutoFirma } from "../src/lib/autofirma.js";
 
@@ -19,13 +19,13 @@ async function samplePdf() {
   return new Uint8Array(await pdf.save({ useObjectStreams: false }));
 }
 
-function sampleP12(password) {
+function sampleP12(password, validity = {}) {
   const keys = forge.pki.rsa.generateKeyPair(1024);
   const certificate = forge.pki.createCertificate();
   certificate.publicKey = keys.publicKey;
   certificate.serialNumber = "01";
-  certificate.validity.notBefore = new Date(Date.now() - 60_000);
-  certificate.validity.notAfter = new Date(Date.now() + 86_400_000);
+  certificate.validity.notBefore = validity.notBefore || new Date(Date.now() - 60_000);
+  certificate.validity.notAfter = validity.notAfter || new Date(Date.now() + 86_400_000);
   const attributes = [{ name: "commonName", value: "Firma Total QA" }];
   certificate.setSubject(attributes);
   certificate.setIssuer(attributes);
@@ -45,6 +45,16 @@ test("all 15 locales expose the complete Spanish key set", () => {
   const expected = Object.keys(dictionaries.es).sort();
   for (const language of languages) {
     assert.deepEqual(Object.keys(dictionaries[language.code]).sort(), expected);
+  }
+});
+
+test("safety messages are localized in all 15 languages", () => {
+  for (const language of languages) {
+    const t = createTranslator(language.code);
+    assert.notEqual(t("existingSignatureWarning"), "existingSignatureWarning");
+    assert.notEqual(t("pdfAlreadySigned"), "pdfAlreadySigned");
+    assert.match(t("certificateExpired"), /\{date\}/);
+    assert.notEqual(t("certificateUnreadable"), "certificateUnreadable");
   }
 });
 
@@ -107,4 +117,42 @@ test("AutoFirma bridge returns raw PDF bytes instead of a wrapper object", async
   } finally {
     globalThis.AutoScript = previous;
   }
+});
+test("signed PDFs are detected and protected from destructive rewrites", async () => {
+  const password = "qa-only";
+  const signed = await signPdfWithP12(await samplePdf(), sampleP12(password), password);
+  assert.equal(hasPdfSignatures(await samplePdf()), false);
+  assert.equal(hasPdfSignatures(signed), true);
+  await assert.rejects(
+    () => signPdfWithP12(signed, sampleP12(password), password),
+    (error) => error?.code === "PDF_ALREADY_SIGNED",
+  );
+  await assert.rejects(
+    () => applyVisualSignatures(signed, ONE_PIXEL_PNG, [
+      { pageIndex: 0, x: 0.5, y: 0.7, width: 0.25, height: 0.1 },
+    ]),
+    (error) => error?.code === "PDF_ALREADY_SIGNED",
+  );
+});
+
+test("expired certificates are rejected before a PDF is generated", async () => {
+  const password = "qa-only";
+  const expired = sampleP12(password, {
+    notBefore: new Date(Date.now() - 172_800_000),
+    notAfter: new Date(Date.now() - 86_400_000),
+  });
+  const source = await samplePdf();
+  await assert.rejects(
+    () => signPdfWithP12(source, expired, password),
+    (error) => error?.code === "CERTIFICATE_EXPIRED" && Boolean(error.validityDate),
+  );
+});
+
+test("unreadable certificate passwords produce a safe error", async () => {
+  const certificate = sampleP12("correct-password");
+  const source = await samplePdf();
+  await assert.rejects(
+    () => signPdfWithP12(source, certificate, "wrong-password"),
+    (error) => error?.code === "CERTIFICATE_UNREADABLE",
+  );
 });

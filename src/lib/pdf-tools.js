@@ -21,8 +21,18 @@ function dataUrlParts(dataUrl) {
   };
 }
 
+export function hasPdfSignatures(pdfBytes) {
+  const binary = Buffer.from(pdfBytes).toString("latin1");
+  return /\/ByteRange\s*\[\s*\d+\s+\d+\s+\d+\s+\d+\s*\]/.test(binary);
+}
+
 export async function applyVisualSignatures(pdfBytes, signatureDataUrl, placements, options = {}) {
   if (!placements?.length) return new Uint8Array(pdfBytes);
+  if (hasPdfSignatures(pdfBytes)) {
+    const error = new Error("PDF_ALREADY_SIGNED");
+    error.code = "PDF_ALREADY_SIGNED";
+    throw error;
+  }
   const pdfDoc = await PDFDocument.load(pdfBytes);
   const { mime, bytes } = dataUrlParts(signatureDataUrl);
   const image = mime === "image/png" ? await pdfDoc.embedPng(bytes) : await pdfDoc.embedJpg(bytes);

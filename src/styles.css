@@ -131,6 +131,11 @@ h1 { max-width: 760px; margin-bottom: 26px; font: 400 clamp(62px, 8vw, 132px)/.8
 .file-box input { position: absolute; width: 1px; height: 1px; opacity: 0; }
 .file-box strong { overflow-wrap: anywhere; }
 .file-box small { color: var(--ink-soft); line-height: 1.4; }
+.signed-pdf-warning {
+  margin: 16px 0 0; padding: 14px 16px; border: 1px solid var(--blood);
+  background: #fff2ec; color: var(--blood);
+  font: 700 11px/1.5 "DM Mono";
+}
 .pdf-stamp { display: grid; place-items: center; width: 58px; height: 70px; background: var(--blood); color: white; font: 700 14px "DM Mono"; clip-path: polygon(0 0,72% 0,100% 24%,100% 100%,0 100%); }
 .nib-small { font-size: 40px; color: var(--blood); }
 .tabs { display: flex; margin-bottom: 20px; border-bottom: 1px solid var(--line); }

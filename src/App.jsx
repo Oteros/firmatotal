@@ -5,6 +5,7 @@ import { createTranslator, languages, resolveLocale } from "./i18n.js";
 import {
   applyVisualSignatures,
   downloadPdf,
+  hasPdfSignatures,
 } from "./lib/pdf-tools.js";
 import { hasAutoFirmaBridge, signWithAutoFirma } from "./lib/autofirma.js";
 
@@ -299,6 +300,7 @@ export default function App() {
   const [pdfFile, setPdfFile] = useState(null);
   const [pdfBytes, setPdfBytes] = useState(null);
   const [pdfDoc, setPdfDoc] = useState(null);
+  const [pdfHasSignatures, setPdfHasSignatures] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
   const [signature, setSignature] = useState(null);
   const [placements, setPlacements] = useState([]);
@@ -332,12 +334,16 @@ export default function App() {
     try {
       const bytes = new Uint8Array(await file.arrayBuffer());
       const loaded = await getDocument({ data: bytes.slice() }).promise;
+      const alreadySigned = hasPdfSignatures(bytes);
       setPdfFile(file);
       setPdfBytes(bytes);
       setPdfDoc(loaded);
+      setPdfHasSignatures(alreadySigned);
       setCurrentPage(0);
       setPlacements([]);
-      setStatus(`${file.name} · ${loaded.numPages} ${t("page")}`);
+      setStatus(alreadySigned
+        ? t("existingSignatureWarning")
+        : `${file.name} · ${loaded.numPages} ${t("page")}`);
     } catch (error) {
       console.error(error);
       setStatus(t("error"));
@@ -357,6 +363,21 @@ export default function App() {
     });
   };
 
+  const operationErrorMessage = (error) => {
+    if (error?.code === "PDF_ALREADY_SIGNED") return t("pdfAlreadySigned");
+    if (error?.code === "CERTIFICATE_UNREADABLE") return t("certificateUnreadable");
+    if (["CERTIFICATE_EXPIRED", "CERTIFICATE_NOT_YET_VALID"].includes(error?.code)) {
+      const date = new Intl.DateTimeFormat(DATE_FORMATS[locale] || locale, {
+        dateStyle: "long",
+      }).format(new Date(error.validityDate));
+      const key = error.code === "CERTIFICATE_EXPIRED"
+        ? "certificateExpired"
+        : "certificateNotYetValid";
+      return t(key).replace("{date}", date);
+    }
+    return `${t("error")} ${error?.message || ""}`.trim();
+  };
+
   const execute = async (job) => {
     setBusy(true);
     setStatus(t("statusWorking"));
@@ -365,7 +386,7 @@ export default function App() {
       setStatus(t("statusDone"));
     } catch (error) {
       console.error(error);
-      setStatus(`${t("error")} ${error?.message || ""}`.trim());
+      setStatus(operationErrorMessage(error));
     } finally {
       setBusy(false);
     }
@@ -449,6 +470,11 @@ export default function App() {
                   <strong>{pdfFile?.name || t("choosePdf")}</strong>
                   <small>{t("privateNote")}</small>
                 </label>
+                {pdfHasSignatures && (
+                  <p className="signed-pdf-warning" role="alert">
+                    {t("existingSignatureWarning")}
+                  </p>
+                )}
               </section>
               <SignaturePad t={t} onSignature={setSignature} />
             </aside>

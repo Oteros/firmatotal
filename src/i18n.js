@@ -583,6 +583,114 @@ const hi = {
 
 export const dictionaries = { es, en, fr, de, it, pt, ca, eu, gl, bar, zh, ja, ur, ar, hi }
 
+const safetyMessages = {
+  es: {
+    existingSignatureWarning: 'Este PDF ya contiene firmas digitales. Modificarlo invalidaría las firmas existentes. Para añadir otra firma, usa AutoFirma sin colocar una firma visible.',
+    pdfAlreadySigned: 'Operación detenida: este PDF ya está firmado y este modo invalidaría las firmas anteriores. Usa el original sin firmar o AutoFirma sin firma visible.',
+    certificateExpired: 'El certificado caducó el {date}. No se ha generado ningún PDF. Renueva el certificado antes de firmar.',
+    certificateNotYetValid: 'El certificado no será válido hasta el {date}. No se ha generado ningún PDF.',
+    certificateUnreadable: 'No se pudo abrir el certificado. Comprueba el archivo .p12/.pfx y su contraseña.',
+  },
+  en: {
+    existingSignatureWarning: 'This PDF already contains digital signatures. Editing it would invalidate them. To add another signature, use AutoFirma without placing a visible signature.',
+    pdfAlreadySigned: 'Operation stopped: this PDF is already signed and this mode would invalidate earlier signatures. Use the unsigned original or AutoFirma without a visible signature.',
+    certificateExpired: 'The certificate expired on {date}. No PDF was created. Renew the certificate before signing.',
+    certificateNotYetValid: 'The certificate is not valid until {date}. No PDF was created.',
+    certificateUnreadable: 'The certificate could not be opened. Check the .p12/.pfx file and its password.',
+  },
+  fr: {
+    existingSignatureWarning: 'Ce PDF contient déjà des signatures numériques. Le modifier les invaliderait. Pour ajouter une signature, utilisez AutoFirma sans signature visible.',
+    pdfAlreadySigned: 'Opération arrêtée : ce PDF est déjà signé et ce mode invaliderait les signatures précédentes. Utilisez l’original non signé ou AutoFirma sans signature visible.',
+    certificateExpired: 'Le certificat a expiré le {date}. Aucun PDF n’a été créé. Renouvelez le certificat avant de signer.',
+    certificateNotYetValid: 'Le certificat ne sera valide qu’à partir du {date}. Aucun PDF n’a été créé.',
+    certificateUnreadable: 'Impossible d’ouvrir le certificat. Vérifiez le fichier .p12/.pfx et son mot de passe.',
+  },
+  de: {
+    existingSignatureWarning: 'Dieses PDF enthält bereits digitale Signaturen. Eine Änderung würde sie ungültig machen. Verwenden Sie AutoFirma ohne sichtbare Signatur, um eine weitere Signatur hinzuzufügen.',
+    pdfAlreadySigned: 'Vorgang gestoppt: Dieses PDF ist bereits signiert und dieser Modus würde frühere Signaturen ungültig machen. Verwenden Sie das unsignierte Original oder AutoFirma ohne sichtbare Signatur.',
+    certificateExpired: 'Das Zertifikat ist am {date} abgelaufen. Es wurde kein PDF erstellt. Erneuern Sie das Zertifikat vor dem Signieren.',
+    certificateNotYetValid: 'Das Zertifikat ist erst ab dem {date} gültig. Es wurde kein PDF erstellt.',
+    certificateUnreadable: 'Das Zertifikat konnte nicht geöffnet werden. Prüfen Sie die .p12/.pfx-Datei und das Passwort.',
+  },
+  it: {
+    existingSignatureWarning: 'Questo PDF contiene già firme digitali. Modificarlo le invaliderebbe. Per aggiungere una firma, usa AutoFirma senza inserire una firma visibile.',
+    pdfAlreadySigned: 'Operazione interrotta: questo PDF è già firmato e questa modalità invaliderebbe le firme precedenti. Usa l’originale non firmato o AutoFirma senza firma visibile.',
+    certificateExpired: 'Il certificato è scaduto il {date}. Non è stato creato alcun PDF. Rinnova il certificato prima di firmare.',
+    certificateNotYetValid: 'Il certificato non sarà valido fino al {date}. Non è stato creato alcun PDF.',
+    certificateUnreadable: 'Impossibile aprire il certificato. Controlla il file .p12/.pfx e la password.',
+  },
+  pt: {
+    existingSignatureWarning: 'Este PDF já contém assinaturas digitais. Alterá-lo invalidaria as assinaturas existentes. Para adicionar outra, use o AutoFirma sem inserir uma assinatura visível.',
+    pdfAlreadySigned: 'Operação interrompida: este PDF já está assinado e este modo invalidaria as assinaturas anteriores. Use o original não assinado ou o AutoFirma sem assinatura visível.',
+    certificateExpired: 'O certificado expirou em {date}. Nenhum PDF foi criado. Renove o certificado antes de assinar.',
+    certificateNotYetValid: 'O certificado só será válido a partir de {date}. Nenhum PDF foi criado.',
+    certificateUnreadable: 'Não foi possível abrir o certificado. Verifique o ficheiro .p12/.pfx e a palavra-passe.',
+  },
+  ca: {
+    existingSignatureWarning: 'Aquest PDF ja conté signatures digitals. Modificar-lo les invalidaria. Per afegir-ne una altra, utilitza AutoFirma sense col·locar una signatura visible.',
+    pdfAlreadySigned: 'Operació aturada: aquest PDF ja està signat i aquest mode invalidaria les signatures anteriors. Utilitza l’original sense signar o AutoFirma sense signatura visible.',
+    certificateExpired: 'El certificat va caducar el {date}. No s’ha generat cap PDF. Renova el certificat abans de signar.',
+    certificateNotYetValid: 'El certificat no serà vàlid fins al {date}. No s’ha generat cap PDF.',
+    certificateUnreadable: 'No s’ha pogut obrir el certificat. Comprova el fitxer .p12/.pfx i la contrasenya.',
+  },
+  eu: {
+    existingSignatureWarning: 'PDF honek sinadura digitalak ditu dagoeneko. Aldatuz gero, sinadurak baliogabetuko lirateke. Beste sinadura bat gehitzeko, erabili AutoFirma ikusizko sinadurarik jarri gabe.',
+    pdfAlreadySigned: 'Eragiketa gelditu da: PDF hau sinatuta dago eta modu honek aurreko sinadurak baliogabetuko lituzke. Erabili sinatu gabeko jatorrizkoa edo AutoFirma ikusizko sinadurarik gabe.',
+    certificateExpired: 'Ziurtagiria {date} egunean iraungi zen. Ez da PDFrik sortu. Berritu ziurtagiria sinatu aurretik.',
+    certificateNotYetValid: 'Ziurtagiria ez da baliozkoa izango {date} arte. Ez da PDFrik sortu.',
+    certificateUnreadable: 'Ezin izan da ziurtagiria ireki. Egiaztatu .p12/.pfx fitxategia eta pasahitza.',
+  },
+  gl: {
+    existingSignatureWarning: 'Este PDF xa contén sinaturas dixitais. Modificalo invalidaríaas. Para engadir outra sinatura, usa AutoFirma sen colocar unha sinatura visible.',
+    pdfAlreadySigned: 'Operación detida: este PDF xa está asinado e este modo invalidaría as sinaturas anteriores. Usa o orixinal sen asinar ou AutoFirma sen sinatura visible.',
+    certificateExpired: 'O certificado caducou o {date}. Non se xerou ningún PDF. Renova o certificado antes de asinar.',
+    certificateNotYetValid: 'O certificado non será válido ata o {date}. Non se xerou ningún PDF.',
+    certificateUnreadable: 'Non se puido abrir o certificado. Comproba o ficheiro .p12/.pfx e o contrasinal.',
+  },
+  bar: {
+    existingSignatureWarning: 'Des PDF hod scho digitale Signaturen. A Änderung dad de bisherigen Signaturen ungültig macha. Nimm AutoFirma ohne sichtbare Signatur für a weitere Signatur.',
+    pdfAlreadySigned: 'Vorgang gstoppt: Des PDF is scho signiert und der Modus dad frühere Signaturen ungültig macha. Nimm des unsignierte Original oder AutoFirma ohne sichtbare Signatur.',
+    certificateExpired: 'Des Zertifikat is am {date} abgloffa. Es is koa PDF erstellt worn. Erneier des Zertifikat vorm Signiern.',
+    certificateNotYetValid: 'Des Zertifikat gilt erst abm {date}. Es is koa PDF erstellt worn.',
+    certificateUnreadable: 'Des Zertifikat hod ned geöffnet werdn kenna. Prüf de .p12/.pfx-Datei und s Passwort.',
+  },
+  zh: {
+    existingSignatureWarning: '此 PDF 已包含数字签名。修改文件会使现有签名失效。若要添加签名，请使用 AutoFirma，且不要放置可见签名。',
+    pdfAlreadySigned: '操作已停止：此 PDF 已签名，此模式会使之前的签名失效。请使用未签名的原件，或使用不带可见签名的 AutoFirma。',
+    certificateExpired: '证书已于 {date} 到期。未生成 PDF。请先更新证书再签名。',
+    certificateNotYetValid: '证书在 {date} 之前尚未生效。未生成 PDF。',
+    certificateUnreadable: '无法打开证书。请检查 .p12/.pfx 文件及其密码。',
+  },
+  ja: {
+    existingSignatureWarning: 'このPDFには既にデジタル署名があります。編集すると既存の署名が無効になります。署名を追加するには、表示署名を配置せずにAutoFirmaを使用してください。',
+    pdfAlreadySigned: '処理を停止しました。このPDFは署名済みで、この方法では以前の署名が無効になります。未署名の原本、または表示署名なしのAutoFirmaを使用してください。',
+    certificateExpired: '証明書は{date}に期限切れとなりました。PDFは作成されていません。署名前に証明書を更新してください。',
+    certificateNotYetValid: '証明書は{date}まで有効ではありません。PDFは作成されていません。',
+    certificateUnreadable: '証明書を開けませんでした。.p12/.pfxファイルとパスワードを確認してください。',
+  },
+  ur: {
+    existingSignatureWarning: 'اس PDF میں پہلے سے ڈیجیٹل دستخط موجود ہیں۔ اس میں تبدیلی موجودہ دستخطوں کو باطل کر دے گی۔ مزید دستخط کے لیے مرئی دستخط رکھے بغیر AutoFirma استعمال کریں۔',
+    pdfAlreadySigned: 'کارروائی روک دی گئی: یہ PDF پہلے سے دستخط شدہ ہے اور یہ طریقہ پچھلے دستخطوں کو باطل کر دے گا۔ غیر دستخط شدہ اصل یا مرئی دستخط کے بغیر AutoFirma استعمال کریں۔',
+    certificateExpired: 'سرٹیفکیٹ {date} کو ختم ہو گیا۔ کوئی PDF نہیں بنایا گیا۔ دستخط سے پہلے سرٹیفکیٹ کی تجدید کریں۔',
+    certificateNotYetValid: 'سرٹیفکیٹ {date} تک معتبر نہیں ہوگا۔ کوئی PDF نہیں بنایا گیا۔',
+    certificateUnreadable: 'سرٹیفکیٹ نہیں کھولا جا سکا۔ .p12/.pfx فائل اور پاس ورڈ چیک کریں۔',
+  },
+  ar: {
+    existingSignatureWarning: 'يحتوي ملف PDF هذا بالفعل على توقيعات رقمية. سيؤدي تعديله إلى إبطالها. لإضافة توقيع آخر، استخدم AutoFirma من دون وضع توقيع مرئي.',
+    pdfAlreadySigned: 'تم إيقاف العملية: ملف PDF موقّع بالفعل وهذا الوضع سيبطل التوقيعات السابقة. استخدم الأصل غير الموقّع أو AutoFirma من دون توقيع مرئي.',
+    certificateExpired: 'انتهت صلاحية الشهادة في {date}. لم يتم إنشاء ملف PDF. جدّد الشهادة قبل التوقيع.',
+    certificateNotYetValid: 'لن تصبح الشهادة صالحة حتى {date}. لم يتم إنشاء ملف PDF.',
+    certificateUnreadable: 'تعذر فتح الشهادة. تحقّق من ملف .p12/.pfx وكلمة المرور.',
+  },
+  hi: {
+    existingSignatureWarning: 'इस PDF में पहले से डिजिटल हस्ताक्षर हैं। इसे बदलने पर मौजूदा हस्ताक्षर अमान्य हो जाएंगे। नया हस्ताक्षर जोड़ने के लिए बिना दृश्य हस्ताक्षर के AutoFirma का उपयोग करें।',
+    pdfAlreadySigned: 'कार्रवाई रोक दी गई: यह PDF पहले से हस्ताक्षरित है और यह तरीका पुराने हस्ताक्षरों को अमान्य कर देगा। अहस्ताक्षरित मूल या बिना दृश्य हस्ताक्षर के AutoFirma का उपयोग करें।',
+    certificateExpired: 'प्रमाणपत्र {date} को समाप्त हो गया। कोई PDF नहीं बनाया गया। हस्ताक्षर करने से पहले प्रमाणपत्र नवीनीकृत करें।',
+    certificateNotYetValid: 'प्रमाणपत्र {date} तक मान्य नहीं होगा। कोई PDF नहीं बनाया गया।',
+    certificateUnreadable: 'प्रमाणपत्र खोला नहीं जा सका। .p12/.pfx फ़ाइल और पासवर्ड जाँचें।',
+  },
+}
+
 export function resolveLocale() {
   const query = new URLSearchParams(location.search).get('lang')
   if (languages.some((language) => language.code === query)) return query
@@ -599,5 +707,9 @@ export function resolveLocale() {
 
 export function createTranslator(locale) {
   const dictionary = dictionaries[locale] || dictionaries.en
-  return (key) => dictionary[key] ?? dictionaries.en[key] ?? key
+  return (key) => dictionary[key]
+    ?? safetyMessages[locale]?.[key]
+    ?? dictionaries.en[key]
+    ?? safetyMessages.en[key]
+    ?? key
 }
