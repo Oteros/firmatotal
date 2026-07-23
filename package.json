@@ -12,7 +12,8 @@
     "build": "vite build",
     "test": "node --test",
     "preview": "vite preview",
-    "deploy": "npm run build && wrangler pages deploy dist --project-name firmatotal --branch main"
+    "deploy": "npm run build && wrangler pages deploy dist --project-name firmatotal --branch main",
+    "postbuild": "node scripts/inject-web-analytics.mjs"
   },
   "dependencies": {
     "@signpdf/placeholder-pdf-lib": "^3.2.6",
