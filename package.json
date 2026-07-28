@@ -11,6 +11,8 @@
     "prebuild": "npm run prepare:vendor && npm run generate:seo",
     "build": "vite build",
     "test": "node --test",
+    "validate:bundle": "node scripts/check-bundle-budget.mjs",
+    "validate:site": "node scripts/validate-site.mjs dist",
     "preview": "vite preview",
     "deploy": "npm run build && wrangler pages deploy dist --project-name firmatotal --branch main",
     "postbuild": "node scripts/inject-web-analytics.mjs"
@@ -29,6 +31,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^5.1.4",
-    "vite": "^8.1.5"
+    "vite": "^8.1.5",
+    "wrangler": "^4.114.0"
   }
 }

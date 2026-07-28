@@ -187,9 +187,11 @@ const urls = Object.entries(pages).flatMap(([code, entries]) =>
     const loc = `${base}/${code}/${slug}/`;
     const links = languages.map(({ code: altCode, htmlLang }) =>
       `<xhtml:link rel="alternate" hreflang="${htmlLang}" href="${base}/${altCode}/${pages[altCode][index][0]}/"/>`).join("");
-    return `<url><loc>${loc}</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>${index === 1 ? "0.9" : "0.8"}</priority>${links}</url>`;
+    const xDefault = `<xhtml:link rel="alternate" hreflang="x-default" href="${base}/en/${pages.en[index][0]}/"/>`;
+    return `<url><loc>${loc}</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>${index === 1 ? "0.9" : "0.8"}</priority>${links}${xDefault}</url>`;
   }));
 urls.unshift(`<url><loc>${base}/</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>`);
+urls.splice(1, 0, `<url><loc>${base}/privacidad/</loc><lastmod>${today}</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>`);
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join("\n")}\n</urlset>\n`;
 await fs.writeFile(path.join(publicDir, "sitemap.xml"), sitemap, "utf8");
-console.log(`Generated ${urls.length} sitemap URLs and ${urls.length - 1} localized landing pages.`);
+console.log(`Generated ${urls.length} sitemap URLs and ${Object.values(pages).reduce((total, entries) => total + entries.length, 0)} localized landing pages.`);

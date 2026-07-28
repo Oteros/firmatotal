@@ -1,15 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { GlobalWorkerOptions, getDocument } from "pdfjs-dist";
-import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 import { createTranslator, languages, resolveLocale } from "./i18n.js";
-import {
-  applyVisualSignatures,
-  downloadPdf,
-  hasPdfSignatures,
-} from "./lib/pdf-tools.js";
-import { hasAutoFirmaBridge, signWithAutoFirma } from "./lib/autofirma.js";
+import { downloadPdf, hasPdfSignatures } from "./lib/binary-utils.js";
 
-GlobalWorkerOptions.workerSrc = workerUrl;
+const hasAutoFirmaBridge = () => Boolean(
+  globalThis.AutoScript?.cargarAppAfirma && globalThis.AutoScript?.sign
+);
 
 const DATE_FORMATS = {
   ar: "ar", bar: "de", ca: "ca", de: "de", en: "en-US", es: "es",
@@ -43,7 +38,7 @@ function Header({ locale, setLocale, t }) {
       </a>
       <nav aria-label="Primary">
         <a href="#how">{t("how")}</a>
-        <a href="#privacy">{t("privacy")}</a>
+        <a href="/privacidad/">{t("privacy")}</a>
         <label className="language-label">
           <span className="sr-only">Language</span>
           <select
@@ -79,7 +74,9 @@ function Footer({ t }) {
           </a>
           <a href="https://github.com/Oteros/firmatotal" target="_blank" rel="noreferrer">{t("sourceCode")} ↗</a>
           <a href="#how">{t("how")}</a>
-          <a href="#privacy">{t("privacy")}</a>
+          <a href="/privacidad/">{t("privacy")}</a>
+          <a href="https://www.chapalab.com/apoya/">☕ Apoyar</a>
+          <a href="https://www.chapalab.com/contacto/">Contacto</a>
         </div>
       </div>
     </footer>
@@ -336,7 +333,8 @@ export default function App() {
     setBusy(true);
     try {
       const bytes = new Uint8Array(await file.arrayBuffer());
-      const loaded = await getDocument({ data: bytes.slice() }).promise;
+      const { loadPdfDocument } = await import("./lib/pdf-runtime.js");
+      const loaded = await loadPdfDocument(bytes);
       const alreadySigned = hasPdfSignatures(bytes);
       setPdfFile(file);
       setPdfBytes(bytes);
@@ -358,6 +356,7 @@ export default function App() {
   const buildVisualPdf = async () => {
     if (!pdfBytes) throw new Error("No PDF selected");
     if (!signature || placements.length === 0) return pdfBytes.slice();
+    const { applyVisualSignatures } = await import("./lib/pdf-tools.js");
     return applyVisualSignatures(pdfBytes, signature, placements, {
       signerName,
       signedAt: includeDate
@@ -416,6 +415,7 @@ export default function App() {
 
   const signAuto = () => execute(async () => {
     const visual = await buildVisualPdf();
+    const { signWithAutoFirma } = await import("./lib/autofirma.js");
     const result = await signWithAutoFirma(visual, {
       locale,
       reason: reason || "Document approval",

@@ -58,10 +58,12 @@ test("safety messages are localized in all 15 languages", () => {
   }
 });
 
-test("SEO output contains 45 localized pages and one root URL", () => {
+test("SEO output contains 45 localized pages, the root and privacy", () => {
   const sitemap = fs.readFileSync(path.resolve("public/sitemap.xml"), "utf8");
-  assert.equal((sitemap.match(/<url>/g) || []).length, 46);
-  assert.equal((sitemap.match(/<xhtml:link/g) || []).length, 45 * 15);
+  assert.equal((sitemap.match(/<url>/g) || []).length, 47);
+  assert.match(sitemap, /<loc>https:\/\/firmatotal\.chapalab\.com\/privacidad\/<\/loc>/);
+  assert.equal((sitemap.match(/<xhtml:link/g) || []).length, 45 * 16);
+  assert.equal((sitemap.match(/hreflang="x-default"/g) || []).length, 45);
   for (const language of languages) {
     const localeDirectory = path.resolve("public", language.code);
     assert.equal(fs.readdirSync(localeDirectory, { withFileTypes: true }).filter((item) => item.isDirectory()).length, 3);

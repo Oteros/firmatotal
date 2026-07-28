@@ -1,5 +1,12 @@
-import { Buffer } from "buffer";
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
+import { base64ToBytes, hasPdfSignatures } from "./binary-utils.js";
+
+export {
+  base64ToBytes,
+  bytesToBase64,
+  downloadPdf,
+  hasPdfSignatures,
+} from "./binary-utils.js";
 
 export function placementToPdfRect(placement, pageWidth, pageHeight) {
   const width = placement.width * pageWidth;
@@ -17,13 +24,8 @@ function dataUrlParts(dataUrl) {
   if (!match) throw new Error("Unsupported signature image");
   return {
     mime: match[1].toLowerCase(),
-    bytes: Uint8Array.from(Buffer.from(match[2], "base64")),
+    bytes: base64ToBytes(match[2]),
   };
-}
-
-export function hasPdfSignatures(pdfBytes) {
-  const binary = Buffer.from(pdfBytes).toString("latin1");
-  return /\/ByteRange\s*\[\s*\d+\s+\d+\s+\d+\s+\d+\s*\]/.test(binary);
 }
 
 export async function applyVisualSignatures(pdfBytes, signatureDataUrl, placements, options = {}) {
@@ -64,32 +66,4 @@ export async function applyVisualSignatures(pdfBytes, signatureDataUrl, placemen
   }
 
   return pdfDoc.save({ useObjectStreams: false });
-}
-
-export function bytesToBase64(bytes) {
-  return Buffer.from(bytes).toString("base64");
-}
-
-export function base64ToBytes(value) {
-  const normalized = String(value || "")
-    .replace(/-/g, "+")
-    .replace(/_/g, "/")
-    .replace(/\s/g, "");
-  return new Uint8Array(Buffer.from(normalized, "base64"));
-}
-
-export function downloadPdf(bytes, originalName = "document.pdf", suffix = "signed") {
-  const stem = originalName
-    .replace(/\.pdf$/i, "")
-    .replace(/[^\p{L}\p{N}._-]+/gu, "-")
-    .replace(/^-+|-+$/g, "") || "document";
-  const blob = new Blob([bytes], { type: "application/pdf" });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = `${stem}-${suffix}.pdf`;
-  document.body.append(link);
-  link.click();
-  link.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 1500);
 }

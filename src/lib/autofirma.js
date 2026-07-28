@@ -1,4 +1,4 @@
-import { base64ToBytes, bytesToBase64 } from './pdf-tools.js'
+import { base64ToBytes, bytesToBase64 } from './binary-utils.js'
 
 const localeMap = {
   es: 'es_ES',
@@ -62,4 +62,3 @@ export async function signWithAutoFirma(pdfBytes, metadata = {}) {
     )
   })
 }
-
