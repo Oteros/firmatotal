@@ -160,7 +160,7 @@ ${alternates(index)}
 <meta property="og:type" content="website"><meta property="og:site_name" content="Firma Total">
 <meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${canonical}"><meta name="twitter:card" content="summary">
-<link rel="icon" type="image/png" sizes="512x512" href="/chapalab-mark.png"><link rel="stylesheet" href="/seo.css">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="/seo.css">
 <script type="application/ld+json">${schema}</script>
 </head>
 <body>
