@@ -5,7 +5,7 @@ import { SignPdf } from "@signpdf/signpdf";
 import { pdflibAddPlaceholder } from "@signpdf/placeholder-pdf-lib";
 import { P12Signer } from "@signpdf/signer-p12";
 import { SUBFILTER_ETSI_CADES_DETACHED } from "@signpdf/utils";
-import { hasPdfSignatures } from "./pdf-tools.js";
+import { hasPdfSignatures } from "./binary-utils.js";
 
 function signingError(code, details = {}) {
   const error = new Error(code);

@@ -1,0 +1,105 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run typecheck --if-present
+      - run: npm run build
+      - run: npm run validate:bundle
+      - run: npm run validate:site
+      - run: npm audit --audit-level=high
+
+  preview:
+    if: github.event_name == 'pull_request' && vars.ENABLE_CLOUDFLARE_PREVIEWS == 'true'
+    needs: quality
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - id: deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          command: pages deploy dist --project-name=firmatotal --branch=pr-${{ github.event.pull_request.number }} --commit-hash=${{ github.event.pull_request.head.sha }} --commit-dirty=false
+      - name: Smoke test preview
+        env:
+          DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}
+        run: |
+          for path in / /robots.txt /sitemap.xml; do
+            curl --fail --show-error --retry 5 --retry-all-errors "$DEPLOYMENT_URL$path" --output /dev/null
+          done
+          curl --silent --show-error --head "$DEPLOYMENT_URL/" | grep --ignore-case '^x-robots-tag:.*noindex'
+          status="$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' "$DEPLOYMENT_URL/__ci_missing_${GITHUB_SHA}")"
+          test "$status" -ge 400
+
+  production:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.ENABLE_CLOUDFLARE_PRODUCTION == 'true'
+    needs: quality
+    runs-on: ubuntu-latest
+    environment: production
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - id: deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          command: pages deploy dist --project-name=firmatotal --branch=main --commit-hash=${{ github.sha }} --commit-dirty=false
+      - name: Smoke test production deployment
+        env:
+          DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}
+        run: |
+          for path in / /robots.txt /sitemap.xml; do
+            curl --fail --show-error --retry 5 --retry-all-errors "$DEPLOYMENT_URL$path" --output /dev/null
+          done
+          status="$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' "$DEPLOYMENT_URL/__ci_missing_${GITHUB_SHA}")"
+          test "$status" -ge 400
+      - name: Record deployment
+        run: |
+          {
+            echo "### Cloudflare Pages production"
+            echo "- Commit: $GITHUB_SHA"
+            echo "- Deployment ID: ${{ steps.deploy.outputs.pages-deployment-id }}"
+            echo "- URL: ${{ steps.deploy.outputs.deployment-url }}"
+          } >> "$GITHUB_STEP_SUMMARY"
