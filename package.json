@@ -14,8 +14,7 @@
     "validate:bundle": "node scripts/check-bundle-budget.mjs",
     "validate:site": "node scripts/validate-site.mjs dist",
     "preview": "vite preview",
-    "deploy": "npm run build && wrangler pages deploy dist --project-name firmatotal --branch main",
-    "postbuild": "node scripts/inject-web-analytics.mjs"
+    "deploy": "npm run build && wrangler pages deploy dist --project-name firmatotal --branch main"
   },
   "dependencies": {
     "@signpdf/placeholder-pdf-lib": "^3.2.6",
