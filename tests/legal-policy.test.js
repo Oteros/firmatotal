@@ -8,11 +8,13 @@ const redirects = await readFile(new URL('../public/_redirects', import.meta.url
 
 test('Firma Total publishes its complete local privacy contract', () => {
   assert.match(privacy, /rel="canonical" href="https:\/\/firmatotal\.chapalab\.com\/privacidad\/"/)
+  assert.match(privacy, /name="robots" content="noindex, follow"/)
   for (const section of ['data', 'storage', 'retention', 'analytics', 'advertising', 'providers', 'responsible']) {
     assert.match(privacy, new RegExp(`data-privacy-section="${section}"`))
   }
   assert.match(privacy, /https:\/\/www\.chapalab\.com\/contacto\//)
   assert.match(privacy, /https:\/\/www\.chapalab\.com\/apoya\//)
+  assert.match(privacy, /Google AdSense/)
 })
 
 test('Firma Total replaces the internal-only privacy block with a real route', () => {
