@@ -83,6 +83,23 @@ function Footer({ t }) {
   );
 }
 
+function GuideLinks({ locale, t }) {
+  const slugs = {
+    es: ["firmar-pdf-online", "firmar-pdf-con-certificado-digital", "anadir-firma-a-pdf"], en: ["sign-pdf-online", "digitally-sign-pdf-with-certificate", "add-signature-to-pdf"], fr: ["signer-pdf-en-ligne", "signer-pdf-avec-certificat", "ajouter-signature-pdf"], de: ["pdf-online-unterschreiben", "pdf-mit-zertifikat-signieren", "unterschrift-in-pdf-einfuegen"], it: ["firmare-pdf-online", "firmare-pdf-con-certificato", "aggiungere-firma-pdf"], pt: ["assinar-pdf-online", "assinar-pdf-com-certificado", "adicionar-assinatura-pdf"], ca: ["signar-pdf-online", "signar-pdf-amb-certificat", "afegir-signatura-pdf"], eu: ["pdf-online-sinatu", "pdf-ziurtagiriarekin-sinatu", "sinadura-pdfra-gehitu"], gl: ["asinar-pdf-online", "asinar-pdf-con-certificado", "engadir-sinatura-pdf"], bar: ["pdf-online-unterschreibn", "pdf-mit-zertifikat-signiern", "unterschrift-ins-pdf"], zh: ["zaixian-qianshu-pdf", "shuzi-zhengshu-qianshu-pdf", "pdf-tianjia-qianming"], ja: ["pdf-online-shomei", "denshi-shomeisho-pdf-shomei", "pdf-shomei-tsuika"], ur: ["pdf-online-dastakhat", "certificate-se-pdf-dastakhat", "pdf-mein-dastakhat"], ar: ["tawqi-pdf-online", "tawqi-pdf-bishahada", "idafat-tawqi-pdf"], hi: ["pdf-online-hastakshar", "certificate-se-pdf-sign", "pdf-mein-signature"],
+  };
+  const paths = slugs[locale] || slugs.en;
+  return (
+    <section className="guide-links" aria-labelledby="guide-links-title">
+      <div><p className="eyebrow">FIRMA TOTAL · GUIDES</p><h2 id="guide-links-title">{t("how")}</h2></div>
+      <div className="guide-grid">
+        <a href={`/${locale}/${paths[0]}/`}><span>01</span><strong>{t("downloadVisual")}</strong><small>{t("visualLead")}</small></a>
+        <a href={`/${locale}/${paths[1]}/`}><span>02</span><strong>{t("p12Title")}</strong><small>{t("p12Lead")}</small></a>
+        <a href={`/${locale}/${paths[2]}/`}><span>03</span><strong>{t("signatureTitle")}</strong><small>{t("placeTitle")}</small></a>
+      </div>
+    </section>
+  );
+}
+
 function SignaturePad({ t, onSignature }) {
   const canvasRef = useRef(null);
   const drawing = useRef(false);
@@ -537,6 +554,7 @@ export default function App() {
           <div><p className="eyebrow">LEGAL REALITY, PLAINLY</p><h2>{t("legalTitle")}</h2></div>
           <p>{t("legalBody")}</p>
         </section>
+        <GuideLinks locale={locale} t={t} />
       </main>
       <Footer t={t} />
     </div>

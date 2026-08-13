@@ -6,7 +6,7 @@ import { dictionaries, languages } from "../src/i18n.js";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const publicDir = path.join(root, "public");
 const base = "https://firmatotal.chapalab.com";
-const today = "2026-07-23";
+const today = "2026-08-13";
 
 const pages = {
   es: [
@@ -123,6 +123,16 @@ function alternates(index) {
     `<link rel="alternate" hreflang="${htmlLang}" href="${base}/${code}/${pages[code][index][0]}/">`).join("\n");
 }
 
+function intentSteps(dict, index) {
+  if (index === 1) {
+    return [[dict.choosePdf, dict.privateNote], [dict.certificate, dict.p12Limit], [dict.signP12, dict.p12Lead]];
+  }
+  if (index === 2) {
+    return [[dict.choosePdf, dict.privateNote], [dict.signatureTitle, `${dict.draw} · ${dict.type} · ${dict.upload}`], [dict.placeTitle, dict.visualLead]];
+  }
+  return [[dict.choosePdf, dict.privateNote], [dict.signatureTitle, `${dict.draw} · ${dict.type} · ${dict.upload}`], [dict.downloadVisual, dict.visualLead]];
+}
+
 function pageHtml(code, index) {
   const language = languages.find((item) => item.code === code);
   const dict = dictionaries[code];
@@ -131,16 +141,13 @@ function pageHtml(code, index) {
   const siblingLinks = pages[code].map(([linkSlug, linkTitle]) =>
     `<a href="/${code}/${linkSlug}/">${esc(linkTitle)}</a>`).join("");
   const direction = language.direction || "ltr";
+  const steps = intentSteps(dict, index);
   const schema = JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: "Firma Total",
-    applicationCategory: "BusinessApplication",
-    operatingSystem: "Any",
-    url: canonical,
-    description,
-    offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
-    featureList: ["Local PDF processing", "Visible PDF signature", "PAdES digital signature"],
+    "@graph": [
+      { "@type": "WebApplication", name: "Firma Total", applicationCategory: "BusinessApplication", operatingSystem: "Any", url: canonical, description, offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" }, featureList: index === 1 ? ["Local PDF processing", "PAdES digital signature", "PKCS#12 certificate support"] : ["Local PDF processing", "Visible PDF signature", "Precise signature placement"] },
+      { "@type": "HowTo", name: title, description, totalTime: "PT3M", step: steps.map(([name, text], position) => ({ "@type": "HowToStep", position: position + 1, name, text, url: `${canonical}#step-${position + 1}` })) },
+    ],
   }).replace(/</g, "\\u003c");
   const proof = [
     dict.privateNote,
@@ -168,6 +175,7 @@ ${alternates(index)}
 <main>
 <section class="hero"><div class="copy"><p class="eyebrow">${esc(dict.heroKicker)}</p><h1>${esc(title)}</h1><p class="lead">${esc(description)}</p><a class="cta" href="/?lang=${code}#tool">${esc(dict.heroCta)} ↓</a></div><div class="art" aria-hidden="true"><div class="collar"></div><div class="tie"></div><div class="nib"></div></div></section>
 <section class="proof"><p class="eyebrow">FIRMA TOTAL · LOCAL PDF WORKBENCH</p><h2>${esc(dict.toolTitle)}</h2><div class="grid">${proof.map((text, i) => `<article><strong>0${i+1} · ${esc(labels[code][i])}</strong><p>${esc(text)}</p></article>`).join("")}</div></section>
+<section class="intent"><div><p class="eyebrow">${index === 1 ? "PADES · PKCS#12" : "VISIBLE SIGNATURE · LOCAL PDF"}</p><h2>${esc(title)}</h2><p>${esc(description)}</p></div><ol>${steps.map(([name, text], i) => `<li id="step-${i + 1}"><span>0${i + 1}</span><div><h3>${esc(name)}</h3><p>${esc(text)}</p></div></li>`).join("")}</ol></section>
 <section class="legal"><div><p class="eyebrow">PAdES · VISIBLE SIGNATURE</p><h2>${esc(dict.legalTitle)}</h2></div><p>${esc(dict.legalBody)} ${esc(jurisdiction[code])}</p></section>
 <section class="related"><h2>${esc(dict.how)}</h2><div class="links">${siblingLinks}<a href="/?lang=${code}#tool">${esc(dict.heroCta)} →</a></div></section>
 </main>
