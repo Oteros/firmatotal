@@ -23,9 +23,9 @@ test("localized SEO pages carry intent-specific HowTo content", async () => {
 
 test("sitemap is current and excludes privacy", async () => {
   const sitemap = await read("public/sitemap.xml");
-  assert.match(sitemap, /<lastmod>2026-08-13<\/lastmod>/);
+  assert.match(sitemap, /<lastmod>2026-08-14<\/lastmod>/);
   assert.doesNotMatch(sitemap, /privacidad|privacy/);
-  assert.equal((sitemap.match(/<loc>/g) || []).length, 46);
+  assert.equal((sitemap.match(/<loc>/g) || []).length, 85);
 });
 
 test("the app links directly to all three localized guide intents", async () => {

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { createTranslator, languages, resolveLocale } from "./i18n.js";
+import { commonLabels, createTranslator, languages, resolveLocale } from "./i18n.js";
 import { downloadPdf, hasPdfSignatures } from "./lib/binary-utils.js";
 
 const hasAutoFirmaBridge = () => Boolean(
@@ -9,7 +9,8 @@ const hasAutoFirmaBridge = () => Boolean(
 const DATE_FORMATS = {
   ar: "ar", bar: "de", ca: "ca", de: "de", en: "en-US", es: "es",
   eu: "eu", fr: "fr", gl: "gl", hi: "hi", it: "it", ja: "ja",
-  pt: "pt", ur: "ur", zh: "zh-CN",
+  pt: "pt", ur: "ur", zh: "zh-CN", pl: "pl", ru: "ru", el: "el",
+  tr: "tr", nl: "nl", ko: "ko",
 };
 
 function makeTypedSignature(text) {
@@ -29,7 +30,7 @@ function makeTypedSignature(text) {
 function Header({ locale, setLocale, t }) {
   return (
     <header className="site-header">
-      <a className="brand" href={`/?lang=${locale}`} aria-label="Firma Total">
+      <a className="brand" href={`/${locale}/`} aria-label="Firma Total">
         <span className="brand-firma">firma</span><span>total.</span>
       </a>
       <span className="header-dash" aria-hidden="true">·</span>
@@ -38,7 +39,7 @@ function Header({ locale, setLocale, t }) {
       </a>
       <nav aria-label="Primary">
         <a href="#how">{t("how")}</a>
-        <a href="/privacidad/">{t("privacy")}</a>
+        <a href={`/${locale}/privacidad/`}>{t("privacy")}</a>
         <label className="language-label">
           <span className="sr-only">Language</span>
           <select
@@ -58,7 +59,7 @@ function Header({ locale, setLocale, t }) {
   );
 }
 
-function Footer({ t }) {
+function Footer({ t, locale }) {
   return (
     <footer>
       <div className="manifesto" aria-label="Privacy principles">
@@ -74,9 +75,9 @@ function Footer({ t }) {
           </a>
           <a href="https://github.com/Oteros/firmatotal" target="_blank" rel="noreferrer">{t("sourceCode")} ↗</a>
           <a href="#how">{t("how")}</a>
-          <a href="/privacidad/">{t("privacy")}</a>
-          <a href="https://www.chapalab.com/apoya/">☕ Apoyar</a>
-          <a href="https://www.chapalab.com/contacto/">Contacto</a>
+          <a href={`/${locale}/privacidad/`}>{t("privacy")}</a>
+          <a href={`https://www.chapalab.com/${locale}/apoya/`}>☕ {commonLabels[locale].support}</a>
+          <a href={`https://www.chapalab.com/${locale}/contacto/`}>{commonLabels[locale].contact}</a>
         </div>
       </div>
     </footer>
@@ -312,7 +313,7 @@ function PdfStage({ pdfDoc, currentPage, setCurrentPage, placements, setPlacemen
 }
 
 export default function App() {
-  const [locale, setLocaleState] = useState(resolveLocale());
+  const [locale] = useState(resolveLocale());
   const t = useMemo(() => createTranslator(locale), [locale]);
   const [pdfFile, setPdfFile] = useState(null);
   const [pdfBytes, setPdfBytes] = useState(null);
@@ -331,15 +332,12 @@ export default function App() {
   const [busy, setBusy] = useState(false);
 
   const setLocale = (next) => {
-    setLocaleState(next);
     localStorage.setItem("firmatotal-language", next);
-    const url = new URL(window.location.href);
-    url.searchParams.set("lang", next);
-    history.replaceState({}, "", url);
+    window.location.assign(`/${next}/`);
   };
 
   useEffect(() => {
-    document.documentElement.lang = locale;
+    document.documentElement.lang = languages.find((language) => language.code === locale)?.htmlLang || locale;
     document.documentElement.dir = ["ar", "ur"].includes(locale) ? "rtl" : "ltr";
     document.title = `${t("heroTitle")} — Firma Total`;
   }, [locale, t]);
@@ -556,7 +554,7 @@ export default function App() {
         </section>
         <GuideLinks locale={locale} t={t} />
       </main>
-      <Footer t={t} />
+      <Footer t={t} locale={locale} />
     </div>
   );
 }

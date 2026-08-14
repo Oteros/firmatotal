@@ -9,7 +9,7 @@
     "predev": "npm run prepare:vendor && npm run generate:seo",
     "dev": "vite",
     "prebuild": "npm run prepare:vendor && npm run generate:seo",
-    "build": "vite build",
+    "build": "vite build && node scripts/generate-locale-shells.mjs",
     "test": "node --test",
     "validate:bundle": "node scripts/check-bundle-budget.mjs",
     "validate:site": "node scripts/validate-site.mjs dist",

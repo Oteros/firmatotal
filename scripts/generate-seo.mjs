@@ -1,12 +1,13 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { dictionaries, languages } from "../src/i18n.js";
+import { commonLabels, dictionaries, languages } from "../src/i18n.js";
+import extraSeo from "../src/seo.extra.generated.json" with { type: "json" };
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const publicDir = path.join(root, "public");
 const base = "https://firmatotal.chapalab.com";
-const today = "2026-08-13";
+const today = "2026-08-14";
 
 const pages = {
   es: [
@@ -115,11 +116,18 @@ const jurisdiction = {
   hi: "यूरोपीय संघ में PAdES मान्य प्रारूप है, लेकिन योग्य इलेक्ट्रॉनिक हस्ताक्षर के लिए योग्य प्रमाणपत्र और सही प्रक्रिया दोनों आवश्यक हैं।",
 };
 
+for (const [code, content] of Object.entries(extraSeo)) {
+  if (code === 'en') continue;
+  pages[code] = content.pages.map((entry, index) => [pages.en[index][0], entry[1], entry[2]]);
+  labels[code] = content.labels;
+  jurisdiction[code] = content.jurisdiction;
+}
+
 const esc = (value) => String(value).replace(/[&<>"']/g, (char) =>
   ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" })[char]);
 
 function alternates(index) {
-  return languages.map(({ code, htmlLang }) =>
+  return languages.filter(({ searchAlternate }) => searchAlternate !== false).map(({ code, htmlLang }) =>
     `<link rel="alternate" hreflang="${htmlLang}" href="${base}/${code}/${pages[code][index][0]}/">`).join("\n");
 }
 
@@ -171,7 +179,7 @@ ${alternates(index)}
 <script type="application/ld+json">${schema}</script>
 </head>
 <body>
-<header class="header"><a class="brand" href="/?lang=${code}">firma<span>total.</span></a><b>·</b><a class="lab" href="https://www.chapalab.com"><img src="/chapalab-mark.png" alt="" width="28" height="28"> CHAPALAB.COM</a><nav class="nav"><a href="/?lang=${code}#how">${esc(dict.how)}</a><a href="/?lang=${code}#privacy">${esc(dict.privacy)}</a><a href="/?lang=${code}#tool">${esc(dict.heroCta)}</a></nav></header>
+<header class="header"><a class="brand" href="/${code}/">firma<span>total.</span></a><b>·</b><a class="lab" href="https://www.chapalab.com/${code}/"><img src="/chapalab-mark.png" alt="" width="28" height="28"> CHAPALAB.COM</a><nav class="nav"><a href="/${code}/#how">${esc(dict.how)}</a><a href="/${code}/privacidad/">${esc(dict.privacy)}</a><a href="/${code}/#tool">${esc(dict.heroCta)}</a></nav></header>
 <main>
 <section class="hero"><div class="copy"><p class="eyebrow">${esc(dict.heroKicker)}</p><h1>${esc(title)}</h1><p class="lead">${esc(description)}</p><a class="cta" href="/?lang=${code}#tool">${esc(dict.heroCta)} ↓</a></div><div class="art" aria-hidden="true"><div class="collar"></div><div class="tie"></div><div class="nib"></div></div></section>
 <section class="proof"><p class="eyebrow">FIRMA TOTAL · LOCAL PDF WORKBENCH</p><h2>${esc(dict.toolTitle)}</h2><div class="grid">${proof.map((text, i) => `<article><strong>0${i+1} · ${esc(labels[code][i])}</strong><p>${esc(text)}</p></article>`).join("")}</div></section>
@@ -179,7 +187,7 @@ ${alternates(index)}
 <section class="legal"><div><p class="eyebrow">PAdES · VISIBLE SIGNATURE</p><h2>${esc(dict.legalTitle)}</h2></div><p>${esc(dict.legalBody)} ${esc(jurisdiction[code])}</p></section>
 <section class="related"><h2>${esc(dict.how)}</h2><div class="links">${siblingLinks}<a href="/?lang=${code}#tool">${esc(dict.heroCta)} →</a></div></section>
 </main>
-<footer><div class="manifesto"><span>${esc(dict.local)}</span><i>·</i><span>${esc(dict.noAccount)}</span><i>·</i><span>${esc(dict.pades)}</span></div><div class="footer"><a class="brand" href="/?lang=${code}">firma<span>total.</span></a><p>${esc(dict.footerTagline)}</p><nav><a class="footer-lab" href="https://www.chapalab.com"><img src="/chapalab-mark.png" alt="" width="22" height="22"> CHAPALAB.COM</a><a href="https://github.com/Oteros/firmatotal" target="_blank" rel="noreferrer">${esc(dict.sourceCode)} ↗</a><a href="/?lang=${code}#how">${esc(dict.how)}</a><a href="/?lang=${code}#privacy">${esc(dict.privacy)}</a></nav></div></footer>
+<footer><div class="manifesto"><span>${esc(dict.local)}</span><i>·</i><span>${esc(dict.noAccount)}</span><i>·</i><span>${esc(dict.pades)}</span></div><div class="footer"><a class="brand" href="/${code}/">firma<span>total.</span></a><p>${esc(dict.footerTagline)}</p><nav><a class="footer-lab" href="https://www.chapalab.com/${code}/"><img src="/chapalab-mark.png" alt="" width="22" height="22"> CHAPALAB.COM</a><a href="https://github.com/Oteros/firmatotal" target="_blank" rel="noreferrer">${esc(dict.sourceCode)} ↗</a><a href="/${code}/#how">${esc(dict.how)}</a><a href="/${code}/privacidad/">${esc(dict.privacy)}</a><a href="https://www.chapalab.com/${code}/contacto/">${esc(commonLabels[code].contact)}</a><a href="https://www.chapalab.com/${code}/apoya/">${esc(commonLabels[code].support)}</a></nav></div></footer>
 </body></html>`;
 }
 
@@ -193,12 +201,16 @@ await Promise.all(Object.entries(pages).flatMap(([code, entries]) =>
 const urls = Object.entries(pages).flatMap(([code, entries]) =>
   entries.map(([slug], index) => {
     const loc = `${base}/${code}/${slug}/`;
-    const links = languages.map(({ code: altCode, htmlLang }) =>
+    const links = languages.filter(({ searchAlternate }) => searchAlternate !== false).map(({ code: altCode, htmlLang }) =>
       `<xhtml:link rel="alternate" hreflang="${htmlLang}" href="${base}/${altCode}/${pages[altCode][index][0]}/"/>`).join("");
     const xDefault = `<xhtml:link rel="alternate" hreflang="x-default" href="${base}/en/${pages.en[index][0]}/"/>`;
     return `<url><loc>${loc}</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>${index === 1 ? "0.9" : "0.8"}</priority>${links}${xDefault}</url>`;
   }));
 urls.unshift(`<url><loc>${base}/</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>`);
+for (const language of languages) {
+  const links = languages.filter(({ searchAlternate }) => searchAlternate !== false).map(({ code, htmlLang }) => `<xhtml:link rel="alternate" hreflang="${htmlLang}" href="${base}/${code}/"/>`).join("");
+  urls.push(`<url><loc>${base}/${language.code}/</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority>${links}<xhtml:link rel="alternate" hreflang="x-default" href="${base}/"/></url>`);
+}
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join("\n")}\n</urlset>\n`;
 await fs.writeFile(path.join(publicDir, "sitemap.xml"), sitemap, "utf8");
 console.log(`Generated ${urls.length} sitemap URLs and ${Object.values(pages).reduce((total, entries) => total + entries.length, 0)} localized landing pages.`);

@@ -19,7 +19,7 @@ test('Firma Total publishes its complete local privacy contract', () => {
 
 test('Firma Total replaces the internal-only privacy block with a real route', () => {
   assert.match(redirects, /^\/privacy \/privacidad\/ 301$/m)
-  assert.match(app, /href="\/privacidad\/"/)
-  assert.match(app, /https:\/\/www\.chapalab\.com\/apoya\//)
-  assert.match(app, /https:\/\/www\.chapalab\.com\/contacto\//)
+  assert.match(app, /href=\{`\/\$\{locale\}\/privacidad\/`\}/)
+  assert.match(app, /chapalab\.com\/\$\{locale\}\/apoya\//)
+  assert.match(app, /chapalab\.com\/\$\{locale\}\/contacto\//)
 })

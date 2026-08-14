@@ -1,3 +1,5 @@
+import extraLocales from './locales.extra.generated.json' with { type: 'json' }
+
 export const languages = [
   { code: 'es', label: 'Español', htmlLang: 'es' },
   { code: 'en', label: 'English', htmlLang: 'en' },
@@ -8,12 +10,18 @@ export const languages = [
   { code: 'ca', label: 'Català', htmlLang: 'ca' },
   { code: 'eu', label: 'Euskara', htmlLang: 'eu' },
   { code: 'gl', label: 'Galego', htmlLang: 'gl' },
-  { code: 'bar', label: 'Boarisch', htmlLang: 'bar' },
+  { code: 'pl', label: 'Polski', htmlLang: 'pl' },
   { code: 'zh', label: '中文', htmlLang: 'zh-CN' },
   { code: 'ja', label: '日本語', htmlLang: 'ja' },
   { code: 'ur', label: 'اردو', htmlLang: 'ur', direction: 'rtl' },
   { code: 'ar', label: 'العربية', htmlLang: 'ar', direction: 'rtl' },
   { code: 'hi', label: 'हिन्दी', htmlLang: 'hi' },
+  { code: 'ru', label: 'Русский', htmlLang: 'ru' },
+  { code: 'el', label: 'Ελληνικά', htmlLang: 'el' },
+  { code: 'tr', label: 'Türkçe', htmlLang: 'tr' },
+  { code: 'nl', label: 'Nederlands', htmlLang: 'nl' },
+  { code: 'ko', label: '한국어', htmlLang: 'ko' },
+  { code: 'bar', label: 'Boarisch', htmlLang: 'de', searchAlternate: false },
 ]
 
 const es = {
@@ -581,7 +589,21 @@ const hi = {
   error: 'प्रक्रिया पूरी नहीं हुई। फ़ाइल जाँचें और फिर प्रयास करें।', footerTagline: 'दस्तावेज़ सौंपे बिना हस्ताक्षर करें।', sourceCode: 'सार्वजनिक स्रोत कोड',
 }
 
-export const dictionaries = { es, en, fr, de, it, pt, ca, eu, gl, bar, zh, ja, ur, ar, hi }
+export const dictionaries = { es, en, fr, de, it, pt, ca, eu, gl, zh, ja, ur, ar, hi, ...extraLocales, bar }
+
+export const commonLabels = {
+  es: { contact: 'Contacto', support: 'Apoyar' }, en: { contact: 'Contact', support: 'Support' },
+  fr: { contact: 'Contact', support: 'Soutenir' }, de: { contact: 'Kontakt', support: 'Unterstützen' },
+  it: { contact: 'Contatti', support: 'Sostieni' }, pt: { contact: 'Contacto', support: 'Apoiar' },
+  ca: { contact: 'Contacte', support: 'Dona suport' }, eu: { contact: 'Kontaktua', support: 'Babestu' },
+  gl: { contact: 'Contacto', support: 'Apoiar' }, pl: { contact: 'Kontakt', support: 'Wesprzyj' },
+  zh: { contact: '联系', support: '支持' }, ja: { contact: 'お問い合わせ', support: '応援' },
+  ur: { contact: 'رابطہ', support: 'حمایت' }, ar: { contact: 'اتصل بنا', support: 'ادعم' },
+  hi: { contact: 'संपर्क', support: 'समर्थन' }, ru: { contact: 'Контакты', support: 'Поддержать' },
+  el: { contact: 'Επικοινωνία', support: 'Υποστήριξη' }, tr: { contact: 'İletişim', support: 'Destekle' },
+  nl: { contact: 'Contact', support: 'Steunen' }, ko: { contact: '문의', support: '후원' },
+  bar: { contact: 'Kontakt', support: 'Unterstützn' },
+}
 
 const safetyMessages = {
   es: {
@@ -692,6 +714,8 @@ const safetyMessages = {
 }
 
 export function resolveLocale() {
+  const pathLocale = location.pathname.split('/').filter(Boolean)[0]
+  if (languages.some((language) => language.code === pathLocale)) return pathLocale
   const query = new URLSearchParams(location.search).get('lang')
   if (languages.some((language) => language.code === query)) return query
   const saved = localStorage.getItem('firma-total-language')

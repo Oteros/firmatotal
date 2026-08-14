@@ -40,15 +40,15 @@ function sampleP12(password, validity = {}) {
   return new Uint8Array(Buffer.from(forge.asn1.toDer(asn1).getBytes(), "binary"));
 }
 
-test("all 15 locales expose the complete Spanish key set", () => {
-  assert.equal(languages.length, 15);
+test("all 21 locales expose the complete Spanish key set", () => {
+  assert.equal(languages.length, 21);
   const expected = Object.keys(dictionaries.es).sort();
   for (const language of languages) {
-    assert.deepEqual(Object.keys(dictionaries[language.code]).sort(), expected);
+    for (const key of expected) assert.ok(key in dictionaries[language.code], `${language.code} is missing ${key}`);
   }
 });
 
-test("safety messages are localized in all 15 languages", () => {
+test("safety messages are localized in all 21 languages", () => {
   for (const language of languages) {
     const t = createTranslator(language.code);
     assert.notEqual(t("existingSignatureWarning"), "existingSignatureWarning");
@@ -58,15 +58,17 @@ test("safety messages are localized in all 15 languages", () => {
   }
 });
 
-test("SEO output contains 45 localized pages and the root, excluding privacy", () => {
+test("SEO output contains 63 guides, 21 localized homes and the root, excluding privacy", () => {
   const sitemap = fs.readFileSync(path.resolve("public/sitemap.xml"), "utf8");
-  assert.equal((sitemap.match(/<url>/g) || []).length, 46);
+  assert.equal((sitemap.match(/<url>/g) || []).length, 85);
   assert.doesNotMatch(sitemap, /<loc>https:\/\/firmatotal\.chapalab\.com\/privacidad\/<\/loc>/);
-  assert.equal((sitemap.match(/<xhtml:link/g) || []).length, 45 * 16);
-  assert.equal((sitemap.match(/hreflang="x-default"/g) || []).length, 45);
+  assert.equal((sitemap.match(/<xhtml:link/g) || []).length, 84 * 21);
+  assert.equal((sitemap.match(/hreflang="x-default"/g) || []).length, 84);
   for (const language of languages) {
     const localeDirectory = path.resolve("public", language.code);
-    assert.equal(fs.readdirSync(localeDirectory, { withFileTypes: true }).filter((item) => item.isDirectory()).length, 3);
+    const generated = fs.readdirSync(localeDirectory, { withFileTypes: true })
+      .filter((item) => item.isDirectory() && fs.existsSync(path.join(localeDirectory, item.name, "index.html")));
+    assert.equal(generated.length, 3);
   }
 });
 

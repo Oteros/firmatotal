@@ -1,0 +1,177 @@
+{
+  "en": {
+    "pages": [
+      [
+        "sign-pdf-online",
+        "Sign a PDF online without uploading it",
+        "Add a visible signature to a PDF locally in your browser. Private, free and no account required."
+      ],
+      [
+        "digitally-sign-pdf-with-certificate",
+        "Digitally sign a PDF with a PAdES certificate",
+        "Create a cryptographic PDF signature using your .p12 or .pfx certificate, with local browser processing."
+      ],
+      [
+        "add-signature-to-pdf",
+        "Add a handwritten signature to a PDF",
+        "Draw, type or import a signature, place it precisely on any PDF page and download the finished document."
+      ]
+    ],
+    "labels": [
+      "Real privacy",
+      "Two kinds of signature",
+      "Compatibility"
+    ],
+    "jurisdiction": "PAdES is a recognized format in the European Union, but only a qualified certificate and a compliant process can create a qualified electronic signature. Requirements may differ by country and transaction."
+  },
+  "pl": {
+    "pages": [
+      [
+        "znak-pdf-online",
+        "Podpisz plik PDF online bez przesyłania go",
+        "Dodaj widoczny podpis do pliku PDF lokalnie w przeglądarce. Prywatne, bezpłatne i nie wymaga konta."
+      ],
+      [
+        "cyfrowo-podpisz-pdf-z-certyfikatem",
+        "Podpisz cyfrowo plik PDF za pomocą certyfikatu PAdES",
+        "Utwórz kryptograficzny podpis PDF, korzystając z certyfikatu .p12 lub .pfx i przetwarzając go lokalnie w przeglądarce."
+      ],
+      [
+        "dodaj-podpis-do-pdf",
+        "Dodaj odręczny podpis do pliku PDF",
+        "Narysuj, wpisz lub zaimportuj podpis, umieść go dokładnie na dowolnej stronie PDF i pobierz gotowy dokument."
+      ]
+    ],
+    "labels": [
+      "Prawdziwa prywatność",
+      "Dwa rodzaje podpisu",
+      "Zgodność"
+    ],
+    "jurisdiction": "PAdES jest formatem uznanym w Unii Europejskiej, ale jedynie kwalifikowany certyfikat i zgodny z nim proces mogą stworzyć kwalifikowany podpis elektroniczny. Wymagania mogą się różnić w zależności od kraju i transakcji."
+  },
+  "ru": {
+    "pages": [
+      [
+        "подписать-pdf-онлайн",
+        "Подпишите PDF-файл онлайн, не загружая его",
+        "Добавьте видимую подпись в PDF-файл локально в браузере. Частный, бесплатный и не требующий учетной записи."
+      ],
+      [
+        "цифровая подпись-pdf-с-сертификатом",
+        "Подпишите PDF-файл цифровой подписью с помощью сертификата PAdES.",
+        "Создайте криптографическую подпись PDF, используя сертификат .p12 или .pfx, с обработкой локальным браузером."
+      ],
+      [
+        "добавить подпись в PDF",
+        "Добавление рукописной подписи в PDF-файл",
+        "Нарисуйте, введите или импортируйте подпись, разместите ее точно на любой странице PDF и загрузите готовый документ."
+      ]
+    ],
+    "labels": [
+      "Реальная конфиденциальность",
+      "Два вида подписи",
+      "Совместимость"
+    ],
+    "jurisdiction": "PAdES является признанным форматом в Европейском Союзе, но только квалифицированный сертификат и соответствующий процесс могут создать квалифицированную электронную подпись. Требования могут различаться в зависимости от страны и транзакции."
+  },
+  "el": {
+    "pages": [
+      [
+        "sign-pdf-online",
+        "Υπογράψτε ένα PDF στο διαδίκτυο χωρίς να το ανεβάσετε",
+        "Προσθέστε μια ορατή υπογραφή σε ένα PDF τοπικά στο πρόγραμμα περιήγησής σας. Ιδιωτικός, δωρεάν και δεν απαιτείται λογαριασμός."
+      ],
+      [
+        "ψηφιακό-υπογραφή-pdf-με-πιστοποιητικό",
+        "Υπογράψτε ψηφιακά ένα PDF με πιστοποιητικό PAdES",
+        "Δημιουργήστε μια κρυπτογραφική υπογραφή PDF χρησιμοποιώντας το πιστοποιητικό σας .p12 ή .pfx, με επεξεργασία τοπικού προγράμματος περιήγησης."
+      ],
+      [
+        "προσθήκη-υπογραφή-σε-pdf",
+        "Προσθέστε μια χειρόγραφη υπογραφή σε ένα PDF",
+        "Σχεδιάστε, πληκτρολογήστε ή εισαγάγετε μια υπογραφή, τοποθετήστε την με ακρίβεια σε οποιαδήποτε σελίδα PDF και κατεβάστε το έτοιμο έγγραφο."
+      ]
+    ],
+    "labels": [
+      "Πραγματική ιδιωτικότητα",
+      "Δύο είδη υπογραφών",
+      "Αρμονία"
+    ],
+    "jurisdiction": "Το PAdES είναι μια αναγνωρισμένη μορφή στην Ευρωπαϊκή Ένωση, αλλά μόνο ένα πιστοποιημένο πιστοποιητικό και μια συμμορφούμενη διαδικασία μπορούν να δημιουργήσουν μια έγκυρη ηλεκτρονική υπογραφή. Οι απαιτήσεις μπορεί να διαφέρουν ανά χώρα και συναλλαγή."
+  },
+  "tr": {
+    "pages": [
+      [
+        "imza-pdf-çevrimiçi",
+        "PDF'yi yüklemeden çevrimiçi olarak imzalayın",
+        "Tarayıcınızda yerel olarak PDF'ye görünür bir imza ekleyin. Özel, ücretsiz ve hesap gerektirmez."
+      ],
+      [
+        "sertifikayla-dijital olarak-imzala-pdf",
+        "PAdES sertifikasıyla PDF'yi dijital olarak imzalayın",
+        "Yerel tarayıcı işlemeyle .p12 veya .pfx sertifikanızı kullanarak kriptografik bir PDF imzası oluşturun."
+      ],
+      [
+        "pdf'e-imza ekle",
+        "PDF'ye el yazısı imza ekleme",
+        "Bir imza çizin, yazın veya içe aktarın, imzayı tam olarak herhangi bir PDF sayfasına yerleştirin ve bitmiş belgeyi indirin."
+      ]
+    ],
+    "labels": [
+      "Gerçek gizlilik",
+      "İki çeşit imza",
+      "Uyumluluk"
+    ],
+    "jurisdiction": "PAdES, Avrupa Birliği'nde tanınan bir formattır, ancak yalnızca nitelikli bir sertifika ve uyumlu bir süreç nitelikli elektronik imza oluşturabilir. Gereksinimler ülkeye ve işleme göre farklılık gösterebilir."
+  },
+  "nl": {
+    "pages": [
+      [
+        "teken-pdf-online",
+        "Onderteken online een PDF zonder deze te uploaden",
+        "Voeg lokaal in uw browser een zichtbare handtekening toe aan een PDF. Privé, gratis en geen account vereist."
+      ],
+      [
+        "digitaal-onderteken-pdf-met-certificaat",
+        "Onderteken een PDF digitaal met een PAdES-certificaat",
+        "Maak een cryptografische PDF-handtekening met uw .p12- of .pfx-certificaat, met lokale browserverwerking."
+      ],
+      [
+        "handtekening-aan-pdf toevoegen",
+        "Voeg een handgeschreven handtekening toe aan een PDF",
+        "Teken, typ of importeer een handtekening, plaats deze nauwkeurig op een willekeurige PDF-pagina en download het voltooide document."
+      ]
+    ],
+    "labels": [
+      "Echte privacy",
+      "Twee soorten handtekeningen",
+      "Verenigbaarheid"
+    ],
+    "jurisdiction": "PAdES is een erkend formaat in de Europese Unie, maar alleen een gekwalificeerd certificaat en een conform proces kunnen een gekwalificeerde elektronische handtekening creëren. Vereisten kunnen per land en transactie verschillen."
+  },
+  "ko": {
+    "pages": [
+      [
+        "서명-PDF-온라인",
+        "PDF를 업로드하지 않고 온라인으로 PDF에 서명",
+        "브라우저에서 로컬로 PDF에 눈에 보이는 서명을 추가하세요. 비공개이며 무료이며 계정이 필요하지 않습니다."
+      ],
+      [
+        "디지털 서명-PDF-인증서",
+        "PAdES 인증서로 PDF에 디지털 서명",
+        "로컬 브라우저 처리를 통해 .p12 또는 .pfx 인증서를 사용하여 암호화 PDF 서명을 만듭니다."
+      ],
+      [
+        "PDF에 서명 추가",
+        "PDF에 자필 서명 추가",
+        "서명을 그리거나 입력하거나 가져와 PDF 페이지에 정확하게 배치하고 완성된 문서를 다운로드하세요."
+      ]
+    ],
+    "labels": [
+      "진정한 프라이버시",
+      "시그니처 2종",
+      "호환성"
+    ],
+    "jurisdiction": "PAdES는 유럽 연합에서 인정되는 형식이지만 적격 인증서와 규정 준수 프로세스를 통해서만 적격 전자 서명을 만들 수 있습니다. 요구 사항은 국가 및 거래에 따라 다를 수 있습니다."
+  }
+}
