@@ -18,6 +18,7 @@ function localize(html, language, { privacy = false } = {}) {
   const alternateTags = privacy ? '' : alternates.map((item) => `<link rel="alternate" hreflang="${item.htmlLang}" href="${base}/${item.code}/">`).join('\n')
   const robots = privacy ? 'noindex,follow' : 'index,follow,max-image-preview:large'
   let output = html
+    .replace(/\s*<link rel="alternate" hreflang="[^"]+" href="[^"]+" \/>/g, '')
     .replace(/<html lang="[^"]*"(?: dir="[^"]*")?>/, `<html lang="${language.htmlLang}"${language.direction ? ` dir="${language.direction}"` : ''}>`)
     .replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(title)}</title>`)
     .replace(/<meta name="robots" content="[^"]*" \/>/, `<meta name="robots" content="${robots}" />`)
