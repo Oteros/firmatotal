@@ -4,6 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#10253b" />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function gtag(){ window.dataLayer.push(arguments); };
+      (function setPrivateDefaults(){
+        var granted = false;
+        try {
+          var saved = JSON.parse(localStorage.getItem('firmatotal-consent-v1') || 'null');
+          granted = saved && saved.version === 1 && saved.advertising === 'granted';
+        } catch (error) {
+          granted = false;
+        }
+        window.gtag('consent', 'default', {
+          ad_storage: granted ? 'granted' : 'denied',
+          ad_user_data: granted ? 'granted' : 'denied',
+          ad_personalization: granted ? 'granted' : 'denied',
+          analytics_storage: 'denied',
+          functionality_storage: 'granted',
+          security_storage: 'granted',
+          wait_for_update: 500
+        });
+        window.gtag('set', 'ads_data_redaction', true);
+      })();
+    </script>
+    <script src="/cookie-consent.js" defer></script>
     <meta name="robots" content="index,follow,max-image-preview:large" />
     <meta name="description" content="Firma documentos PDF en tu navegador. Añade una firma manuscrita o firma PAdES con certificado digital, sin subir el archivo." />
     <link rel="canonical" href="https://firmatotal.chapalab.com/" />
@@ -36,6 +60,12 @@
     <meta property="og:title" content="Firma Total — Firma PDF privada y verificable" />
     <meta property="og:description" content="Firma visualmente o con certificado digital. Tus documentos se procesan en tu dispositivo." />
     <meta property="og:url" content="https://firmatotal.chapalab.com/" />
+    <meta property="og:image" content="https://www.chapalab.com/assets/projects/firmatotal.png" />
+    <meta property="og:image:alt" content="Firma Total: firma PDF en tu navegador" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Firma Total: firmar PDF gratis y en privado" />
+    <meta name="twitter:description" content="Añade una firma visible o firma PDF con certificado PAdES sin subir el documento." />
+    <meta name="twitter:image" content="https://www.chapalab.com/assets/projects/firmatotal.png" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -58,6 +88,7 @@
   </head>
   <body>
     <div id="root"></div>
+    <firma-total-consent></firma-total-consent>
     <script src="/vendor/autoscript.js"></script>
     <script type="module" src="/src/main.jsx"></script>
   </body>

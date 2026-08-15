@@ -1,0 +1,1010 @@
+{
+  "es": {
+    "notice": {
+      "kicker": "Firma Total · Cookies",
+      "title": "Privacidad clara, también aquí",
+      "body": "Usamos almacenamiento local imprescindible para recordar el idioma y tu elección. La medición funciona sin cookies. La publicidad permanece sin consentimiento hasta que la aceptes.",
+      "essential": "Solo necesarias",
+      "accept": "Aceptar publicidad",
+      "settings": "Ver detalles",
+      "dialogTitle": "Cookies y almacenamiento",
+      "dialogIntro": "Esto es lo que utiliza Firma Total ahora mismo.",
+      "essentialTitle": "Preferencias esenciales",
+      "essentialBody": "Siempre activas. Guardan el idioma y tu elección de privacidad en este navegador.",
+      "analyticsTitle": "Medición sin cookies",
+      "analyticsBody": "Cloudflare Web Analytics mide visitas agregadas y rendimiento sin cookies, perfiles ni acceso a tus documentos.",
+      "advertisingTitle": "Publicidad opcional",
+      "advertisingBody": "Google puede usar cookies o almacenamiento publicitario únicamente conforme a tu elección y a sus controles de consentimiento aplicables.",
+      "policy": "Política completa",
+      "close": "Cerrar"
+    },
+    "policy": {
+      "kicker": "Cookies y almacenamiento",
+      "title": "Pocas tecnologías. Explicadas con claridad.",
+      "intro": "Esta política describe el uso actual de almacenamiento local, medición y publicidad en Firma Total.",
+      "controlTitle": "Cómo cambiar tu elección",
+      "controlBody": "Puedes volver a abrir este panel desde “Configurar cookies” en el pie de cualquier página o borrar los datos del sitio desde tu navegador.",
+      "updated": "Última actualización: 15 de agosto de 2026.",
+      "back": "Volver a las herramientas"
+    },
+    "privacy": {
+      "kicker": "Privacidad, sin letra pequeña",
+      "title": "Tus documentos son tuyos.",
+      "intro": "Firma Total funciona directamente en tu navegador. No necesitamos una cuenta ni guardamos una copia de tus archivos.",
+      "filesTitle": "Tus archivos",
+      "filesBody": "Los PDF, documentos e imágenes se procesan en este dispositivo. No se envían a nuestros servidores.",
+      "storageTitle": "Almacenamiento del navegador",
+      "storageBody": "Guardamos únicamente el idioma y tu elección de privacidad en el almacenamiento local. Puedes borrarlos desde la configuración del navegador.",
+      "analyticsTitle": "Estadísticas de visitas",
+      "analyticsBody": "Cloudflare Web Analytics mide visitas agregadas y rendimiento sin cookies, perfiles ni acceso a tus documentos.",
+      "advertisingTitle": "Publicidad",
+      "advertisingBody": "Google proporciona la publicidad. El consentimiento publicitario se deniega por defecto y sólo puede activarse tras una elección expresa. Google puede mostrar además sus propios controles certificados cuando sean obligatorios.",
+      "cookiesLink": "Consultar la política de cookies",
+      "back": "Volver a las herramientas"
+    },
+    "footer": {
+      "cookies": "Cookies",
+      "settings": "Configurar cookies"
+    }
+  },
+  "en": {
+    "notice": {
+      "kicker": "Firma Total · Cookies",
+      "title": "Clear privacy, here too",
+      "body": "We use essential local storage to remember your language and choice. Measurement works without cookies. Advertising consent stays denied unless you explicitly allow it.",
+      "essential": "Necessary only",
+      "accept": "Accept advertising",
+      "settings": "See details",
+      "dialogTitle": "Cookies and storage",
+      "dialogIntro": "This is what Firma Total uses right now.",
+      "essentialTitle": "Essential preferences",
+      "essentialBody": "Always active. They save the language and your privacy choice in this browser.",
+      "analyticsTitle": "Measurement without cookies",
+      "analyticsBody": "Cloudflare Web Analytics measures aggregate visits and performance without cookies, profiles, or access to your documents.",
+      "advertisingTitle": "Optional advertising",
+      "advertisingBody": "Google may use cookies or advertising storage only in accordance with your choice and its applicable consent controls.",
+      "policy": "Full policy",
+      "close": "Close"
+    },
+    "policy": {
+      "kicker": "Cookies and storage",
+      "title": "Few technologies. Explained clearly.",
+      "intro": "This policy describes Firma Total's current local storage, measurement, and advertising usage.",
+      "controlTitle": "How to change your choice",
+      "controlBody": "You can reopen this panel from “Cookie settings” in the footer of any page. You can also clear the site storage in your browser.",
+      "updated": "Last updated: August 15, 2026.",
+      "back": "Return to tools"
+    },
+    "privacy": {
+      "kicker": "Privacy, no fine print",
+      "title": "Your documents are yours.",
+      "intro": "Firma Total works directly in your browser. We do not need an account nor do we keep a copy of your files.",
+      "filesTitle": "Your files",
+      "filesBody": "PDFs, documents and images are processed on this device. They are not sent to our servers.",
+      "analyticsTitle": "Visit statistics",
+      "analyticsBody": "Cloudflare Web Analytics measures aggregate visits and performance without cookies, profiles, or access to your documents.",
+      "back": "Back to tools",
+      "storageTitle": "Browser Storage",
+      "storageBody": "We save only the language and your privacy choice in local storage. You can delete them from the browser settings.",
+      "advertisingTitle": "Advertising",
+      "advertisingBody": "Google provides the advertising. Advertising consent is denied by default and can only be activated after an express choice. Google may also display its own certified controls when required.",
+      "cookiesLink": "Consult the cookie policy"
+    },
+    "footer": {
+      "cookies": "Cookies",
+      "settings": "Cookie settings"
+    }
+  },
+  "fr": {
+    "notice": {
+      "kicker": "Firma Total · Cookies",
+      "title": "Une confidentialité claire, ici aussi",
+      "body": "Nous utilisons un stockage local essentiel pour mémoriser la langue et votre choix. La mesure fonctionne sans cookies. La publicité reste sans consentement jusqu'à ce que vous l'acceptiez.",
+      "essential": "Nécessaires uniquement",
+      "accept": "Accepter la publicité",
+      "settings": "Voir les détails",
+      "dialogTitle": "Cookies et stockage",
+      "dialogIntro": "C'est ce que Firma Total utilise actuellement.",
+      "essentialTitle": "Préférences essentielles",
+      "essentialBody": "Toujours actif. Ils enregistrent la langue et votre choix de confidentialité dans ce navigateur.",
+      "analyticsTitle": "Mesure sans cookies",
+      "analyticsBody": "Cloudflare Web Analytics mesure les visites agrégées et les performances sans cookies, profils ni accès à vos documents.",
+      "advertisingTitle": "Publicité facultative",
+      "advertisingBody": "Google peut utiliser des cookies ou un stockage publicitaire uniquement conformément à votre choix et à ses contrôles de consentement applicables.",
+      "policy": "Politique complète",
+      "close": "Fermer"
+    },
+    "policy": {
+      "kicker": "Cookies et stockage",
+      "title": "Peu de technologies. Expliqué clairement.",
+      "intro": "Cette politique décrit l'utilisation actuelle du stockage local, des mesures et de la publicité de Firma Total.",
+      "controlTitle": "Modifier votre choix",
+      "controlBody": "Vous pouvez rouvrir ce panneau via « Configurer les cookies » dans le pied de chaque page. Vous pouvez aussi effacer le stockage du site dans votre navigateur.",
+      "updated": "Dernière mise à jour : 15 août 2026.",
+      "back": "Retour aux outils"
+    },
+    "privacy": {
+      "kicker": "Confidentialité, pas de petits caractères",
+      "title": "Vos documents vous appartiennent.",
+      "intro": "Firma Total fonctionne directement dans votre navigateur. Nous n'avons pas besoin de compte et nous ne conservons pas de copie de vos fichiers.",
+      "filesTitle": "Vos fichiers",
+      "filesBody": "Les PDF, les documents et les images sont traités sur cet appareil. Ils ne sont pas envoyés sur nos serveurs.",
+      "analyticsTitle": "Statistiques des visites",
+      "analyticsBody": "Cloudflare Web Analytics mesure les visites agrégées et les performances sans cookies, profils ni accès à vos documents.",
+      "back": "Retour aux outils",
+      "storageTitle": "Stockage du navigateur",
+      "storageBody": "Nous enregistrons uniquement la langue et votre choix de confidentialité dans le stockage local. Vous pouvez les supprimer des paramètres du navigateur.",
+      "advertisingTitle": "Publicité",
+      "advertisingBody": "Google fournit la publicité. Le consentement à la publicité est refusé par défaut et ne peut être activé qu'après un choix exprès. Google peut également afficher ses propres contrôles certifiés si nécessaire.",
+      "cookiesLink": "Consulter la politique en matière de cookies"
+    },
+    "footer": {
+      "cookies": "Cookies",
+      "settings": "Configurer les cookies"
+    }
+  },
+  "de": {
+    "notice": {
+      "kicker": "PDF Gesamt · Cookies",
+      "title": "Klare Privatsphäre, auch hier",
+      "body": "Wir nutzen den notwendigen lokalen Speicher, um die Sprache und Ihre Wahl zu speichern. Die Messung funktioniert ohne Cookies. Werbung bleibt solange ohne Einwilligung, bis Sie diese akzeptieren.",
+      "essential": "Nur notwendig",
+      "accept": "Werbung akzeptieren",
+      "settings": "Siehe Details",
+      "dialogTitle": "Cookies und Speicherung",
+      "dialogIntro": "Dies ist, was Firma Total derzeit verwendet.",
+      "essentialTitle": "Grundlegende Einstellungen",
+      "essentialBody": "Immer aktiv. Sie speichern die Sprache und Ihre Datenschutzwahl in diesem Browser.",
+      "analyticsTitle": "Messung ohne Cookies",
+      "analyticsBody": "Cloudflare Web Analytics misst zusammengefasste Besuche und Leistung ohne Cookies, Profile oder Zugriff auf Ihre Dokumente.",
+      "advertisingTitle": "Optionale Werbung",
+      "advertisingBody": "Google darf Cookies oder Werbespeicher nur in Übereinstimmung mit Ihrer Wahl und den geltenden Einwilligungskontrollen verwenden.",
+      "policy": "Vollständige Richtlinie",
+      "close": "Schließen"
+    },
+    "policy": {
+      "kicker": "Cookies und Speicherung",
+      "title": "Wenige Technologien. Anschaulich erklärt.",
+      "intro": "Diese Richtlinie beschreibt die aktuelle lokale Speicherung, Messung und Werbenutzung von Firma Total.",
+      "controlTitle": "Auswahl ändern",
+      "controlBody": "Öffnen Sie dieses Fenster über „Cookie-Einstellungen“ im Fußbereich jeder Seite erneut. Sie können den Website-Speicher auch im Browser löschen.",
+      "updated": "Letzte Aktualisierung: 15. August 2026.",
+      "back": "Zurück zu den Tools"
+    },
+    "privacy": {
+      "kicker": "Datenschutz, kein Kleingedrucktes",
+      "title": "Ihre Dokumente gehören Ihnen.",
+      "intro": "Firma Total funktioniert direkt in Ihrem Browser. Wir benötigen weder ein Konto noch behalten wir eine Kopie Ihrer Dateien.",
+      "filesTitle": "Ihre Dateien",
+      "filesBody": "PDFs, Dokumente und Bilder werden auf diesem Gerät verarbeitet. Sie werden nicht an unsere Server gesendet.",
+      "analyticsTitle": "Besuchsstatistik",
+      "analyticsBody": "Cloudflare Web Analytics misst zusammengefasste Besuche und Leistung ohne Cookies, Profile oder Zugriff auf Ihre Dokumente.",
+      "back": "Zurück zu den Tools",
+      "storageTitle": "Browserspeicher",
+      "storageBody": "Wir speichern nur die Sprache und Ihre Datenschutzauswahl im lokalen Speicher. Sie können sie in den Browsereinstellungen löschen.",
+      "advertisingTitle": "Werbung",
+      "advertisingBody": "Google liefert die Werbung. Die Werbeeinwilligung wird standardmäßig verweigert und kann nur nach ausdrücklicher Wahl aktiviert werden. Google kann bei Bedarf auch eigene zertifizierte Kontrollen anzeigen.",
+      "cookiesLink": "Lesen Sie die Cookie-Richtlinie"
+    },
+    "footer": {
+      "cookies": "Cookies",
+      "settings": "Cookie-Einstellungen"
+    }
+  },
+  "it": {
+    "notice": {
+      "kicker": "Totale PDF · Cookie",
+      "title": "Privacy chiara, anche qui",
+      "body": "Utilizziamo la memoria locale essenziale per ricordare la lingua e la tua scelta. La misurazione funziona senza cookie. La pubblicità rimane senza consenso finché non la accetti.",
+      "essential": "Solo necessari",
+      "accept": "Accetta la pubblicità",
+      "settings": "Vedi dettagli",
+      "dialogTitle": "Cookie e archiviazione",
+      "dialogIntro": "Questo è ciò che Firma Total utilizza in questo momento.",
+      "essentialTitle": "Preferenze essenziali",
+      "essentialBody": "Sempre attivo. Salvano la lingua e la tua scelta sulla privacy in questo browser.",
+      "analyticsTitle": "Misurazione senza cookie",
+      "analyticsBody": "Cloudflare Web Analytics misura visite aggregate e prestazioni senza cookie, profili né accesso ai documenti.",
+      "advertisingTitle": "Pubblicità facoltativa",
+      "advertisingBody": "Google può utilizzare cookie o archiviazione pubblicitaria solo in base alla tua scelta e ai controlli di consenso applicabili.",
+      "policy": "Politica completa",
+      "close": "Chiudi"
+    },
+    "policy": {
+      "kicker": "Cookie e archiviazione",
+      "title": "Poche tecnologie. Spiegato chiaramente.",
+      "intro": "Questa politica descrive l'attuale archiviazione locale, misurazione e utilizzo pubblicitario di Firma Total.",
+      "controlTitle": "Come cambiare la scelta",
+      "controlBody": "Puoi riaprire il pannello da “Impostazioni cookie” nel piè di pagina. Puoi anche cancellare i dati del sito dal browser.",
+      "updated": "Ultimo aggiornamento: 15 agosto 2026.",
+      "back": "Torna agli strumenti"
+    },
+    "privacy": {
+      "kicker": "Privacy, niente scritte in piccolo",
+      "title": "I tuoi documenti sono tuoi.",
+      "intro": "Firma Total funziona direttamente nel tuo browser. Non abbiamo bisogno di un account né conserviamo una copia dei tuoi file.",
+      "filesTitle": "I tuoi file",
+      "filesBody": "PDF, documenti e immagini vengono elaborati su questo dispositivo. Non vengono inviati ai nostri server.",
+      "analyticsTitle": "Statistiche visite",
+      "analyticsBody": "Cloudflare Web Analytics misura visite aggregate e prestazioni senza cookie, profili né accesso ai documenti.",
+      "back": "Torna agli strumenti",
+      "storageTitle": "Archiviazione del browser",
+      "storageBody": "Salviamo solo la lingua e la tua scelta sulla privacy nell'archivio locale. Puoi eliminarli dalle impostazioni del browser.",
+      "advertisingTitle": "Pubblicità",
+      "advertisingBody": "Google fornisce la pubblicità. Il consenso alla pubblicità è negato per impostazione predefinita e può essere attivato solo dopo una scelta espressa. Google può anche visualizzare i propri controlli certificati quando richiesto.",
+      "cookiesLink": "Consulta la cookie policy"
+    },
+    "footer": {
+      "cookies": "Cookie",
+      "settings": "Impostazioni cookie"
+    }
+  },
+  "pt": {
+    "notice": {
+      "kicker": "Total de PDF · Cookies",
+      "title": "Privacidade clara, também aqui",
+      "body": "Usamos armazenamento local essencial para lembrar o idioma e sua escolha. A medição funciona sem cookies. A publicidade permanece sem consentimento até que você a aceite.",
+      "essential": "Apenas necessários",
+      "accept": "Aceitar publicidade",
+      "settings": "Ver detalhes",
+      "dialogTitle": "Cookies e armazenamento",
+      "dialogIntro": "Isso é o que o Firma Total usa no momento.",
+      "essentialTitle": "Preferências essenciais",
+      "essentialBody": "Sempre ativo. Eles salvam o idioma e sua escolha de privacidade neste navegador.",
+      "analyticsTitle": "Medição sem cookies",
+      "analyticsBody": "Cloudflare Web Analytics mede visitas agregadas e desempenho sem cookies, perfis ou acesso aos seus documentos.",
+      "advertisingTitle": "Publicidade opcional",
+      "advertisingBody": "O Google pode usar cookies ou armazenamento de publicidade somente de acordo com sua escolha e seus controles de consentimento aplicáveis.",
+      "policy": "Política completa",
+      "close": "Fechar"
+    },
+    "policy": {
+      "kicker": "Cookies e armazenamento",
+      "title": "Poucas tecnologias. Explicado claramente.",
+      "intro": "Esta política descreve o armazenamento local atual, medição e uso de publicidade do Firma Total.",
+      "controlTitle": "Como alterar a escolha",
+      "controlBody": "Pode reabrir este painel em “Configurar cookies” no rodapé de qualquer página. Também pode apagar os dados do site no navegador.",
+      "updated": "Última atualização: 15 de agosto de 2026.",
+      "back": "Voltar às ferramentas"
+    },
+    "privacy": {
+      "kicker": "Privacidade, sem letras miúdas",
+      "title": "Seus documentos são seus.",
+      "intro": "Firma Total funciona diretamente no seu navegador. Não precisamos de uma conta nem mantemos uma cópia dos seus arquivos.",
+      "filesTitle": "Seus arquivos",
+      "filesBody": "PDFs, documentos e imagens são processados neste dispositivo. Eles não são enviados para nossos servidores.",
+      "analyticsTitle": "Estatísticas de visitas",
+      "analyticsBody": "Cloudflare Web Analytics mede visitas agregadas e desempenho sem cookies, perfis ou acesso aos seus documentos.",
+      "back": "Voltar às ferramentas",
+      "storageTitle": "Armazenamento do navegador",
+      "storageBody": "Salvamos apenas o idioma e sua escolha de privacidade no armazenamento local. Você pode excluí-los nas configurações do navegador.",
+      "advertisingTitle": "Publicidade",
+      "advertisingBody": "O Google fornece a publicidade. O consentimento de publicidade é negado por padrão e só pode ser ativado após escolha expressa. O Google também poderá exibir seus próprios controles certificados quando necessário.",
+      "cookiesLink": "Consulte a política de cookies"
+    },
+    "footer": {
+      "cookies": "Cookies",
+      "settings": "Configurar cookies"
+    }
+  },
+  "ca": {
+    "notice": {
+      "kicker": "Firma Total · Cookies",
+      "title": "Privadesa clara, també aquí",
+      "body": "Utilitzem emmagatzematge local imprescindible per recordar l'idioma i la vostra elecció. El mesurament funciona sense galetes. La publicitat roman sense consentiment fins que l'acceptis.",
+      "essential": "Només necessàries",
+      "accept": "Acceptar publicitat",
+      "settings": "Veure detalls",
+      "dialogTitle": "Cookies i emmagatzematge",
+      "dialogIntro": "Això és el que utilitza Firma Total ara mateix.",
+      "essentialTitle": "Preferències essencials",
+      "essentialBody": "Sempre actives. Desen l'idioma i la teva elecció de privadesa en aquest navegador.",
+      "analyticsTitle": "Medició sense cookies",
+      "analyticsBody": "Cloudflare Web Analytics mesura visites agregades i rendiment sense galetes, perfils ni accés als teus documents.",
+      "advertisingTitle": "Publicitat opcional",
+      "advertisingBody": "Google pot utilitzar cookies o emmagatzematge publicitari només d'acord amb la vostra elecció i amb els vostres controls de consentiment aplicables.",
+      "policy": "Política completa",
+      "close": "Tancar"
+    },
+    "policy": {
+      "kicker": "Cookies i emmagatzematge",
+      "title": "Poques tecnologies. Explicades amb claredat.",
+      "intro": "Aquesta política descriu l'ús actual d'emmagatzematge local, mesurament i publicitat en Firma Total.",
+      "controlTitle": "Com canviar la tria",
+      "controlBody": "Pots tornar a obrir aquest panell des de “Configura les galetes” al peu de qualsevol pàgina. També pots esborrar les dades del lloc al navegador.",
+      "updated": "Darrera actualització: 15 d'agost de 2026.",
+      "back": "Tornar a les eines"
+    },
+    "privacy": {
+      "kicker": "Privadesa, sense lletra petita",
+      "title": "Els teus documents són teus.",
+      "intro": "Firma Total funciona directament al vostre navegador. No necessitem un compte ni guardem una còpia dels fitxers.",
+      "filesTitle": "Els teus fitxers",
+      "filesBody": "Els PDF, documents i imatges es processen en aquest dispositiu. No s'envien als nostres servidors.",
+      "analyticsTitle": "Estadístiques de visites",
+      "analyticsBody": "Cloudflare Web Analytics mesura visites agregades i rendiment sense galetes, perfils ni accés als teus documents.",
+      "back": "Tornar a les eines",
+      "storageTitle": "Emmagatzematge del navegador",
+      "storageBody": "Desarem únicament l'idioma i la vostra elecció de privadesa en l'emmagatzematge local. Els podeu esborrar des de la configuració del navegador.",
+      "advertisingTitle": "Publicitat",
+      "advertisingBody": "Google proporciona la publicitat. El consentiment publicitari es denega per defecte i només es pot activar després d'una elecció expressa. Google també pot mostrar els seus propis controls certificats quan siguin obligatoris.",
+      "cookiesLink": "Consultar la política de cookies"
+    },
+    "footer": {
+      "cookies": "Galetes",
+      "settings": "Configura les galetes"
+    }
+  },
+  "eu": {
+    "notice": {
+      "kicker": "Guztira PDF · Cookieak",
+      "title": "Pribatutasun argia, hemen ere",
+      "body": "Ezinbesteko tokiko biltegiratzea erabiltzen dugu hizkuntza eta zure aukera gogoratzeko. Neurketak cookierik gabe funtzionatzen du. Publizitatea baimenik gabe geratzen da onartzen duzun arte.",
+      "essential": "Beharrezkoa baino ez",
+      "accept": "Onartu publizitatea",
+      "settings": "Ikusi xehetasunak",
+      "dialogTitle": "Cookieak eta biltegiratzea",
+      "dialogIntro": "Hau da Firma Total-ek oraintxe erabiltzen duena.",
+      "essentialTitle": "Ezinbesteko lehentasunak",
+      "essentialBody": "Beti aktibo. Hizkuntza eta zure pribatutasun-aukera gordetzen dute arakatzaile honetan.",
+      "analyticsTitle": "Cookierik gabeko neurketa",
+      "analyticsBody": "Cloudflare Web Analytics-ek bisita agregatuak eta errendimendua neurtzen ditu cookierik, profilik edo zure dokumentuetarako sarbiderik gabe.",
+      "advertisingTitle": "Aukerako publizitatea",
+      "advertisingBody": "Google-k cookieak edo iragarkien biltegiratzea erabil ditzake zure aukerarekin eta dagozkion baimen-kontrolen arabera soilik.",
+      "policy": "Politika osoa",
+      "close": "Itxi"
+    },
+    "policy": {
+      "kicker": "Cookieak eta biltegiratzea",
+      "title": "Teknologia gutxi. Argi azalduta.",
+      "intro": "Politika honek tokiko biltegiratze, neurketa eta publizitatearen egungo erabilera deskribatzen du Firma Total-en.",
+      "controlTitle": "Aukera nola aldatu",
+      "controlBody": "Panela berriro ireki dezakezu orriaren oineko “Cookieak konfiguratu” aukeratik. Gunearen datuak nabigatzailean ere ezaba ditzakezu.",
+      "updated": "Azken eguneratzea: 2026ko abuztuaren 15a.",
+      "back": "Itzuli tresnetara"
+    },
+    "privacy": {
+      "kicker": "Pribatutasuna, letra xeherik ez",
+      "title": "Zure dokumentuak zureak dira.",
+      "intro": "Firma Totalek zuzenean funtzionatzen du zure arakatzailean. Ez dugu konturik behar, ezta zure fitxategien kopiarik gordetzen ere.",
+      "filesTitle": "Zure fitxategiak",
+      "filesBody": "Gailu honetan PDFak, dokumentuak eta irudiak prozesatzen dira. Ez dira gure zerbitzarietara bidaltzen.",
+      "analyticsTitle": "Bisitatu estatistikak",
+      "analyticsBody": "Cloudflare Web Analytics-ek bisita agregatuak eta errendimendua neurtzen ditu cookierik, profilik edo zure dokumentuetarako sarbiderik gabe.",
+      "back": "Itzuli tresnetara",
+      "storageTitle": "Nabigatzailearen biltegiratzea",
+      "storageBody": "Hizkuntza eta zure pribatutasun aukera soilik gordetzen ditugu tokiko biltegian. Arakatzailearen ezarpenetatik ezabatu ditzakezu.",
+      "advertisingTitle": "Publizitatea",
+      "advertisingBody": "Google-k publizitatea eskaintzen du. Iragarki-baimena lehenespenez ukatzen da eta berariazko aukeraren ondoren soilik aktiba daiteke. Beharrezkoa denean, Google-k bere kontrol ziurtatuak ere erakutsi ditzake.",
+      "cookiesLink": "Kontsultatu cookieen politika"
+    },
+    "footer": {
+      "cookies": "Cookieak",
+      "settings": "Cookieak konfiguratu"
+    }
+  },
+  "gl": {
+    "notice": {
+      "kicker": "PDF total · Cookies",
+      "title": "Privacidade clara, tamén aquí",
+      "body": "Usamos almacenamento local esencial para lembrar o idioma e a túa elección. A medición funciona sen cookies. A publicidade permanece sen consentimento ata que o aceptes.",
+      "essential": "Só necesario",
+      "accept": "Aceptar publicidade",
+      "settings": "Ver detalles",
+      "dialogTitle": "Cookies e almacenamento",
+      "dialogIntro": "Isto é o que utiliza Firma Total agora mesmo.",
+      "essentialTitle": "Preferencias esenciais",
+      "essentialBody": "Sempre activo. Gardan o idioma e a túa opción de privacidade neste navegador.",
+      "analyticsTitle": "Medición sen cookies",
+      "analyticsBody": "Cloudflare Web Analytics mide visitas agregadas e rendemento sen cookies, perfís nin acceso aos teus documentos.",
+      "advertisingTitle": "Publicidade opcional",
+      "advertisingBody": "Google pode utilizar cookies ou almacenamento de publicidade só de acordo coa túa elección e os seus controis de consentimento aplicables.",
+      "policy": "Política completa",
+      "close": "Pechar"
+    },
+    "policy": {
+      "kicker": "Cookies e almacenamento",
+      "title": "Poucas tecnoloxías. Explicado claramente.",
+      "intro": "Esta política describe o uso actual do almacenamento local, a medición e a publicidade en Firma Total.",
+      "controlTitle": "Como cambiar a elección",
+      "controlBody": "Podes volver abrir este panel desde “Configurar as cookies” no pé de calquera páxina. Tamén podes borrar os datos do sitio no navegador.",
+      "updated": "Última actualización: 15 de agosto de 2026.",
+      "back": "Volver ás ferramentas"
+    },
+    "privacy": {
+      "kicker": "Privacidade, sen letra pequena",
+      "title": "Os teus documentos son teus.",
+      "intro": "Firma Total funciona directamente no teu navegador. Non necesitamos unha conta nin conservamos unha copia dos teus ficheiros.",
+      "filesTitle": "Os teus ficheiros",
+      "filesBody": "Neste dispositivo trátanse PDF, documentos e imaxes. Non se envían aos nosos servidores.",
+      "analyticsTitle": "Visita estatísticas",
+      "analyticsBody": "Cloudflare Web Analytics mide visitas agregadas e rendemento sen cookies, perfís nin acceso aos teus documentos.",
+      "back": "Volver ás ferramentas",
+      "storageTitle": "Almacenamento do navegador",
+      "storageBody": "Gardamos só o idioma e a túa opción de privacidade no almacenamento local. Podes eliminalos desde a configuración do navegador.",
+      "advertisingTitle": "Publicidade",
+      "advertisingBody": "Google ofrece a publicidade. O consentimento publicitario é denegado por defecto e só se pode activar despois dunha elección expresa. Google tamén pode mostrar os seus propios controis certificados cando sexa necesario.",
+      "cookiesLink": "Consulta a política de cookies"
+    },
+    "footer": {
+      "cookies": "Cookies",
+      "settings": "Configurar as cookies"
+    }
+  },
+  "pl": {
+    "notice": {
+      "kicker": "PDF Razem · Pliki cookie",
+      "title": "Jasna prywatność, także tutaj",
+      "body": "Korzystamy z niezbędnej pamięci lokalnej, aby zapamiętać język i Twój wybór. Pomiar działa bez plików cookies. Reklama pozostaje bez zgody, dopóki jej nie zaakceptujesz.",
+      "essential": "Tylko konieczne",
+      "accept": "Zaakceptuj reklamę",
+      "settings": "Zobacz szczegóły",
+      "dialogTitle": "Pliki cookie i przechowywanie",
+      "dialogIntro": "Z tego obecnie korzysta Firma Total.",
+      "essentialTitle": "Podstawowe preferencje",
+      "essentialBody": "Zawsze aktywne. Zapisują one język i wybór prywatności w tej przeglądarce.",
+      "analyticsTitle": "Pomiar bez plików cookie",
+      "analyticsBody": "Cloudflare Web Analytics mierzy zagregowane wizyty i wydajność bez plików cookie, profili ani dostępu do dokumentów.",
+      "advertisingTitle": "Reklama opcjonalna",
+      "advertisingBody": "Google może używać plików cookie lub przechowywania reklam tylko zgodnie z Twoim wyborem i obowiązującymi kontrolami zgody.",
+      "policy": "Pełna polityka",
+      "close": "Zamknij"
+    },
+    "policy": {
+      "kicker": "Pliki cookie i przechowywanie",
+      "title": "Kilka technologii. Wyjaśnione jasno.",
+      "intro": "Ta zasada opisuje bieżące wykorzystanie lokalnego przechowywania, pomiarów i reklam Firma Total.",
+      "controlTitle": "Jak zmienić wybór",
+      "controlBody": "Panel można ponownie otworzyć przez „Ustawienia plików cookie” w stopce każdej strony. Dane witryny można też usunąć w przeglądarce.",
+      "updated": "Ostatnia aktualizacja: 15 sierpnia 2026 r.",
+      "back": "Wróć do narzędzi"
+    },
+    "privacy": {
+      "kicker": "Prywatność, bez drobnego druku",
+      "title": "Twoje dokumenty są Twoje.",
+      "intro": "Firma Total działa bezpośrednio w Twojej przeglądarce. Nie potrzebujemy konta ani nie przechowujemy kopii Twoich plików.",
+      "filesTitle": "Twoje pliki",
+      "filesBody": "Pliki PDF, dokumenty i obrazy są przetwarzane na tym urządzeniu. Nie są one wysyłane na nasze serwery.",
+      "analyticsTitle": "Statystyki odwiedzin",
+      "analyticsBody": "Cloudflare Web Analytics mierzy zagregowane wizyty i wydajność bez plików cookie, profili ani dostępu do dokumentów.",
+      "back": "Wróć do narzędzi",
+      "storageTitle": "Pamięć przeglądarki",
+      "storageBody": "W pamięci lokalnej zapisujemy tylko język i Twój wybór prywatności. Możesz je usunąć w ustawieniach przeglądarki.",
+      "advertisingTitle": "Reklama",
+      "advertisingBody": "Google zapewnia reklamy. Zgoda na reklamę jest domyślnie odrzucana i może zostać aktywowana dopiero po wyraźnym wyborze. W razie potrzeby Google może także wyświetlać własne certyfikowane kontrole.",
+      "cookiesLink": "Zapoznaj się z polityką plików cookie"
+    },
+    "footer": {
+      "cookies": "Pliki cookie",
+      "settings": "Ustawienia plików cookie"
+    }
+  },
+  "zh": {
+    "notice": {
+      "kicker": "PDF 总计 · Cookie",
+      "title": "隐私信息同样清晰",
+      "body": "我们使用必要的本地存储来记住语言和您的选择。测量无需 cookie 即可进行。在您接受之前，广告将未经同意。",
+      "essential": "仅必要",
+      "accept": "接受广告",
+      "settings": "查看详情",
+      "dialogTitle": "Cookie 和存储",
+      "dialogIntro": "这就是 Firma Total 现在使用的。",
+      "essentialTitle": "基本偏好",
+      "essentialBody": "始终处于活动状态。他们在此浏览器中保存语言和您的隐私选择。",
+      "analyticsTitle": "不使用 cookie 的测量",
+      "analyticsBody": "Cloudflare Web Analytics 在不使用 Cookie、不创建用户档案且不访问您的文档的情况下衡量汇总访问量和性能。",
+      "advertisingTitle": "可选广告",
+      "advertisingBody": "Google 只能根据您的选择及其适用的同意控制来使用 Cookie 或广告存储。",
+      "policy": "完整政策",
+      "close": "关闭"
+    },
+    "policy": {
+      "kicker": "Cookie 和存储",
+      "title": "技术很少。解释清楚了。",
+      "intro": "此政策描述了 Firma Total 当前的本地存储、测量和广告使用情况。",
+      "controlTitle": "如何更改选择",
+      "controlBody": "您可以通过任何页面页脚中的“Cookie 设置”重新打开此面板，也可以在浏览器中清除本站数据。",
+      "updated": "最后更新：2026 年 8 月 15 日。",
+      "back": "返回工具"
+    },
+    "privacy": {
+      "kicker": "隐私，无细则",
+      "title": "您的文档是您的。",
+      "intro": "Firma Total 直接在浏览器中运行。我们不需要帐户，也不保留您的文件副本。",
+      "filesTitle": "您的文件",
+      "filesBody": "PDF、文档和图像在此设备上处理。它们不会发送到我们的服务器。",
+      "analyticsTitle": "访问统计",
+      "analyticsBody": "Cloudflare Web Analytics 在不使用 Cookie、不创建用户档案且不访问您的文档的情况下衡量汇总访问量和性能。",
+      "back": "返回工具",
+      "storageTitle": "浏览器存储",
+      "storageBody": "我们仅在本地存储中保存语言和您的隐私选择。您可以从浏览器设置中删除它们。",
+      "advertisingTitle": "广告",
+      "advertisingBody": "Google 提供广告。广告同意默认被拒绝，只有在明确选择后才能激活。必要时，Google 还可能会显示自己的经过认证的控件。",
+      "cookiesLink": "查阅cookie政策"
+    },
+    "footer": {
+      "cookies": "Cookie",
+      "settings": "Cookie 设置"
+    }
+  },
+  "ja": {
+    "notice": {
+      "kicker": "PDF 合計 · Cookie",
+      "title": "ここでも明確なプライバシー",
+      "body": "言語とユーザーの選択を記憶するために、重要なローカル ストレージを使用します。測定は Cookie なしでも機能します。あなたが同意するまで、広告は同意なしのままになります。",
+      "essential": "必要のみ",
+      "accept": "広告を受け入れる",
+      "settings": "詳細を見る",
+      "dialogTitle": "Cookie とストレージ",
+      "dialogIntro": "これは Firma Total が現在使用しているものです。",
+      "essentialTitle": "重要な設定",
+      "essentialBody": "常にアクティブです。言語とプライバシーの選択がこのブラウザに保存されます。",
+      "analyticsTitle": "Cookie を使用しない測定",
+      "analyticsBody": "Cloudflare Web Analytics は、Cookie、プロファイル作成、文書へのアクセスなしで、集計された訪問数とパフォーマンスを測定します。",
+      "advertisingTitle": "オプションの広告",
+      "advertisingBody": "Google は、お客様の選択および該当する同意制御に従ってのみ Cookie または広告ストレージを使用することがあります。",
+      "policy": "完全なポリシー",
+      "close": "閉じる"
+    },
+    "policy": {
+      "kicker": "Cookie とストレージ",
+      "title": "テクノロジーはほとんどありません。わかりやすく説明しました。",
+      "intro": "このポリシーでは、Firma Total の現在のローカル ストレージ、測定、および広告の使用状況について説明します。",
+      "controlTitle": "選択を変更する方法",
+      "controlBody": "各ページのフッターにある「Cookie 設定」からパネルを再度開けます。ブラウザーでサイトデータを消去することもできます。",
+      "updated": "最終更新日: 2026 年 8 月 15 日。",
+      "back": "ツールに戻る"
+    },
+    "privacy": {
+      "kicker": "プライバシー、細かい部分はありません",
+      "title": "あなたの文書はあなたのものです。",
+      "intro": "Firma Total はブラウザで直接動作します。アカウントは必要ありませんし、ファイルのコピーを保存する必要もありません。",
+      "filesTitle": "あなたのファイル",
+      "filesBody": "PDF、ドキュメント、画像はこのデバイスで処理されます。これらは当社のサーバーには送信されません。",
+      "analyticsTitle": "訪問統計",
+      "analyticsBody": "Cloudflare Web Analytics は、Cookie、プロファイル作成、文書へのアクセスなしで、集計された訪問数とパフォーマンスを測定します。",
+      "back": "ツールに戻る",
+      "storageTitle": "ブラウザストレージ",
+      "storageBody": "言語とプライバシーの選択のみがローカル ストレージに保存されます。ブラウザの設定から削除できます。",
+      "advertisingTitle": "広告",
+      "advertisingBody": "Google が広告を提供しています。広告の同意はデフォルトでは拒否されており、明示的な選択があった場合にのみアクティブ化できます。 Google は、必要に応じて独自の認定コントロールを表示することもあります。",
+      "cookiesLink": "Cookie ポリシーを参照してください"
+    },
+    "footer": {
+      "cookies": "Cookie",
+      "settings": "Cookie 設定"
+    }
+  },
+  "ur": {
+    "notice": {
+      "kicker": "کل پی ڈی ایف · کوکیز",
+      "title": "یہاں بھی واضح رازداری",
+      "body": "ہم زبان اور آپ کی پسند کو یاد رکھنے کے لیے ضروری مقامی اسٹوریج کا استعمال کرتے ہیں۔ پیمائش کوکیز کے بغیر کام کرتی ہے۔ اشتہار اس وقت تک بغیر رضامندی کے رہتا ہے جب تک آپ اسے قبول نہ کر لیں۔",
+      "essential": "صرف ضروری",
+      "accept": "اشتہار قبول کریں۔",
+      "settings": "تفصیلات دیکھیں",
+      "dialogTitle": "کوکیز اور اسٹوریج",
+      "dialogIntro": "پی ڈی ایف ٹوٹل ابھی یہی استعمال کرتا ہے۔",
+      "essentialTitle": "ضروری ترجیحات",
+      "essentialBody": "ہمیشہ متحرک۔ وہ اس براؤزر میں زبان اور آپ کی رازداری کے انتخاب کو محفوظ کرتے ہیں۔",
+      "analyticsTitle": "کوکیز کے بغیر پیمائش",
+      "analyticsBody": "Cloudflare Web Analytics کوکیز، پروفائلز یا آپ کی دستاویزات تک رسائی کے بغیر مجموعی وزٹس اور کارکردگی کی پیمائش کرتا ہے۔",
+      "advertisingTitle": "اختیاری اشتہار",
+      "advertisingBody": "Google کوکیز یا اشتہاری اسٹوریج کو صرف آپ کی پسند اور اس کے قابل اطلاق رضامندی کے کنٹرول کے مطابق استعمال کر سکتا ہے۔",
+      "policy": "مکمل پالیسی",
+      "close": "بند"
+    },
+    "policy": {
+      "kicker": "کوکیز اور اسٹوریج",
+      "title": "چند ٹیکنالوجیز۔ واضح طور پر بیان کیا۔",
+      "intro": "یہ پالیسی Firma Total کے موجودہ مقامی اسٹوریج، پیمائش اور اشتہاری استعمال کی وضاحت کرتی ہے۔",
+      "controlTitle": "اپنا انتخاب کیسے بدلیں",
+      "controlBody": "ہر صفحے کے فوٹر میں “کوکی کی ترتیبات” سے یہ پینل دوبارہ کھولیں، یا براؤزر میں سائٹ کا ڈیٹا صاف کریں۔",
+      "updated": "آخری اپ ڈیٹ: اگست 15، 2026۔",
+      "back": "ٹولز پر واپس جائیں۔"
+    },
+    "privacy": {
+      "kicker": "رازداری، کوئی عمدہ پرنٹ نہیں۔",
+      "title": "آپ کی دستاویزات آپ کی ہیں۔",
+      "intro": "PDF ٹوٹل براہ راست آپ کے براؤزر میں کام کرتا ہے۔ ہمیں کسی اکاؤنٹ کی ضرورت نہیں ہے اور نہ ہی ہم آپ کی فائلوں کی کاپی رکھتے ہیں۔",
+      "filesTitle": "آپ کی فائلیں۔",
+      "filesBody": "اس ڈیوائس پر پی ڈی ایف، دستاویزات اور تصاویر پر کارروائی کی جاتی ہے۔ وہ ہمارے سرورز پر نہیں بھیجے جاتے ہیں۔",
+      "analyticsTitle": "ملاحظہ کے اعدادوشمار",
+      "analyticsBody": "Cloudflare Web Analytics کوکیز، پروفائلز یا آپ کی دستاویزات تک رسائی کے بغیر مجموعی وزٹس اور کارکردگی کی پیمائش کرتا ہے۔",
+      "back": "واپس ٹولز پر",
+      "storageTitle": "براؤزر اسٹوریج",
+      "storageBody": "ہم مقامی اسٹوریج میں صرف زبان اور آپ کی رازداری کی پسند کو محفوظ کرتے ہیں۔ آپ انہیں براؤزر کی ترتیبات سے حذف کر سکتے ہیں۔",
+      "advertisingTitle": "ایڈورٹائزنگ",
+      "advertisingBody": "گوگل اشتہارات فراہم کرتا ہے۔ اشتہارات کی رضامندی کو بطور ڈیفالٹ مسترد کر دیا جاتا ہے اور اسے صرف ایک واضح انتخاب کے بعد چالو کیا جا سکتا ہے۔ ضرورت پڑنے پر Google اپنے تصدیق شدہ کنٹرولز بھی دکھا سکتا ہے۔",
+      "cookiesLink": "کوکی پالیسی سے مشورہ کریں۔"
+    },
+    "footer": {
+      "cookies": "کوکیز",
+      "settings": "کوکی کی ترتیبات"
+    }
+  },
+  "ar": {
+    "notice": {
+      "kicker": "إجمالي ملفات PDF · ملفات تعريف الارتباط",
+      "title": "خصوصية واضحة هنا أيضاً",
+      "body": "نستخدم وحدة التخزين المحلية الأساسية لتذكر اللغة واختيارك. يعمل القياس بدون ملفات تعريف الارتباط. يبقى الإعلان بدون موافقة حتى تقبله.",
+      "essential": "الضروري فقط",
+      "accept": "اقبل الإعلانات",
+      "settings": "انظر التفاصيل",
+      "dialogTitle": "ملفات تعريف الارتباط والتخزين",
+      "dialogIntro": "هذا هو ما يستخدمه Firma Total الآن.",
+      "essentialTitle": "التفضيلات الأساسية",
+      "essentialBody": "نشط دائمًا. يقومون بحفظ اللغة واختيار الخصوصية الخاص بك في هذا المتصفح.",
+      "analyticsTitle": "القياس بدون ملفات تعريف الارتباط",
+      "analyticsBody": "يقيس Cloudflare Web Analytics الزيارات المجمعة والأداء من دون ملفات ارتباط أو ملفات شخصية أو الوصول إلى مستنداتك.",
+      "advertisingTitle": "إعلانات اختيارية",
+      "advertisingBody": "لا يجوز لشركة Google استخدام ملفات تعريف الارتباط أو مساحة تخزين الإعلانات إلا وفقًا لاختيارك وضوابط الموافقة المعمول بها.",
+      "policy": "السياسة الكاملة",
+      "close": "إغلاق"
+    },
+    "policy": {
+      "kicker": "ملفات تعريف الارتباط والتخزين",
+      "title": "القليل من التقنيات. وأوضح بوضوح.",
+      "intro": "توضح هذه السياسة التخزين المحلي الحالي لـ Firma Total، والقياس، واستخدام الإعلانات.",
+      "controlTitle": "كيفية تغيير اختيارك",
+      "controlBody": "يمكنك إعادة فتح اللوحة من “إعدادات ملفات الارتباط” في تذييل أي صفحة، أو مسح بيانات الموقع من المتصفح.",
+      "updated": "آخر تحديث: 15 أغسطس 2026.",
+      "back": "الرجوع إلى الأدوات"
+    },
+    "privacy": {
+      "kicker": "الخصوصية، بدون طباعة دقيقة",
+      "title": "مستنداتك ملكك.",
+      "intro": "يعمل Firma Total مباشرة في متصفحك. نحن لا نحتاج إلى حساب ولا نحتفظ بنسخة من ملفاتك.",
+      "filesTitle": "ملفاتك",
+      "filesBody": "تتم معالجة ملفات PDF والمستندات والصور على هذا الجهاز. لا يتم إرسالها إلى خوادمنا.",
+      "analyticsTitle": "إحصائيات الزيارة",
+      "analyticsBody": "يقيس Cloudflare Web Analytics الزيارات المجمعة والأداء من دون ملفات ارتباط أو ملفات شخصية أو الوصول إلى مستنداتك.",
+      "back": "العودة إلى الأدوات",
+      "storageTitle": "مساحة تخزين المتصفح",
+      "storageBody": "نحن نحفظ فقط اللغة واختيار الخصوصية الخاص بك في وحدة التخزين المحلية. ويمكنك حذفها من إعدادات المتصفح.",
+      "advertisingTitle": "الإعلان",
+      "advertisingBody": "توفر Google الإعلانات. يتم رفض الموافقة على الإعلان بشكل افتراضي، ولا يمكن تفعيلها إلا بعد اختيار صريح. يجوز لشركة Google أيضًا عرض عناصر التحكم المعتمدة الخاصة بها عند الحاجة.",
+      "cookiesLink": "راجع سياسة ملفات تعريف الارتباط"
+    },
+    "footer": {
+      "cookies": "ملفات الارتباط",
+      "settings": "إعدادات ملفات الارتباط"
+    }
+  },
+  "hi": {
+    "notice": {
+      "kicker": "Firma Total · कुकीज़",
+      "title": "यहाँ भी साफ़ गोपनीयता",
+      "body": "हम भाषा और आपकी पसंद को याद रखने के लिए आवश्यक स्थानीय भंडारण का उपयोग करते हैं। माप कुकीज़ के बिना काम करता है. जब तक आप इसे स्वीकार नहीं करते तब तक विज्ञापन बिना सहमति के रहता है।",
+      "essential": "केवल आवश्यक",
+      "accept": "विज्ञापन स्वीकार करें",
+      "settings": "विवरण देखें",
+      "dialogTitle": "कुकीज़ और भंडारण",
+      "dialogIntro": "Firma Total अभी इसी का उपयोग करता है।",
+      "essentialTitle": "आवश्यक प्राथमिकताएँ",
+      "essentialBody": "हमेशा सक्रिय। वे इस ब्राउज़र में भाषा और आपकी गोपनीयता पसंद को सहेजते हैं।",
+      "analyticsTitle": "कुकीज़ के बिना माप",
+      "analyticsBody": "Cloudflare Web Analytics कुकी, प्रोफ़ाइल या आपके दस्तावेज़ों तक पहुँच के बिना समेकित विज़िट और प्रदर्शन मापता है।",
+      "advertisingTitle": "वैकल्पिक विज्ञापन",
+      "advertisingBody": "Google कुकीज़ या विज्ञापन भंडारण का उपयोग केवल आपकी पसंद और उसके लागू सहमति नियंत्रणों के अनुसार ही कर सकता है।",
+      "policy": "पूर्ण नीति",
+      "close": "बंद करें"
+    },
+    "policy": {
+      "kicker": "कुकीज़ और भंडारण",
+      "title": "कुछ प्रौद्योगिकियां। स्पष्ट रूप से समझाया.",
+      "intro": "यह नीति Firma Total के वर्तमान स्थानीय भंडारण, माप और विज्ञापन उपयोग का वर्णन करती है।",
+      "controlTitle": "अपनी पसंद कैसे बदलें",
+      "controlBody": "किसी भी पेज के फ़ुटर में “कुकी सेटिंग्स” से पैनल फिर खोलें, या ब्राउज़र में साइट डेटा मिटाएँ।",
+      "updated": "अंतिम अद्यतन: 15 अगस्त, 2026।",
+      "back": "टूल्स पर वापस लौटें"
+    },
+    "privacy": {
+      "kicker": "गोपनीयता, कोई बढ़िया प्रिंट नहीं",
+      "title": "आपके दस्तावेज़ आपके हैं।",
+      "intro": "Firma Total सीधे आपके ब्राउज़र में काम करता है। किसी खाते की ज़रूरत नहीं है और हम आपकी फ़ाइलों की कॉपी नहीं रखते।",
+      "filesTitle": "आपकी फ़ाइलें",
+      "filesBody": "पीडीएफ, दस्तावेज़ और छवियां इस डिवाइस पर संसाधित की जाती हैं। वे हमारे सर्वर पर नहीं भेजे जाते हैं.",
+      "analyticsTitle": "विज़िट आँकड़े",
+      "analyticsBody": "Cloudflare Web Analytics कुकी, प्रोफ़ाइल या आपके दस्तावेज़ों तक पहुँच के बिना समेकित विज़िट और प्रदर्शन मापता है।",
+      "back": "टूल्स पर वापस लौटें",
+      "storageTitle": "ब्राउज़र संग्रहण",
+      "storageBody": "हम स्थानीय भंडारण में केवल भाषा और आपकी गोपनीयता पसंद को सहेजते हैं। आप उन्हें ब्राउज़र सेटिंग से हटा सकते हैं.",
+      "advertisingTitle": "विज्ञापन",
+      "advertisingBody": "Google विज्ञापन प्रदान करता है। विज्ञापन सहमति डिफ़ॉल्ट रूप से अस्वीकार कर दी जाती है और इसे स्पष्ट विकल्प के बाद ही सक्रिय किया जा सकता है। आवश्यकता पड़ने पर Google अपने स्वयं के प्रमाणित नियंत्रण भी प्रदर्शित कर सकता है।",
+      "cookiesLink": "कुकी नीति से परामर्श लें"
+    },
+    "footer": {
+      "cookies": "कुकीज़",
+      "settings": "कुकी सेटिंग्स"
+    }
+  },
+  "ru": {
+    "notice": {
+      "kicker": "Всего PDF · Файлы cookie",
+      "title": "Понятная конфиденциальность и здесь",
+      "body": "Мы используем необходимое локальное хранилище, чтобы запомнить язык и ваш выбор. Измерение работает без файлов cookie. Реклама остается без согласия, пока вы ее не примете.",
+      "essential": "Только необходимо",
+      "accept": "Принять рекламу",
+      "settings": "Подробнее",
+      "dialogTitle": "Файлы cookie и хранилище",
+      "dialogIntro": "Это то, что сейчас использует Firma Total.",
+      "essentialTitle": "Основные настройки",
+      "essentialBody": "Всегда активен. Они сохраняют язык и ваш выбор конфиденциальности в этом браузере.",
+      "analyticsTitle": "Измерение без файлов cookie",
+      "analyticsBody": "Cloudflare Web Analytics измеряет агрегированные посещения и производительность без файлов cookie, профилей и доступа к вашим документам.",
+      "advertisingTitle": "Необязательная реклама",
+      "advertisingBody": "Google может использовать файлы cookie или хранилище для рекламы только в соответствии с вашим выбором и применимыми средствами контроля согласия.",
+      "policy": "Полная политика",
+      "close": "Закрыть"
+    },
+    "policy": {
+      "kicker": "Файлы cookie и хранилище",
+      "title": "Мало технологий. Объяснил понятно.",
+      "intro": "Эта политика описывает текущее локальное хранилище Firma Total, измерение и использование рекламы.",
+      "controlTitle": "Как изменить выбор",
+      "controlBody": "Откройте панель через «Настройки cookie» внизу любой страницы или удалите данные сайта в браузере.",
+      "updated": "Последнее обновление: 15 августа 2026 г.",
+      "back": "Вернуться к инструментам"
+    },
+    "privacy": {
+      "kicker": "Конфиденциальность, без мелкого шрифта",
+      "title": "Ваши документы — ваши.",
+      "intro": "Firma Total работает прямо в вашем браузере. Нам не нужна учетная запись и мы не храним копии ваших файлов.",
+      "filesTitle": "Ваши файлы",
+      "filesBody": "Файлы PDF, документы и изображения обрабатываются на этом устройстве. Они не отправляются на наши серверы.",
+      "analyticsTitle": "Статистика посещений",
+      "analyticsBody": "Cloudflare Web Analytics измеряет агрегированные посещения и производительность без файлов cookie, профилей и доступа к вашим документам.",
+      "back": "Вернуться к инструментам",
+      "storageTitle": "Хранилище браузера",
+      "storageBody": "Мы сохраняем в локальном хранилище только язык и ваш выбор конфиденциальности. Вы можете удалить их из настроек браузера.",
+      "advertisingTitle": "Реклама",
+      "advertisingBody": "Google предоставляет рекламу. Согласие на рекламу по умолчанию отклонено и может быть активировано только после явного выбора. При необходимости Google также может отображать собственные сертифицированные элементы управления.",
+      "cookiesLink": "Ознакомьтесь с политикой использования файлов cookie."
+    },
+    "footer": {
+      "cookies": "Файлы cookie",
+      "settings": "Настройки cookie"
+    }
+  },
+  "el": {
+    "notice": {
+      "kicker": "Σύνολο PDF · Cookies",
+      "title": "Ξεκάθαρο απόρρητο και εδώ",
+      "body": "Χρησιμοποιούμε βασικό τοπικό χώρο αποθήκευσης για να θυμόμαστε τη γλώσσα και την επιλογή σας. Η μέτρηση λειτουργεί χωρίς cookies. Η διαφήμιση παραμένει χωρίς συγκατάθεση μέχρι να την αποδεχτείτε.",
+      "essential": "Μόνο απαραίτητο",
+      "accept": "Αποδεχτείτε τη διαφήμιση",
+      "settings": "Δείτε λεπτομέρειες",
+      "dialogTitle": "Cookies και αποθήκευση",
+      "dialogIntro": "Αυτό χρησιμοποιεί το Firma Total αυτή τη στιγμή.",
+      "essentialTitle": "Απαραίτητες προτιμήσεις",
+      "essentialBody": "Πάντα ενεργός. Αποθηκεύουν τη γλώσσα και την επιλογή απορρήτου σας σε αυτό το πρόγραμμα περιήγησης.",
+      "analyticsTitle": "Μέτρηση χωρίς cookies",
+      "analyticsBody": "Το Cloudflare Web Analytics μετρά συγκεντρωτικές επισκέψεις και απόδοση χωρίς cookies, προφίλ ή πρόσβαση στα έγγραφά σας.",
+      "advertisingTitle": "Προαιρετική διαφήμιση",
+      "advertisingBody": "Η Google μπορεί να χρησιμοποιεί cookie ή διαφημιστικό χώρο αποθήκευσης μόνο σύμφωνα με την επιλογή σας και τους ισχύοντες ελέγχους συναίνεσης.",
+      "policy": "Πλήρης πολιτική",
+      "close": "Κοντά"
+    },
+    "policy": {
+      "kicker": "Cookies και αποθήκευση",
+      "title": "Λίγες τεχνολογίες. Εξήγησε ξεκάθαρα.",
+      "intro": "Αυτή η πολιτική περιγράφει την τρέχουσα τοπική αποθήκευση, μέτρηση και χρήση διαφήμισης του Firma Total.",
+      "controlTitle": "Πώς αλλάζετε την επιλογή",
+      "controlBody": "Ανοίξτε ξανά τον πίνακα από τις «Ρυθμίσεις cookies» στο υποσέλιδο ή διαγράψτε τα δεδομένα του ιστοτόπου από το πρόγραμμα περιήγησης.",
+      "updated": "Τελευταία ενημέρωση: 15 Αυγούστου 2026.",
+      "back": "Επιστροφή στα εργαλεία"
+    },
+    "privacy": {
+      "kicker": "Απόρρητο, χωρίς ψιλά γράμματα",
+      "title": "Τα έγγραφά σας είναι δικά σας.",
+      "intro": "Το Firma Total λειτουργεί απευθείας στο πρόγραμμα περιήγησής σας. Δεν χρειαζόμαστε λογαριασμό ούτε διατηρούμε αντίγραφο των αρχείων σας.",
+      "filesTitle": "Τα αρχεία σας",
+      "filesBody": "Τα PDF, τα έγγραφα και οι εικόνες υποβάλλονται σε επεξεργασία σε αυτήν τη συσκευή. Δεν αποστέλλονται στους διακομιστές μας.",
+      "analyticsTitle": "Στατιστικά στοιχεία επίσκεψης",
+      "analyticsBody": "Το Cloudflare Web Analytics μετρά συγκεντρωτικές επισκέψεις και απόδοση χωρίς cookies, προφίλ ή πρόσβαση στα έγγραφά σας.",
+      "back": "Επιστροφή στα εργαλεία",
+      "storageTitle": "Αποθήκευση προγράμματος περιήγησης",
+      "storageBody": "Αποθηκεύουμε μόνο τη γλώσσα και την επιλογή απορρήτου σας στον τοπικό χώρο αποθήκευσης. Μπορείτε να τα διαγράψετε από τις ρυθμίσεις του προγράμματος περιήγησης.",
+      "advertisingTitle": "Διαφήμιση",
+      "advertisingBody": "Η Google παρέχει τη διαφήμιση. Η συναίνεση διαφήμισης απορρίπτεται από προεπιλογή και μπορεί να ενεργοποιηθεί μόνο μετά από ρητή επιλογή. Η Google μπορεί επίσης να εμφανίζει τα δικά της πιστοποιημένα στοιχεία ελέγχου όταν απαιτείται.",
+      "cookiesLink": "Συμβουλευτείτε την πολιτική cookie"
+    },
+    "footer": {
+      "cookies": "Cookies",
+      "settings": "Ρυθμίσεις cookies"
+    }
+  },
+  "tr": {
+    "notice": {
+      "kicker": "PDF Toplamı · Çerezler",
+      "title": "Burada da açık gizlilik",
+      "body": "Dili ve seçiminizi hatırlamak için gerekli yerel depolamayı kullanıyoruz. Ölçüm çerezler olmadan çalışır. Reklam siz kabul edene kadar izinsiz kalır.",
+      "essential": "Yalnızca gerekli",
+      "accept": "Reklamı kabul et",
+      "settings": "Ayrıntılara bakın",
+      "dialogTitle": "Çerezler ve depolama",
+      "dialogIntro": "Firma Total'in şu anda kullandığı şey budur.",
+      "essentialTitle": "Temel tercihler",
+      "essentialBody": "Her zaman aktif. Dili ve gizlilik seçiminizi bu tarayıcıya kaydederler.",
+      "analyticsTitle": "Çerezler olmadan ölçüm",
+      "analyticsBody": "Cloudflare Web Analytics çerez, profil veya belgelerinize erişim olmadan toplu ziyaretleri ve performansı ölçer.",
+      "advertisingTitle": "İsteğe bağlı reklamcılık",
+      "advertisingBody": "Google, çerezleri veya reklam depolama alanını yalnızca seçiminize ve geçerli izin kontrollerine uygun olarak kullanabilir.",
+      "policy": "Tam politika",
+      "close": "Kapat"
+    },
+    "policy": {
+      "kicker": "Çerezler ve depolama",
+      "title": "Birkaç teknoloji. Açıkça anlatıldı.",
+      "intro": "Bu politika, Firma Total'in mevcut yerel depolama, ölçüm ve reklam kullanımını açıklamaktadır.",
+      "controlTitle": "Seçiminizi değiştirme",
+      "controlBody": "Her sayfanın altındaki “Çerez ayarları” bağlantısından paneli yeniden açabilir veya tarayıcıdan site verilerini silebilirsiniz.",
+      "updated": "Son güncelleme: 15 Ağustos 2026.",
+      "back": "Araçlara dön"
+    },
+    "privacy": {
+      "kicker": "Gizlilik, ayrıntılı baskı yok",
+      "title": "Belgeleriniz sizindir.",
+      "intro": "Firma Total doğrudan tarayıcınızda çalışır. Bir hesaba ihtiyacımız yok ve dosyalarınızın bir kopyasını saklıyoruz.",
+      "filesTitle": "Dosyalarınız",
+      "filesBody": "PDF'ler, belgeler ve resimler bu cihazda işleniyor. Sunucularımıza gönderilmezler.",
+      "analyticsTitle": "Ziyaret istatistikleri",
+      "analyticsBody": "Cloudflare Web Analytics çerez, profil veya belgelerinize erişim olmadan toplu ziyaretleri ve performansı ölçer.",
+      "back": "Araçlara dön",
+      "storageTitle": "Tarayıcı Depolama Alanı",
+      "storageBody": "Yalnızca dili ve gizlilik seçiminizi yerel depolama alanına kaydediyoruz. Bunları tarayıcı ayarlarından silebilirsiniz.",
+      "advertisingTitle": "Reklamcılık",
+      "advertisingBody": "Reklamcılığı Google sağlar. Reklam izni varsayılan olarak reddedilir ve yalnızca açık bir seçim sonrasında etkinleştirilebilir. Google gerektiğinde kendi sertifikalı kontrollerini de görüntüleyebilir.",
+      "cookiesLink": "Çerez politikasına bakın"
+    },
+    "footer": {
+      "cookies": "Çerezler",
+      "settings": "Çerez ayarları"
+    }
+  },
+  "nl": {
+    "notice": {
+      "kicker": "PDF Totaal · Cookies",
+      "title": "Ook hier duidelijke privacy",
+      "body": "We gebruiken essentiële lokale opslag om de taal en uw keuze te onthouden. De meting werkt zonder cookies. Advertenties blijven zonder toestemming totdat u deze accepteert.",
+      "essential": "Alleen nodig",
+      "accept": "Accepteer advertenties",
+      "settings": "Zie details",
+      "dialogTitle": "Cookies en opslag",
+      "dialogIntro": "Dit is wat Firma Total momenteel gebruikt.",
+      "essentialTitle": "Essentiële voorkeuren",
+      "essentialBody": "Altijd actief. Ze slaan de taal en uw privacykeuze op in deze browser.",
+      "analyticsTitle": "Meting zonder cookies",
+      "analyticsBody": "Cloudflare Web Analytics meet geaggregeerde bezoeken en prestaties zonder cookies, profielen of toegang tot je documenten.",
+      "advertisingTitle": "Optionele advertenties",
+      "advertisingBody": "Google mag cookies of advertentie-opslag alleen gebruiken in overeenstemming met uw keuze en de toepasselijke toestemmingscontroles.",
+      "policy": "Volledig beleid",
+      "close": "Sluiten"
+    },
+    "policy": {
+      "kicker": "Cookies en opslag",
+      "title": "Weinig technologieën. Duidelijk uitgelegd.",
+      "intro": "Dit beleid beschrijft het huidige lokale opslag-, meet- en advertentiegebruik van Firma Total.",
+      "controlTitle": "Je keuze wijzigen",
+      "controlBody": "Open dit paneel opnieuw via “Cookie-instellingen” in de voettekst of wis de sitegegevens in je browser.",
+      "updated": "Laatste update: 15 augustus 2026.",
+      "back": "Terug naar hulpmiddelen"
+    },
+    "privacy": {
+      "kicker": "Privacy, geen kleine lettertjes",
+      "title": "Uw documenten zijn van u.",
+      "intro": "Firma Total werkt rechtstreeks in uw browser. Wij hebben geen account nodig en bewaren ook geen kopie van uw bestanden.",
+      "filesTitle": "Uw bestanden",
+      "filesBody": "PDF's, documenten en afbeeldingen worden op dit apparaat verwerkt. Ze worden niet naar onze servers verzonden.",
+      "analyticsTitle": "Bezoekstatistieken",
+      "analyticsBody": "Cloudflare Web Analytics meet geaggregeerde bezoeken en prestaties zonder cookies, profielen of toegang tot je documenten.",
+      "back": "Terug naar hulpmiddelen",
+      "storageTitle": "Browseropslag",
+      "storageBody": "We slaan alleen de taal en uw privacykeuze op in de lokale opslag. U kunt ze verwijderen via de browserinstellingen.",
+      "advertisingTitle": "Advertentie",
+      "advertisingBody": "Google levert de advertenties. Advertentietoestemming wordt standaard geweigerd en kan alleen worden geactiveerd na een uitdrukkelijke keuze. Google kan indien nodig ook zijn eigen gecertificeerde bedieningselementen weergeven.",
+      "cookiesLink": "Raadpleeg het cookiebeleid"
+    },
+    "footer": {
+      "cookies": "Cookies",
+      "settings": "Cookie-instellingen"
+    }
+  },
+  "ko": {
+    "notice": {
+      "kicker": "PDF 전체 · 쿠키",
+      "title": "여기서도 명확한 개인정보 보호",
+      "body": "우리는 언어와 귀하의 선택을 기억하기 위해 필수 로컬 저장소를 사용합니다. 측정은 쿠키 없이 작동됩니다. 광고는 귀하가 수락할 때까지 동의 없이 유지됩니다.",
+      "essential": "필요한 경우에만",
+      "accept": "광고 수락",
+      "settings": "자세히 보기",
+      "dialogTitle": "쿠키 및 저장",
+      "dialogIntro": "이것이 바로 Firma Total이 현재 사용하고 있는 것입니다.",
+      "essentialTitle": "필수 환경설정",
+      "essentialBody": "항상 활성화되어 있습니다. 이 브라우저에는 언어와 개인정보 보호 선택이 저장됩니다.",
+      "analyticsTitle": "쿠키 없이 측정",
+      "analyticsBody": "Cloudflare Web Analytics는 쿠키, 프로필 생성 또는 문서 접근 없이 집계 방문 수와 성능을 측정합니다.",
+      "advertisingTitle": "선택적 광고",
+      "advertisingBody": "Google은 귀하의 선택과 해당 동의 관리에 따라서만 쿠키 또는 광고 저장 공간을 사용할 수 있습니다.",
+      "policy": "전체 정책",
+      "close": "닫기"
+    },
+    "policy": {
+      "kicker": "쿠키 및 저장",
+      "title": "기술이 거의 없습니다. 명확하게 설명했습니다.",
+      "intro": "이 정책은 Firma Total의 현재 로컬 저장, 측정 및 광고 사용에 대해 설명합니다.",
+      "controlTitle": "선택 변경 방법",
+      "controlBody": "모든 페이지 하단의 “쿠키 설정”에서 패널을 다시 열거나 브라우저에서 사이트 데이터를 삭제할 수 있습니다.",
+      "updated": "마지막 업데이트: 2026년 8월 15일.",
+      "back": "도구로 돌아가기"
+    },
+    "privacy": {
+      "kicker": "개인정보 보호, 작은 글씨 금지",
+      "title": "귀하의 문서는 귀하의 것입니다.",
+      "intro": "Firma Total은 브라우저에서 직접 작동합니다. 우리는 계정이 필요하지 않으며 귀하의 파일 사본을 보관하지도 않습니다.",
+      "filesTitle": "내 파일",
+      "filesBody": "PDF, 문서, 이미지는 이 장치에서 처리됩니다. 해당 정보는 당사 서버로 전송되지 않습니다.",
+      "analyticsTitle": "방문 통계",
+      "analyticsBody": "Cloudflare Web Analytics는 쿠키, 프로필 생성 또는 문서 접근 없이 집계 방문 수와 성능을 측정합니다.",
+      "back": "도구로 돌아가기",
+      "storageTitle": "브라우저 저장소",
+      "storageBody": "언어와 개인 정보 보호 선택만 로컬 저장소에 저장됩니다. 브라우저 설정에서 삭제할 수 있습니다.",
+      "advertisingTitle": "광고",
+      "advertisingBody": "Google은 광고를 제공합니다. 광고 동의는 기본적으로 거부되며 명시적인 선택 후에만 활성화될 수 있습니다. Google은 필요한 경우 자체 인증 컨트롤을 표시할 수도 있습니다.",
+      "cookiesLink": "쿠키 정책을 참조하세요."
+    },
+    "footer": {
+      "cookies": "쿠키",
+      "settings": "쿠키 설정"
+    }
+  },
+  "bar": {
+    "notice": {
+      "kicker": "PDF Gesamt · Cookies",
+      "title": "Klare Privatsphär, aa do",
+      "body": "Wir nutzen den notwendigen lokalen Speicher, um die Sprache und Ihre Wahl zu speichern. Die Messung funktioniert ohne Cookies. Werbung bleibt solange ohne Einwilligung, bis Sie diese akzeptieren.",
+      "essential": "Nur notwendig",
+      "accept": "Werbung akzeptieren",
+      "settings": "Siehe Details",
+      "dialogTitle": "Cookies und Speicherung",
+      "dialogIntro": "Dies ist, was Firma Total derzeit verwendet.",
+      "essentialTitle": "Grundlegende Einstellungen",
+      "essentialBody": "Immer aktiv. Sie speichern die Sprache und Ihre Datenschutzwahl in diesem Browser.",
+      "analyticsTitle": "Messung ohne Cookies",
+      "analyticsBody": "Cloudflare Web Analytics misst zammgfasste Bsuach und Leistung ohne Cookies, Profile oder Zugriff auf deine Dokument.",
+      "advertisingTitle": "Optionale Werbung",
+      "advertisingBody": "Google darf Cookies oder Werbespeicher nur in Übereinstimmung mit Ihrer Wahl und den geltenden Einwilligungskontrollen verwenden.",
+      "policy": "Vollständige Richtlinie",
+      "close": "Schließen"
+    },
+    "policy": {
+      "kicker": "Cookies und Speicherung",
+      "title": "Wenige Technologien. Anschaulich erklärt.",
+      "intro": "Diese Richtlinie beschreibt die aktuelle lokale Speicherung, Messung und Werbenutzung von Firma Total.",
+      "controlTitle": "Auswahl ändern",
+      "controlBody": "Über „Cookie-Eistellungen“ im Fuß vo jeder Seitn kannst des Fenster wieda aufmacha oder d’Seitndaten im Browser löschen.",
+      "updated": "Letzte Aktualisierung: 15. August 2026.",
+      "back": "Zurück zu den Tools"
+    },
+    "privacy": {
+      "kicker": "Datenschutz, kein Kleingedrucktes",
+      "title": "Ihre Dokumente gehören Ihnen.",
+      "intro": "Firma Total funktioniert direkt in Ihrem Browser. Wir benötigen weder ein Konto noch behalten wir eine Kopie Ihrer Dateien.",
+      "filesTitle": "Ihre Dateien",
+      "filesBody": "PDFs, Dokumente und Bilder werden auf diesem Gerät verarbeitet. Sie werden nicht an unsere Server gesendet.",
+      "analyticsTitle": "Besuchsstatistik",
+      "analyticsBody": "Cloudflare Web Analytics misst zammgfasste Bsuach und Leistung ohne Cookies, Profile oder Zugriff auf deine Dokument.",
+      "back": "Zurück zu den Tools",
+      "storageTitle": "Browserspeicher",
+      "storageBody": "Wir speichern nur die Sprache und Ihre Datenschutzauswahl im lokalen Speicher. Sie können sie in den Browsereinstellungen löschen.",
+      "advertisingTitle": "Werbung",
+      "advertisingBody": "Google liefert die Werbung. Die Werbeeinwilligung wird standardmäßig verweigert und kann nur nach ausdrücklicher Wahl aktiviert werden. Google kann bei Bedarf auch eigene zertifizierte Kontrollen anzeigen.",
+      "cookiesLink": "Lesen Sie die Cookie-Richtlinie"
+    },
+    "footer": {
+      "cookies": "Cookies",
+      "settings": "Cookie-Eistellungen"
+    }
+  }
+}

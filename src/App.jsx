@@ -13,6 +13,8 @@ const DATE_FORMATS = {
   tr: "tr", nl: "nl", ko: "ko",
 };
 
+const chapalabUrl = (locale, path = "") => `https://www.chapalab.com/${locale === "es" ? "" : `${locale}/`}${path}`;
+
 function makeTypedSignature(text) {
   const canvas = document.createElement("canvas");
   canvas.width = 1400;
@@ -34,7 +36,7 @@ function Header({ locale, setLocale, t }) {
         <span className="brand-firma">firma</span><span>total.</span>
       </a>
       <span className="header-dash" aria-hidden="true">·</span>
-      <a className="lab-mark" href="https://www.chapalab.com" rel="noreferrer">
+      <a className="lab-mark" href={chapalabUrl(locale)} rel="noreferrer">
         <img src="/chapalab-mark.png" alt="" width="28" height="28" /> CHAPALAB.COM
       </a>
       <nav aria-label="Primary">
@@ -70,14 +72,16 @@ function Footer({ t, locale }) {
         <a className="brand compact" href="#top"><span className="brand-firma">firma</span><span>total.</span></a>
         <p>{t("footerTagline")}</p>
         <div>
-          <a className="footer-lab" href="https://www.chapalab.com" rel="noreferrer">
+          <a className="footer-lab" href={chapalabUrl(locale)} rel="noreferrer">
             <img src="/chapalab-mark.png" alt="" width="22" height="22" /> CHAPALAB.COM
           </a>
           <a href="https://github.com/Oteros/firmatotal" target="_blank" rel="noreferrer">{t("sourceCode")} ↗</a>
           <a href="#how">{t("how")}</a>
           <a href={`/${locale}/privacidad/`}>{t("privacy")}</a>
-          <a href={`https://www.chapalab.com/${locale}/apoya/`}>☕ {commonLabels[locale].support}</a>
-          <a href={`https://www.chapalab.com/${locale}/contacto/`}>{commonLabels[locale].contact}</a>
+          <a href={`/${locale}/cookies/`}>{t("cookies")}</a>
+          <button type="button" className="footer-cookie-settings" data-cookie-settings>{t("cookieSettings")}</button>
+          <a href={chapalabUrl(locale, "apoya/")}>☕ {commonLabels[locale].support}</a>
+          <a href={chapalabUrl(locale, "contacto/")}>{commonLabels[locale].contact}</a>
         </div>
       </div>
     </footer>

@@ -18,6 +18,8 @@ test('Firma Total preserves AutoFirma while applying the common security baselin
     'https://127.0.0.1:*',
     'wss://127.0.0.1:*',
     'afirma:',
+    'pagead2.googlesyndication.com',
+    'fundingchoicesmessages.google.com',
   ]) assert.match(headers, new RegExp(value.replaceAll('*', '\\*')))
   assert.doesNotMatch(headers, /Strict-Transport-Security/i)
 })

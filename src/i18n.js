@@ -591,6 +591,21 @@ const hi = {
 
 export const dictionaries = { es, en, fr, de, it, pt, ca, eu, gl, zh, ja, ur, ar, hi, ...extraLocales, bar }
 
+const cookieLabels = {
+  es: ['Cookies', 'Configurar cookies'], en: ['Cookies', 'Cookie settings'], fr: ['Cookies', 'Configurer les cookies'],
+  de: ['Cookies', 'Cookie-Einstellungen'], it: ['Cookie', 'Impostazioni cookie'], pt: ['Cookies', 'Configurar cookies'],
+  ca: ['Galetes', 'Configura les galetes'], eu: ['Cookieak', 'Cookieak konfiguratu'], gl: ['Cookies', 'Configurar as cookies'],
+  pl: ['Pliki cookie', 'Ustawienia plików cookie'], zh: ['Cookie', 'Cookie 设置'], ja: ['Cookie', 'Cookie 設定'],
+  ur: ['کوکیز', 'کوکی کی ترتیبات'], ar: ['ملفات الارتباط', 'إعدادات ملفات الارتباط'], hi: ['कुकीज़', 'कुकी सेटिंग्स'],
+  ru: ['Файлы cookie', 'Настройки cookie'], el: ['Cookies', 'Ρυθμίσεις cookies'], tr: ['Çerezler', 'Çerez ayarları'],
+  nl: ['Cookies', 'Cookie-instellingen'], ko: ['쿠키', '쿠키 설정'], bar: ['Cookies', 'Cookie-Eistellungen'],
+}
+
+for (const [code, dictionary] of Object.entries(dictionaries)) {
+  dictionary.cookies = cookieLabels[code][0]
+  dictionary.cookieSettings = cookieLabels[code][1]
+}
+
 export const commonLabels = {
   es: { contact: 'Contacto', support: 'Apoyar' }, en: { contact: 'Contact', support: 'Support' },
   fr: { contact: 'Contact', support: 'Soutenir' }, de: { contact: 'Kontakt', support: 'Unterstützen' },

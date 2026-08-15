@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "prepare:vendor": "node scripts/fetch-autoscript.mjs",
+    "prepare:cookies": "node scripts/generate-cookie-locales.mjs",
     "generate:seo": "node scripts/generate-seo.mjs",
-    "predev": "npm run prepare:vendor && npm run generate:seo",
+    "predev": "npm run prepare:vendor && npm run prepare:cookies && npm run generate:seo",
     "dev": "vite",
-    "prebuild": "npm run prepare:vendor && npm run generate:seo",
+    "prebuild": "npm run prepare:vendor && npm run prepare:cookies && npm run generate:seo",
     "build": "vite build && node scripts/generate-locale-shells.mjs",
     "test": "node --test",
     "validate:bundle": "node scripts/check-bundle-budget.mjs",
@@ -24,7 +25,7 @@
     "buffer": "^6.0.3",
     "node-forge": "^1.3.1",
     "pdf-lib": "^1.17.1",
-    "pdfjs-dist": "^5.4.530",
+    "pdfjs-dist": "^6.2.108",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
   },

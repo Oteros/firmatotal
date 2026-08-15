@@ -13,6 +13,10 @@ test("localized SEO pages carry intent-specific HowTo content", async () => {
     assert.match(page, /"@type":"HowTo"/);
     assert.match(page, /class="intent"/);
     assert.match(page, /id="step-3"/);
+    assert.match(page, /<firma-total-consent>/);
+    assert.match(page, /data-language-selector/);
+    assert.match(page, /data-cookie-settings/);
+    assert.match(page, /summary_large_image/);
   }
   assert.match(certificate, /PADES · PKCS#12/);
   assert.match(certificate, /PKCS#12 certificate support/);
@@ -23,7 +27,7 @@ test("localized SEO pages carry intent-specific HowTo content", async () => {
 
 test("sitemap is current and excludes privacy", async () => {
   const sitemap = await read("public/sitemap.xml");
-  assert.match(sitemap, /<lastmod>2026-08-14<\/lastmod>/);
+  assert.match(sitemap, /<lastmod>2026-08-15<\/lastmod>/);
   assert.doesNotMatch(sitemap, /privacidad|privacy/);
   assert.equal((sitemap.match(/<loc>/g) || []).length, 85);
 });
