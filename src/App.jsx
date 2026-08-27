@@ -14,6 +14,7 @@ const DATE_FORMATS = {
 };
 
 const chapalabUrl = (locale, path = "") => `https://www.chapalab.com/${locale === "es" ? "" : `${locale}/`}${path}`;
+const homeHref = (locale) => locale === "es" ? "/" : `/${locale}/`;
 
 function makeTypedSignature(text) {
   const canvas = document.createElement("canvas");
@@ -32,7 +33,7 @@ function makeTypedSignature(text) {
 function Header({ locale, setLocale, t }) {
   return (
     <header className="site-header">
-      <a className="brand" href={`/${locale}/`} aria-label="Firma Total">
+      <a className="brand" href={homeHref(locale)} aria-label="Firma Total">
         <span className="brand-firma">firma</span><span>total.</span>
       </a>
       <span className="header-dash" aria-hidden="true">·</span>
@@ -337,7 +338,7 @@ export default function App() {
 
   const setLocale = (next) => {
     localStorage.setItem("firmatotal-language", next);
-    window.location.assign(`/${next}/`);
+    window.location.assign(homeHref(next));
   };
 
   useEffect(() => {
