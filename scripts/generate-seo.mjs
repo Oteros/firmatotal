@@ -8,7 +8,7 @@ import extraSeo from "../src/seo.extra.generated.json" with { type: "json" };
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const publicDir = path.join(root, "public");
 const base = "https://firmatotal.chapalab.com";
-const today = "2026-08-15";
+const searchLanguages = languages.filter(({ searchAlternate }) => searchAlternate !== false);
 
 const pages = {
   es: [
@@ -134,9 +134,11 @@ window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window
 </script><script src="/cookie-consent.js" defer></script>`;
 
 function alternates(index) {
-  return languages.filter(({ searchAlternate }) => searchAlternate !== false).map(({ code, htmlLang }) =>
+  return searchLanguages.map(({ code, htmlLang }) =>
     `<link rel="alternate" hreflang="${htmlLang}" href="${base}/${code}/${pages[code][index][0]}/">`).join("\n");
 }
+
+const homeUrl = (code) => code === "es" ? `${base}/` : `${base}/${code}/`;
 
 function intentSteps(dict, index) {
   if (index === 1) {
@@ -159,6 +161,7 @@ function pageHtml(code, index) {
   const cookies = cookieLocales[code];
   const [slug, title, description] = pages[code][index];
   const canonical = `${base}/${code}/${slug}/`;
+  const indexable = language.searchAlternate !== false;
   const siblingLinks = pages[code].map(([linkSlug, linkTitle]) =>
     `<a href="/${code}/${linkSlug}/">${esc(linkTitle)}</a>`).join("");
   const direction = language.direction || "ltr";
@@ -181,10 +184,9 @@ function pageHtml(code, index) {
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(title)} | Firma Total</title>
 <meta name="description" content="${esc(description)}">
-<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="robots" content="${indexable ? "index,follow,max-image-preview:large" : "noindex,follow"}">
 <link rel="canonical" href="${canonical}">
-${alternates(index)}
-<link rel="alternate" hreflang="x-default" href="${base}/en/${pages.en[index][0]}/">
+${indexable ? `${alternates(index)}\n<link rel="alternate" hreflang="x-default" href="${base}/en/${pages.en[index][0]}/">` : ""}
 <meta property="og:type" content="website"><meta property="og:site_name" content="Firma Total">
 <meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}">
   <meta property="og:url" content="${canonical}"><meta property="og:image" content="https://www.chapalab.com/assets/projects/firmatotal.png"><meta property="og:image:alt" content="${esc(title)}">
@@ -214,18 +216,18 @@ await Promise.all(Object.entries(pages).flatMap(([code, entries]) =>
     await fs.writeFile(path.join(directory, "index.html"), pageHtml(code, index), "utf8");
   })));
 
-const urls = Object.entries(pages).flatMap(([code, entries]) =>
+const urls = Object.entries(pages).filter(([code]) => searchLanguages.some((language) => language.code === code)).flatMap(([code, entries]) =>
   entries.map(([slug], index) => {
     const loc = `${base}/${code}/${slug}/`;
-    const links = languages.filter(({ searchAlternate }) => searchAlternate !== false).map(({ code: altCode, htmlLang }) =>
+    const links = searchLanguages.map(({ code: altCode, htmlLang }) =>
       `<xhtml:link rel="alternate" hreflang="${htmlLang}" href="${base}/${altCode}/${pages[altCode][index][0]}/"/>`).join("");
     const xDefault = `<xhtml:link rel="alternate" hreflang="x-default" href="${base}/en/${pages.en[index][0]}/"/>`;
-    return `<url><loc>${loc}</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>${index === 1 ? "0.9" : "0.8"}</priority>${links}${xDefault}</url>`;
+    return `<url><loc>${loc}</loc>${links}${xDefault}</url>`;
   }));
-urls.unshift(`<url><loc>${base}/</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>`);
-for (const language of languages) {
-  const links = languages.filter(({ searchAlternate }) => searchAlternate !== false).map(({ code, htmlLang }) => `<xhtml:link rel="alternate" hreflang="${htmlLang}" href="${base}/${code}/"/>`).join("");
-  urls.push(`<url><loc>${base}/${language.code}/</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>0.9</priority>${links}<xhtml:link rel="alternate" hreflang="x-default" href="${base}/"/></url>`);
+const homeLinks = searchLanguages.map(({ code, htmlLang }) => `<xhtml:link rel="alternate" hreflang="${htmlLang}" href="${homeUrl(code)}"/>`).join("");
+urls.unshift(`<url><loc>${base}/</loc>${homeLinks}<xhtml:link rel="alternate" hreflang="x-default" href="${base}/"/></url>`);
+for (const language of searchLanguages.filter(({ code }) => code !== "es")) {
+  urls.push(`<url><loc>${homeUrl(language.code)}</loc>${homeLinks}<xhtml:link rel="alternate" hreflang="x-default" href="${base}/"/></url>`);
 }
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join("\n")}\n</urlset>\n`;
 await fs.writeFile(path.join(publicDir, "sitemap.xml"), sitemap, "utf8");

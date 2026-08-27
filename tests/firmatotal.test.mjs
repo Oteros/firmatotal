@@ -58,12 +58,15 @@ test("safety messages are localized in all 21 languages", () => {
   }
 });
 
-test("SEO output contains 63 guides, 21 localized homes and the root, excluding privacy", () => {
+test("SEO output contains 60 guides and one canonical home per searchable language", () => {
   const sitemap = fs.readFileSync(path.resolve("public/sitemap.xml"), "utf8");
-  assert.equal((sitemap.match(/<url>/g) || []).length, 85);
+  assert.equal((sitemap.match(/<url>/g) || []).length, 80);
   assert.doesNotMatch(sitemap, /<loc>https:\/\/firmatotal\.chapalab\.com\/privacidad\/<\/loc>/);
-  assert.equal((sitemap.match(/<xhtml:link/g) || []).length, 84 * 21);
-  assert.equal((sitemap.match(/hreflang="x-default"/g) || []).length, 84);
+  assert.doesNotMatch(sitemap, /<loc>https:\/\/firmatotal\.chapalab\.com\/bar\//);
+  assert.doesNotMatch(sitemap, /<loc>https:\/\/firmatotal\.chapalab\.com\/es\/<\/loc>/);
+  assert.doesNotMatch(sitemap, /<lastmod>|<changefreq>|<priority>/);
+  assert.equal((sitemap.match(/<xhtml:link/g) || []).length, 80 * 21);
+  assert.equal((sitemap.match(/hreflang="x-default"/g) || []).length, 80);
   for (const language of languages) {
     const localeDirectory = path.resolve("public", language.code);
     const generated = fs.readdirSync(localeDirectory, { withFileTypes: true })

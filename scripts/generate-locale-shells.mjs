@@ -8,6 +8,7 @@ const dist = path.join(root, 'dist')
 const base = 'https://firmatotal.chapalab.com'
 const template = await fs.readFile(path.join(dist, 'index.html'), 'utf8')
 const alternates = languages.filter((language) => language.searchAlternate !== false)
+const homeUrl = (code) => code === 'es' ? `${base}/` : `${base}/${code}/`
 
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char])
 const chapalabUrl = (code, suffix = '') => `https://www.chapalab.com/${code === 'es' ? '' : `${code}/`}${suffix}`
@@ -15,7 +16,7 @@ const chapalabUrl = (code, suffix = '') => `https://www.chapalab.com/${code === 
 function languageSelector(language, page) {
   const segment = page === 'privacy' ? 'privacidad' : page
   const options = languages.map((item) => {
-    const value = page === 'home' ? `${base}/${item.code}/` : `${base}/${item.code}/${segment}/`
+    const value = page === 'home' ? homeUrl(item.code) : `${base}/${item.code}/${segment}/`
     return `<option value="${value}"${item.code === language.code ? ' selected' : ''}>${escapeHtml(item.label)}</option>`
   }).join('')
   return `<label class="language-label"><span class="sr-only">Language</span><select data-language-selector aria-label="Language">${options}</select></label>`
@@ -52,11 +53,12 @@ function localize(html, language, { page = 'home' } = {}) {
   const copy = cookieLocales[language.code]
   const isLegal = page !== 'home'
   const segment = page === 'privacy' ? 'privacidad' : page
-  const canonical = `${base}/${language.code}/${isLegal ? `${segment}/` : ''}`
+  const canonical = isLegal ? `${base}/${language.code}/${segment}/` : homeUrl(language.code)
   const title = page === 'privacy' ? `${dict.privacy} | Firma Total` : page === 'cookies' ? `${copy.footer.cookies} | Firma Total` : `${dict.heroTitle} | Firma Total`
   const description = page === 'privacy' ? copy.privacy.intro : page === 'cookies' ? copy.policy.intro : dict.heroLead
-  const alternateTags = isLegal ? '' : alternates.map((item) => `<link rel="alternate" hreflang="${item.htmlLang}" href="${base}/${item.code}/">`).join('\n')
-  const robots = isLegal ? 'noindex,follow' : 'index,follow,max-image-preview:large'
+  const indexable = !isLegal && language.searchAlternate !== false
+  const alternateTags = indexable ? alternates.map((item) => `<link rel="alternate" hreflang="${item.htmlLang}" href="${homeUrl(item.code)}">`).join('\n') : ''
+  const robots = indexable ? 'index,follow,max-image-preview:large' : 'noindex,follow'
   let output = html
     .replace(/\s*<link rel="alternate" hreflang="[^"]+" href="[^"]+" \/>/g, '')
     .replace(/<html lang="[^"]*"(?: dir="[^"]*")?>/, `<html lang="${language.htmlLang}"${language.direction ? ` dir="${language.direction}"` : ''}>`)
@@ -69,7 +71,7 @@ function localize(html, language, { page = 'home' } = {}) {
     .replace(/<meta property="og:url" content="[^"]*" \/>/, `<meta property="og:url" content="${canonical}" />`)
     .replace(/<meta name="twitter:title" content="[^"]*" \/>/, `<meta name="twitter:title" content="${escapeHtml(title)}" />`)
     .replace(/<meta name="twitter:description" content="[^"]*" \/>/, `<meta name="twitter:description" content="${escapeHtml(description)}" />`)
-    .replace('</head>', `${alternateTags}${isLegal ? '' : `\n<link rel="alternate" hreflang="x-default" href="${base}/">`}\n</head>`)
+    .replace('</head>', `${alternateTags}${indexable ? `\n<link rel="alternate" hreflang="x-default" href="${base}/">` : ''}\n</head>`)
   if (isLegal) {
     output = output.replace('<div id="root"></div>', page === 'privacy' ? privacyMarkup(language) : cookiesMarkup(language))
     output = output
@@ -83,6 +85,7 @@ function localize(html, language, { page = 'home' } = {}) {
 
 for (const language of languages) {
   for (const page of ['home', 'privacy', 'cookies']) {
+    if (page === 'home' && language.code === 'es') continue
     const directory = path.join(dist, language.code, ...(page === 'home' ? [] : [page === 'privacy' ? 'privacidad' : page]))
     await fs.mkdir(directory, { recursive: true })
     await fs.writeFile(path.join(directory, 'index.html'), localize(template, language, { page }), 'utf8')
