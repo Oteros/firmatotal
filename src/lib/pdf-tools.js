@@ -30,7 +30,7 @@ function dataUrlParts(dataUrl) {
 
 export async function applyVisualSignatures(pdfBytes, signatureDataUrl, placements, options = {}) {
   if (!placements?.length) return new Uint8Array(pdfBytes);
-  if (hasPdfSignatures(pdfBytes)) {
+  if (hasPdfSignatures(pdfBytes) && !options.allowSignedPdfRewrite) {
     const error = new Error("PDF_ALREADY_SIGNED");
     error.code = "PDF_ALREADY_SIGNED";
     throw error;

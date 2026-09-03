@@ -7,6 +7,7 @@ import { PDFDocument } from "pdf-lib";
 import { createTranslator, dictionaries, languages } from "../src/i18n.js";
 import { applyVisualSignatures, hasPdfSignatures, placementToPdfRect } from "../src/lib/pdf-tools.js";
 import { signPdfWithP12 } from "../src/lib/pades.js";
+import { authorizeVisualRewrite } from "../src/lib/signed-pdf-policy.js";
 import { signWithAutoFirma } from "../src/lib/autofirma.js";
 
 const ONE_PIXEL_PNG =
@@ -140,6 +141,37 @@ test("signed PDFs are detected and protected from destructive rewrites", async (
     ]),
     (error) => error?.code === "PDF_ALREADY_SIGNED",
   );
+
+  const rewritten = await applyVisualSignatures(signed, ONE_PIXEL_PNG, [
+    { pageIndex: 0, x: 0.5, y: 0.7, width: 0.25, height: 0.1 },
+  ], { allowSignedPdfRewrite: true });
+  assert.ok(rewritten instanceof Uint8Array);
+  assert.ok(rewritten.length > 0);
+  assert.notDeepEqual(Buffer.from(rewritten), Buffer.from(signed));
+  await PDFDocument.load(rewritten);
+});
+
+test("rewriting a signed PDF requires explicit confirmation", () => {
+  let confirmations = 0;
+  const rejected = authorizeVisualRewrite(
+    { hasSignatures: true, hasVisualChanges: true },
+    () => { confirmations += 1; return false; },
+  );
+  assert.deepEqual(rejected, { allowed: false, allowSignedPdfRewrite: true });
+  assert.equal(confirmations, 1);
+
+  const accepted = authorizeVisualRewrite(
+    { hasSignatures: true, hasVisualChanges: true },
+    () => { confirmations += 1; return true; },
+  );
+  assert.deepEqual(accepted, { allowed: true, allowSignedPdfRewrite: true });
+  assert.equal(confirmations, 2);
+
+  const unsigned = authorizeVisualRewrite(
+    { hasSignatures: false, hasVisualChanges: true },
+    () => { throw new Error("unsigned PDFs must not prompt"); },
+  );
+  assert.deepEqual(unsigned, { allowed: true, allowSignedPdfRewrite: false });
 });
 
 test("expired certificates are rejected before a PDF is generated", async () => {

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { commonLabels, createTranslator, languages, resolveLocale } from "./i18n.js";
 import { downloadPdf, hasPdfSignatures } from "./lib/binary-utils.js";
+import { authorizeVisualRewrite } from "./lib/signed-pdf-policy.js";
 
 const hasAutoFirmaBridge = () => Boolean(
   globalThis.AutoScript?.cargarAppAfirma && globalThis.AutoScript?.sign
@@ -373,11 +374,12 @@ export default function App() {
     }
   };
 
-  const buildVisualPdf = async () => {
+  const buildVisualPdf = async ({ allowSignedPdfRewrite = false } = {}) => {
     if (!pdfBytes) throw new Error("No PDF selected");
     if (!signature || placements.length === 0) return pdfBytes.slice();
     const { applyVisualSignatures } = await import("./lib/pdf-tools.js");
     return applyVisualSignatures(pdfBytes, signature, placements, {
+      allowSignedPdfRewrite,
       signerName,
       signedAt: includeDate
         ? new Intl.DateTimeFormat(DATE_FORMATS[locale] || locale, { dateStyle: "medium" }).format(new Date())
@@ -414,10 +416,27 @@ export default function App() {
     }
   };
 
-  const downloadVisual = () => execute(async () => {
-    const result = await buildVisualPdf();
-    downloadPdf(result, pdfFile?.name, "firma-visual");
-  });
+  const downloadVisual = () => {
+    const policy = authorizeVisualRewrite({
+      hasSignatures: pdfHasSignatures,
+      hasVisualChanges: Boolean(signature && placements.length),
+    }, () => window.confirm(`${t("existingSignatureWarning")}\n\n${t("downloadVisual")}?`));
+
+    if (!policy.allowed) {
+      setStatus(t("pdfAlreadySigned"));
+      return;
+    }
+
+    execute(async () => {
+      const result = await buildVisualPdf({
+        allowSignedPdfRewrite: policy.allowSignedPdfRewrite,
+      });
+      const suffix = policy.allowSignedPdfRewrite
+        ? "firma-visual-firmas-previas-invalidas"
+        : "firma-visual";
+      downloadPdf(result, pdfFile?.name, suffix);
+    });
+  };
 
   const signP12 = () => execute(async () => {
     if (!p12File) throw new Error(t("certificate"));
@@ -494,7 +513,7 @@ export default function App() {
                   <small>{t("privateNote")}</small>
                 </label>
                 {pdfHasSignatures && (
-                  <p className="signed-pdf-warning" role="alert">
+                  <p className="signed-pdf-warning" id="signed-pdf-warning" role="alert">
                     {t("existingSignatureWarning")}
                   </p>
                 )}
@@ -524,6 +543,7 @@ export default function App() {
               <span className="card-mark">A</span><h3>{t("downloadVisual")}</h3>
               <p>{t("visualLead")}</p>
               <button type="button" className="button ink full" onClick={downloadVisual}
+                aria-describedby={pdfHasSignatures ? "signed-pdf-warning" : undefined}
                 disabled={!pdfBytes || busy}>{t("downloadVisual")}</button>
             </article>
             <article className="finish-card certificate">
