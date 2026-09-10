@@ -6,6 +6,7 @@ import { pdflibAddPlaceholder } from "@signpdf/placeholder-pdf-lib";
 import { P12Signer } from "@signpdf/signer-p12";
 import { SUBFILTER_ETSI_CADES_DETACHED } from "@signpdf/utils";
 import { hasPdfSignatures } from "./binary-utils.js";
+import { encodeSignatureMetadata } from './signature-metadata.js';
 
 function signingError(code, details = {}) {
   const error = new Error(code);
@@ -67,10 +68,10 @@ export async function signPdfWithP12(pdfBytes, p12Bytes, passphrase, metadata = 
   pdflibAddPlaceholder({
     pdfDoc,
     appName: "Firma Total",
-    reason: metadata.reason || "Document approval",
-    contactInfo: metadata.contactInfo || "",
-    name: metadata.signerName || "Certificate holder",
-    location: metadata.location || "",
+    reason: encodeSignatureMetadata(metadata.reason || "Document approval"),
+    contactInfo: encodeSignatureMetadata(metadata.contactInfo || ""),
+    name: encodeSignatureMetadata(metadata.signerName || "Certificate holder"),
+    location: encodeSignatureMetadata(metadata.location || ""),
     signingTime: new Date(),
     signatureLength: 32768,
     subFilter: SUBFILTER_ETSI_CADES_DETACHED,

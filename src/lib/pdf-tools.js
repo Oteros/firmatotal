@@ -1,4 +1,6 @@
-import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
+import { createPdfTextRenderer, cleanPdfText } from "./pdf-text.js";
+import { PDFDocument, rgb, pushGraphicsState, popGraphicsState, concatTransformationMatrix } from "pdf-lib";
+import { signaturePageGeometry, fitSignatureImage } from './signature-geometry.js';
 import { base64ToBytes, hasPdfSignatures } from "./binary-utils.js";
 
 export {
@@ -38,31 +40,31 @@ export async function applyVisualSignatures(pdfBytes, signatureDataUrl, placemen
   const pdfDoc = await PDFDocument.load(pdfBytes);
   const { mime, bytes } = dataUrlParts(signatureDataUrl);
   const image = mime === "image/png" ? await pdfDoc.embedPng(bytes) : await pdfDoc.embedJpg(bytes);
-  const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
+  const detail = cleanPdfText([options.signerName?.trim(), options.signedAt].filter(Boolean).join(" · "));
+  const renderer = detail ? await createPdfTextRenderer(pdfDoc, [detail]) : null;
   const pages = pdfDoc.getPages();
 
   for (const placement of placements) {
     const page = pages[placement.pageIndex];
     if (!page) continue;
-    const { width: pageWidth, height: pageHeight } = page.getSize();
+    const { width: pageWidth, height: pageHeight, matrix } = signaturePageGeometry(page);
     const rect = placementToPdfRect(placement, pageWidth, pageHeight);
-    page.drawImage(image, rect);
-
-    const detail = [options.signerName?.trim(), options.signedAt]
-      .filter(Boolean)
-      .join(" · ");
+    page.pushOperators(pushGraphicsState(), concatTransformationMatrix(...matrix));
+    page.drawImage(image, fitSignatureImage(rect, image));
 
     if (detail) {
-      const size = Math.max(7, Math.min(11, rect.height * 0.12));
-      page.drawText(detail, {
+      const preferredSize = Math.max(7, Math.min(11, rect.height * 0.12));
+      const availableWidth = Math.max(1, Math.min(rect.width * 1.35, pageWidth - rect.x - 4));
+      const naturalWidth = renderer.widthOfTextAtSize(detail, preferredSize);
+      const size = naturalWidth > availableWidth ? preferredSize * availableWidth / naturalWidth : preferredSize;
+      await renderer.draw(page, detail, {
         x: rect.x,
         y: Math.max(4, rect.y - size - 3),
         size,
-        font,
         color: rgb(0.08, 0.15, 0.24),
-        maxWidth: rect.width * 1.35,
       });
     }
+    page.pushOperators(popGraphicsState());
   }
 
   return pdfDoc.save({ useObjectStreams: false });

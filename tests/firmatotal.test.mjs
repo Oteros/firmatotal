@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import test from "node:test";
 import forge from "node-forge";
-import { PDFDocument } from "pdf-lib";
+import { PDFDocument, PDFName, PDFDict } from "pdf-lib";
 import { createTranslator, dictionaries, languages } from "../src/i18n.js";
 import { applyVisualSignatures, hasPdfSignatures, placementToPdfRect } from "../src/lib/pdf-tools.js";
 import { signPdfWithP12 } from "../src/lib/pades.js";
@@ -104,6 +104,14 @@ test("P12 flow emits a structurally signed PAdES PDF", async () => {
   assert.match(binary, /\/SubFilter\s*\/ETSI\.CAdES\.detached/);
   assert.match(binary, /\/Contents\s*</);
   assert.equal(Buffer.from(signed.subarray(0, 5)).toString(), "%PDF-");
+});
+
+test('PAdES metadata preserves Unicode names, parentheses and backslashes',async()=>{
+  const metadata={signerName:'Σοφία Иванова — 山田',reason:'موافقة',location:'Zürich (CH) \\ Office',contactInfo:'Test 日本語'};
+  const signed=await signPdfWithP12(await samplePdf(),sampleP12('qa-only'),'qa-only',metadata);
+  const pdf=await PDFDocument.load(signed);
+  const signature=pdf.getForm().getFields().find(field=>field.constructor.name==='PDFSignature').acroField.dict.lookup(PDFName.of('V'),PDFDict);
+  for(const [key,value]of Object.entries({Name:metadata.signerName,Reason:metadata.reason,Location:metadata.location,ContactInfo:metadata.contactInfo}))assert.equal(signature.lookup(PDFName.of(key)).decodeText(),value);
 });
 
 test("AutoFirma bridge returns raw PDF bytes instead of a wrapper object", async () => {

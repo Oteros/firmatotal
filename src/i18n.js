@@ -1,4 +1,5 @@
 import extraLocales from './locales.extra.generated.json' with { type: 'json' }
+import uiCorrections from './editorial-ui.json' with {type:'json'}
 
 export const languages = [
   { code: 'es', label: 'Español', htmlLang: 'es' },
@@ -590,6 +591,7 @@ const hi = {
 }
 
 export const dictionaries = { es, en, fr, de, it, pt, ca, eu, gl, zh, ja, ur, ar, hi, ...extraLocales, bar }
+for (const [locale,copy] of Object.entries(uiCorrections)) Object.assign(dictionaries[locale],copy)
 
 const cookieLabels = {
   es: ['Cookies', 'Configurar cookies'], en: ['Cookies', 'Cookie settings'], fr: ['Cookies', 'Configurer les cookies'],
@@ -733,7 +735,8 @@ export function resolveLocale() {
   if (languages.some((language) => language.code === pathLocale)) return pathLocale
   const query = new URLSearchParams(location.search).get('lang')
   if (languages.some((language) => language.code === query)) return query
-  const saved = localStorage.getItem('firma-total-language')
+  let saved
+  try { saved = localStorage.getItem('firmatotal-language') || localStorage.getItem('firma-total-language') } catch { /* Language paths still work when storage is disabled. */ }
   if (languages.some((language) => language.code === saved)) return saved
   const preferences = navigator.languages?.length ? navigator.languages : [navigator.language]
   for (const preference of preferences) {
@@ -751,4 +754,8 @@ export function createTranslator(locale) {
     ?? dictionaries.en[key]
     ?? safetyMessages.en[key]
     ?? key
+}
+
+export function installEditorial(locale, copy) {
+  if (dictionaries[locale]) Object.assign(dictionaries[locale], copy)
 }

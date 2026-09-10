@@ -1,3 +1,6 @@
+import FirmaGuide from "./FirmaGuide.jsx";
+import { makeTypedSignature } from "./lib/signature-text.js";
+import { readSignatureImage } from "./lib/signature-image.js";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { commonLabels, createTranslator, languages, resolveLocale } from "./i18n.js";
 import { downloadPdf, hasPdfSignatures } from "./lib/binary-utils.js";
@@ -17,19 +20,6 @@ const DATE_FORMATS = {
 const chapalabUrl = (locale, path = "") => `https://www.chapalab.com/${locale === "es" ? "" : `${locale}/`}${path}`;
 const homeHref = (locale) => locale === "es" ? "/" : `/${locale}/`;
 
-function makeTypedSignature(text) {
-  const canvas = document.createElement("canvas");
-  canvas.width = 1400;
-  canvas.height = 360;
-  const ctx = canvas.getContext("2d");
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "#102b2b";
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-  ctx.font = "220px Allura, cursive";
-  ctx.fillText(text.trim(), canvas.width / 2, canvas.height / 2);
-  return canvas.toDataURL("image/png");
-}
 
 function Header({ locale, setLocale, t }) {
   return (
@@ -41,15 +31,15 @@ function Header({ locale, setLocale, t }) {
       <a className="lab-mark" href={chapalabUrl(locale)} rel="noreferrer">
         <img src="/chapalab-mark.png" alt="" width="28" height="28" /> CHAPALAB.COM
       </a>
-      <nav aria-label="Primary">
+      <nav aria-label={t("navigationLabel")}>
         <a href="#how">{t("how")}</a>
         <a href={`/${locale}/privacidad/`}>{t("privacy")}</a>
         <label className="language-label">
-          <span className="sr-only">Language</span>
+          <span className="sr-only">{t("languageLabel")}</span>
           <select
             value={locale}
             onChange={(event) => setLocale(event.target.value)}
-            aria-label="Language"
+            aria-label={t("languageLabel")}
           >
             {languages.map((language) => (
               <option key={language.code} value={language.code}>
@@ -66,7 +56,7 @@ function Header({ locale, setLocale, t }) {
 function Footer({ t, locale }) {
   return (
     <footer>
-      <div className="manifesto" aria-label="Privacy principles">
+      <div className="manifesto" aria-label={t("privacy")}>
         <span>{t("local")}</span><i>·</i><span>{t("noAccount")}</span>
         <i>·</i><span>{t("pades")}</span>
       </div>
@@ -97,11 +87,11 @@ function GuideLinks({ locale, t }) {
   const paths = slugs[locale] || slugs.en;
   return (
     <section className="guide-links" aria-labelledby="guide-links-title">
-      <div><p className="eyebrow">FIRMA TOTAL · GUIDES</p><h2 id="guide-links-title">{t("how")}</h2></div>
+      <div><p className="eyebrow">Firma Total</p><h2 id="guide-links-title">{t("how")}</h2></div>
       <div className="guide-grid">
-        <a href={`/${locale}/${paths[0]}/`}><span>01</span><strong>{t("downloadVisual")}</strong><small>{t("visualLead")}</small></a>
-        <a href={`/${locale}/${paths[1]}/`}><span>02</span><strong>{t("p12Title")}</strong><small>{t("p12Lead")}</small></a>
-        <a href={`/${locale}/${paths[2]}/`}><span>03</span><strong>{t("signatureTitle")}</strong><small>{t("placeTitle")}</small></a>
+        <a href={`/${locale}/${paths[0]}/`}><span>01</span><img src="/guides/visual.svg" width="800" height="400" alt="" loading="lazy"/><strong>{t("downloadVisual")}</strong><small>{t("guide.visual.title1")}</small></a>
+        <a href={`/${locale}/${paths[1]}/`}><span>02</span><img src="/guides/certificate.svg" width="800" height="400" alt="" loading="lazy"/><strong>{t("p12Title")}</strong><small>{t("guide.certificate.title1")}</small></a>
+        <a href={`/${locale}/${paths[2]}/`}><span>03</span><img src="/guides/placement.svg" width="800" height="400" alt="" loading="lazy"/><strong>{t("signatureTitle")}</strong><small>{t("guide.placement.title2")}</small></a>
       </div>
     </section>
   );
@@ -110,9 +100,11 @@ function GuideLinks({ locale, t }) {
 function SignaturePad({ t, onSignature }) {
   const canvasRef = useRef(null);
   const drawing = useRef(false);
+  const drawingImage = useRef(null);
   const [mode, setMode] = useState("draw");
   const [typed, setTyped] = useState("");
   const [hasInk, setHasInk] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   const resizeCanvas = useCallback(() => {
     const canvas = canvasRef.current;
@@ -120,7 +112,7 @@ function SignaturePad({ t, onSignature }) {
     const rect = canvas.getBoundingClientRect();
     const ratio = Math.max(window.devicePixelRatio || 1, 1);
     if (canvas.width === Math.round(rect.width * ratio)) return;
-    const old = canvas.toDataURL();
+    const old = drawingImage.current || canvas.toDataURL();
     canvas.width = Math.round(rect.width * ratio);
     canvas.height = Math.round(rect.height * ratio);
     const ctx = canvas.getContext("2d");
@@ -140,7 +132,7 @@ function SignaturePad({ t, onSignature }) {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
     return () => window.removeEventListener("resize", resizeCanvas);
-  }, [resizeCanvas]);
+  }, [resizeCanvas, mode]);
 
   const point = (event) => {
     const rect = canvasRef.current.getBoundingClientRect();
@@ -164,23 +156,30 @@ function SignaturePad({ t, onSignature }) {
     ctx.stroke();
     setHasInk(true);
   };
-  const end = () => { drawing.current = false; };
+  const end = () => {
+    drawing.current = false;
+    drawingImage.current = canvasRef.current?.toDataURL('image/png') || null;
+  };
   const clear = () => {
     const canvas = canvasRef.current;
     canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
     setHasInk(false);
+    drawingImage.current = null;
     onSignature(null);
   };
-  const useCurrent = () => {
+  const useCurrent = async () => {
     if (mode === "draw" && hasInk) onSignature(canvasRef.current.toDataURL("image/png"));
-    if (mode === "type" && typed.trim()) onSignature(makeTypedSignature(typed));
+    if (mode === "type" && typed.trim()) {
+      try { await document.fonts?.load('220px Allura'); } catch { /* The fitted system font remains usable offline. */ }
+      onSignature(makeTypedSignature(typed));
+    }
   };
-  const upload = (event) => {
+  const upload = async (event) => {
     const file = event.target.files?.[0];
-    if (!file || !file.type.startsWith("image/")) return;
-    const reader = new FileReader();
-    reader.onload = () => onSignature(reader.result);
-    reader.readAsDataURL(file);
+    if (!file) return;
+    setImageError(false);
+    try { onSignature(await readSignatureImage(file)); }
+    catch { setImageError(true); }
   };
 
   return (
@@ -203,7 +202,7 @@ function SignaturePad({ t, onSignature }) {
         </div>
       )}
       {mode === "type" && (
-        <input className="typed-signature" value={typed} onChange={(e) => setTyped(e.target.value)}
+        <input className="typed-signature" aria-label={t("typePlaceholder")} dir="auto" value={typed} onChange={(e) => setTyped(e.target.value)}
           placeholder={t("typePlaceholder")} />
       )}
       {mode === "upload" && (
@@ -211,8 +210,10 @@ function SignaturePad({ t, onSignature }) {
           <input type="file" accept="image/png,image/jpeg,image/webp" onChange={upload} />
           <span className="nib-small" aria-hidden="true">♢</span>
           <strong>{t("upload")}</strong>
+          <small>{t("imageHint")}</small>
         </label>
       )}
+      {imageError && <p className="signed-pdf-warning" role="alert">{t("imageError")}</p>}
       <div className="button-row">
         {mode !== "upload" && <button type="button" className="button ink" onClick={useCurrent}>{t("useSignature")}</button>}
         {mode === "draw" && <button type="button" className="text-button" onClick={clear}>{t("clear")}</button>}
@@ -295,17 +296,25 @@ function PdfStage({ pdfDoc, currentPage, setCurrentPage, placements, setPlacemen
       <div className="pdf-page" ref={wrapperRef}>
         <canvas ref={canvasRef} />
         {visible.map((placement) => (
-          <button key={placement.id} type="button" className="placed-signature"
+          <div key={placement.id} className="placed-signature"
             style={{ left: `${placement.x * 100}%`, top: `${placement.y * 100}%`,
               width: `${placement.width * 100}%`, height: `${placement.height * 100}%` }}
-            onPointerDown={(event) => dragStart(event, placement)}
-            aria-label={`${t("remove")} ${t("page")} ${currentPage + 1}`}>
-            <img src={signature} alt="" draggable="false" />
-            <span onClick={(event) => {
+            >
+            <button type="button" className="signature-move" onPointerDown={(event) => dragStart(event, placement)}
+              aria-label={`${t("placeTitle")} · ${t("page")} ${currentPage + 1}`}
+              onKeyDown={(event) => {
+                const delta = {ArrowLeft:[-0.01,0],ArrowRight:[0.01,0],ArrowUp:[0,-0.01],ArrowDown:[0,0.01]}[event.key];
+                if (!delta) return;
+                event.preventDefault();
+                setPlacements(items => items.map(item => item.id === placement.id ? {...item,
+                  x:Math.max(0,Math.min(1-item.width,item.x+delta[0])),
+                  y:Math.max(0,Math.min(1-item.height,item.y+delta[1]))} : item));
+              }}><img src={signature} alt="" draggable="false" /></button>
+            <button type="button" className="signature-remove" aria-label={`${t("remove")} · ${t("page")} ${currentPage + 1}`} onClick={(event) => {
               event.stopPropagation();
               setPlacements((items) => items.filter((item) => item.id !== placement.id));
-            }}>×</span>
-          </button>
+            }}>×</button>
+          </div>
         ))}
       </div>
       <div className="placement-actions">
@@ -338,7 +347,7 @@ export default function App() {
   const [busy, setBusy] = useState(false);
 
   const setLocale = (next) => {
-    localStorage.setItem("firmatotal-language", next);
+    try { localStorage.setItem("firmatotal-language", next); } catch { /* Navigation works without storage. */ }
     window.location.assign(homeHref(next));
   };
 
@@ -498,7 +507,7 @@ export default function App() {
 
         <section className="tool-section" id="tool">
           <div className="section-heading">
-            <p className="eyebrow">FIRMA TOTAL · WORKBENCH</p>
+            <p className="eyebrow">Firma Total · PDF</p>
             <h2>{t("toolTitle")}</h2>
             <p>{t("toolLead")}</p>
           </div>
@@ -535,7 +544,7 @@ export default function App() {
 
         <section className="finish-section">
           <div className="section-heading">
-            <p className="eyebrow">03 · EXPORT</p>
+            <p className="eyebrow">03 · PDF</p>
             <h2>{t("finishTitle")}</h2>
           </div>
           <div className="finish-grid">
@@ -564,7 +573,7 @@ export default function App() {
               <label><span>{t("location")}</span><input value={location} onChange={(e) => setLocation(e.target.value)} /></label>
               <button type="button" className="button oxblood full" onClick={signAuto}
                 disabled={!pdfBytes || busy}>{t("signAuto")}</button>
-              <a className="install-link" href="https://firmaelectronica.gob.es/Home/Descargas.html"
+              <a className="install-link" href="https://firmaelectronica.gob.es/descargas"
                 target="_blank" rel="noreferrer">{t("installAuto")} ↗</a>
               <small>{hasAutoFirmaBridge() ? t("statusReady") : t("autoLimit")}</small>
             </article>
@@ -574,9 +583,10 @@ export default function App() {
 
         <section className="legal-section" id="how">
           <div className="legal-number">§</div>
-          <div><p className="eyebrow">LEGAL REALITY, PLAINLY</p><h2>{t("legalTitle")}</h2></div>
+          <div><p className="eyebrow">PAdES</p><h2>{t("legalTitle")}</h2></div>
           <p>{t("legalBody")}</p>
         </section>
+        <FirmaGuide locale={locale} t={t} />
         <GuideLinks locale={locale} t={t} />
       </main>
       <Footer t={t} locale={locale} />

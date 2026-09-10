@@ -1,7 +1,8 @@
+import {guideMarkup,guideSteps} from './guide-markup.mjs';
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { commonLabels, dictionaries, languages } from "../src/i18n.js";
+import { commonLabels, dictionaries, languages } from "../src/i18n-editorial.js";
 import cookieLocales from "../src/cookie-locales.generated.json" with { type: "json" };
 import extraSeo from "../src/seo.extra.generated.json" with { type: "json" };
 
@@ -152,7 +153,7 @@ function intentSteps(dict, index) {
 
 function languageSelector(code, index) {
   const options = languages.map((language) => `<option value="${base}/${language.code}/${pages[language.code][index][0]}/"${language.code === code ? " selected" : ""}>${esc(language.label)}</option>`).join("");
-  return `<label class="language-select"><span class="sr-only">Language</span><select data-language-selector aria-label="Language">${options}</select></label>`;
+  return `<label class="language-select"><span class="sr-only">${esc(dictionaries[code].languageLabel)}</span><select data-language-selector aria-label="${esc(dictionaries[code].languageLabel)}">${options}</select></label>`;
 }
 
 function pageHtml(code, index) {
@@ -165,12 +166,12 @@ function pageHtml(code, index) {
   const siblingLinks = pages[code].map(([linkSlug, linkTitle]) =>
     `<a href="/${code}/${linkSlug}/">${esc(linkTitle)}</a>`).join("");
   const direction = language.direction || "ltr";
-  const steps = intentSteps(dict, index);
+  const steps = guideSteps(dict, index);
   const schema = JSON.stringify({
     "@context": "https://schema.org",
     "@graph": [
       { "@type": "WebApplication", name: "Firma Total", applicationCategory: "BusinessApplication", operatingSystem: "Any", url: canonical, description, offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" }, featureList: index === 1 ? ["Local PDF processing", "PAdES digital signature", "PKCS#12 certificate support"] : ["Local PDF processing", "Visible PDF signature", "Precise signature placement"] },
-      { "@type": "HowTo", name: title, description, totalTime: "PT3M", step: steps.map(([name, text], position) => ({ "@type": "HowToStep", position: position + 1, name, text, url: `${canonical}#step-${position + 1}` })) },
+      { "@type": "HowTo", name: title, description, step: steps.map(([name, text], position) => ({ "@type": "HowToStep", position: position + 1, name, text, url: `${canonical}#step-${position + 1}` })) },
     ],
   }).replace(/</g, "\\u003c");
   const proof = [
@@ -199,9 +200,8 @@ ${indexable ? `${alternates(index)}\n<link rel="alternate" hreflang="x-default" 
   <header class="header"><a class="brand" href="${homeUrl(code)}">firma<span>total.</span></a><b>·</b><a class="lab" href="${chapalabUrl(code)}"><img src="/chapalab-mark.png" alt="" width="28" height="28"> CHAPALAB.COM</a><nav class="nav"><a href="${homeUrl(code)}#how">${esc(dict.how)}</a><a href="/${code}/privacidad/">${esc(dict.privacy)}</a><a href="/${code}/cookies/">${esc(cookies.footer.cookies)}</a><a href="${homeUrl(code)}#tool">${esc(dict.heroCta)}</a>${languageSelector(code, index)}</nav></header>
 <main>
   <section class="hero"><div class="copy"><p class="eyebrow">${esc(dict.heroKicker)}</p><h1>${esc(title)}</h1><p class="lead">${esc(description)}</p><a class="cta" href="${homeUrl(code)}#tool">${esc(dict.heroCta)} ↓</a></div><div class="art" aria-hidden="true"><div class="collar"></div><div class="tie"></div><div class="nib"></div></div></section>
-<section class="proof"><p class="eyebrow">FIRMA TOTAL · LOCAL PDF WORKBENCH</p><h2>${esc(dict.toolTitle)}</h2><div class="grid">${proof.map((text, i) => `<article><strong>0${i+1} · ${esc(labels[code][i])}</strong><p>${esc(text)}</p></article>`).join("")}</div></section>
-<section class="intent"><div><p class="eyebrow">${index === 1 ? "PADES · PKCS#12" : "VISIBLE SIGNATURE · LOCAL PDF"}</p><h2>${esc(title)}</h2><p>${esc(description)}</p></div><ol>${steps.map(([name, text], i) => `<li id="step-${i + 1}"><span>0${i + 1}</span><div><h3>${esc(name)}</h3><p>${esc(text)}</p></div></li>`).join("")}</ol></section>
-<section class="legal"><div><p class="eyebrow">PAdES · VISIBLE SIGNATURE</p><h2>${esc(dict.legalTitle)}</h2></div><p>${esc(dict.legalBody)} ${esc(jurisdiction[code])}</p></section>
+${guideMarkup(dict,code,index)}
+<section class="legal"><div><p class="eyebrow">PAdES</p><h2>${esc(dict.legalTitle)}</h2></div><p>${esc(dict.legalBody)}</p></section>
   <section class="related"><h2>${esc(dict.how)}</h2><div class="links">${siblingLinks}<a href="${homeUrl(code)}#tool">${esc(dict.heroCta)} →</a></div></section>
 </main>
   <footer><div class="manifesto"><span>${esc(dict.local)}</span><i>·</i><span>${esc(dict.noAccount)}</span><i>·</i><span>${esc(dict.pades)}</span></div><div class="footer"><a class="brand" href="${homeUrl(code)}">firma<span>total.</span></a><p>${esc(dict.footerTagline)}</p><nav><a class="footer-lab" href="${chapalabUrl(code)}"><img src="/chapalab-mark.png" alt="" width="22" height="22"> CHAPALAB.COM</a><a href="https://github.com/Oteros/firmatotal" target="_blank" rel="noreferrer">${esc(dict.sourceCode)} ↗</a><a href="${homeUrl(code)}#how">${esc(dict.how)}</a><a href="/${code}/privacidad/">${esc(dict.privacy)}</a><a href="/${code}/cookies/">${esc(cookies.footer.cookies)}</a><button type="button" data-cookie-settings>${esc(cookies.footer.settings)}</button><a href="${chapalabUrl(code, 'contacto/')}">${esc(commonLabels[code].contact)}</a><a href="${chapalabUrl(code, 'apoya/')}">${esc(commonLabels[code].support)}</a></nav></div></footer>

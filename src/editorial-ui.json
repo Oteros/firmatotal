@@ -1,0 +1,217 @@
+{
+  "en": {
+    "allPages": "Add to all pages",
+    "heroTitle": "Sign your PDF with an image or a certificate.",
+    "heroKicker": "YOUR SIGNATURE. YOUR CERTIFICATE. YOUR DOCUMENT."
+  },
+  "fr": {
+    "allPages": "Ajouter à toutes les pages",
+    "heroTitle": "Signez votre PDF avec une image ou un certificat."
+  },
+  "ur": {
+    "upload": "تصویر منتخب کریں",
+    "heroTitle": "PDF پر تصویر یا سرٹیفکیٹ سے دستخط کریں۔"
+  },
+  "hi": {
+    "downloadVisual": "दिखाई देने वाले हस्ताक्षर सहित PDF डाउनलोड करें",
+    "p12Lead": "ब्राउज़र में बुनियादी PAdES क्रिप्टोग्राफ़िक हस्ताक्षर बनाएँ।",
+    "heroTitle": "PDF पर चित्र या प्रमाणपत्र से हस्ताक्षर करें।"
+  },
+  "pl": {
+    "tagline": "Podpisuj PDF lokalnie, z obrazem podpisu lub certyfikatem.",
+    "heroKicker": "TWÓJ PODPIS. TWÓJ CERTYFIKAT. TWÓJ DOKUMENT.",
+    "heroTitle": "Podpisz dokument na swoim urządzeniu.",
+    "noAccount": "Bez konta",
+    "pades": "Podpis PAdES do weryfikacji",
+    "draw": "Rysuj",
+    "type": "Wpisz nazwisko",
+    "clear": "Wyczyść rysunek",
+    "remove": "Usuń",
+    "previous": "Poprzednia strona",
+    "next": "Następna strona",
+    "location": "Miejsce podpisania",
+    "p12Limit": "Klucz i hasło są używane w pamięci i nie są wysyłane. Obsługiwane są certyfikaty z kluczem RSA.",
+    "installAuto": "Pobierz AutoFirma",
+    "autoLimit": "Wymaga AutoFirma 1.9 lub nowszego na komputerze.",
+    "statusReady": "Gotowe do rozpoczęcia.",
+    "certificateNotYetValid": "Certyfikat będzie ważny dopiero od {date}. Nie utworzono PDF."
+  },
+  "ru": {
+    "tagline": "Подписание PDF на вашем устройстве: изображением или сертификатом.",
+    "heroKicker": "ВАША ПОДПИСЬ. ВАШ СЕРТИФИКАТ. ВАШ ДОКУМЕНТ.",
+    "heroTitle": "Подпишите документ на своём устройстве.",
+    "heroLead": "Нарисуйте и разместите подпись, затем скачайте документ. Или создайте подпись PAdES с цифровым сертификатом. Файл остаётся на вашем устройстве.",
+    "heroCta": "Подписать PDF",
+    "noAccount": "Без регистрации",
+    "pades": "Подпись PAdES с возможностью проверки",
+    "draw": "Нарисовать",
+    "type": "Ввести имя",
+    "clear": "Очистить рисунок",
+    "useSignature": "Использовать эту подпись",
+    "placeTitle": "Разместите подпись в документе",
+    "remove": "Удалить",
+    "previous": "Предыдущая страница",
+    "next": "Следующая страница",
+    "location": "Место подписания",
+    "finishTitle": "Выберите способ подписания",
+    "visualLead": "Добавьте видимое изображение подписи и скачайте новый PDF.",
+    "p12Title": "Подписать сертификатом .p12/.pfx",
+    "p12Limit": "Ключ и пароль используются в памяти и не передаются. Поддерживаются сертификаты с ключом RSA.",
+    "autoTitle": "AutoFirma · Испания",
+    "signAuto": "Подписать через AutoFirma",
+    "installAuto": "Скачать AutoFirma",
+    "autoLimit": "Требуется AutoFirma 1.9 или новее на компьютере.",
+    "statusReady": "Всё готово к работе.",
+    "pdfAlreadySigned": "Операция остановлена: этот PDF уже подписан, и данный режим сделал бы прежние подписи недействительными. Используйте неподписанный оригинал или AutoFirma без видимой подписи."
+  },
+  "el": {
+    "tagline": "Υπογραφή PDF στη συσκευή σας, με εικόνα ή πιστοποιητικό.",
+    "privacy": "Απόρρητο",
+    "heroKicker": "Η ΥΠΟΓΡΑΦΗ ΣΑΣ. ΤΟ ΠΙΣΤΟΠΟΙΗΤΙΚΟ ΣΑΣ. ΤΟ ΕΓΓΡΑΦΟ ΣΑΣ.",
+    "heroTitle": "Υπογράψτε το έγγραφο στη συσκευή σας.",
+    "pades": "Επαληθεύσιμη υπογραφή PAdES",
+    "draw": "Σχεδίαση",
+    "type": "Πληκτρολόγηση",
+    "clear": "Καθαρισμός σχεδίου",
+    "remove": "Αφαίρεση",
+    "previous": "Προηγούμενη σελίδα",
+    "next": "Επόμενη σελίδα",
+    "placeTitle": "Τοποθετήστε την υπογραφή στο έγγραφο",
+    "finishTitle": "Επιλέξτε τρόπο υπογραφής",
+    "location": "Τόπος υπογραφής",
+    "p12Limit": "Το κλειδί και ο κωδικός χρησιμοποιούνται στη μνήμη και δεν αποστέλλονται. Υποστηρίζονται πιστοποιητικά με κλειδί RSA.",
+    "autoLimit": "Απαιτείται AutoFirma 1.9 ή νεότερο σε υπολογιστή.",
+    "statusReady": "Έτοιμο για χρήση.",
+    "existingSignatureWarning": "Αυτό το PDF περιέχει ήδη ψηφιακές υπογραφές. Η τροποποίησή του θα τις ακύρωνε. Για να προσθέσετε άλλη υπογραφή, χρησιμοποιήστε AutoFirma χωρίς ορατό σημάδι.",
+    "certificateNotYetValid": "Το πιστοποιητικό θα ισχύει από τις {date}. Δεν δημιουργήθηκε PDF."
+  },
+  "tr": {
+    "tagline": "PDF’yi cihazınızda görüntü veya sertifikayla imzalayın.",
+    "privacy": "Gizlilik",
+    "heroKicker": "İMZANIZ. SERTİFİKANIZ. BELGENİZ.",
+    "heroTitle": "Belgenizi kendi cihazınızda imzalayın.",
+    "noAccount": "Hesap gerekmez",
+    "draw": "Çiz",
+    "type": "Ad yaz",
+    "clear": "Çizimi temizle",
+    "remove": "Kaldır",
+    "previous": "Önceki sayfa",
+    "next": "Sonraki sayfa",
+    "location": "İmza yeri",
+    "finishTitle": "İmzalama biçimini seçin",
+    "p12Lead": "Tarayıcınızda temel bir kriptografik PAdES imzası oluşturun.",
+    "p12Limit": "Anahtar ve parola bellekte kullanılır, gönderilmez. RSA anahtarlı sertifikalar desteklenir.",
+    "autoTitle": "AutoFirma · İspanya",
+    "autoLead": "Resmî uygulama üzerinden yüklü bir sertifika, FNMT veya İspanya elektronik kimliği kullanın.",
+    "autoLimit": "Bilgisayarda AutoFirma 1.9 veya daha yenisi gerekir.",
+    "sourceCode": "Açık kaynak kodu",
+    "statusReady": "Başlamaya hazır.",
+    "certificateNotYetValid": "Sertifika {date} tarihinde geçerli olmaya başlayacak. PDF oluşturulmadı."
+  },
+  "nl": {
+    "tagline": "Onderteken PDF’s op je apparaat, met een afbeelding of certificaat.",
+    "heroKicker": "JOUW HANDTEKENING. JOUW CERTIFICAAT. JOUW DOCUMENT.",
+    "heroTitle": "Onderteken je document op je eigen apparaat.",
+    "heroLead": "Teken en plaats je handtekening en download het document. Of maak een PAdES-handtekening met een digitaal certificaat. Het bestand blijft op je apparaat.",
+    "noAccount": "Zonder account",
+    "pades": "Controleerbare PAdES-handtekening",
+    "toolTitle": "Bereid je PDF voor en onderteken hem",
+    "signatureTitle": "Maak je zichtbare handtekening",
+    "type": "Naam typen",
+    "typePlaceholder": "Je naam of handtekening",
+    "clear": "Tekening wissen",
+    "placeTitle": "Plaats de handtekening op het document",
+    "previous": "Vorige pagina",
+    "next": "Volgende pagina",
+    "size": "Grootte",
+    "finishTitle": "Kies hoe je wilt ondertekenen",
+    "location": "Plaats van ondertekening",
+    "visualLead": "Voeg de zichtbare handtekening toe en download een nieuwe PDF.",
+    "p12Lead": "Maak een eenvoudige cryptografische PAdES-handtekening in je browser.",
+    "p12Limit": "De sleutel en het wachtwoord worden in het geheugen gebruikt en niet verstuurd. Certificaten met een RSA-sleutel worden ondersteund.",
+    "autoLead": "Gebruik een geïnstalleerd certificaat, FNMT of een Spaanse elektronische identiteitskaart via de officiële toepassing.",
+    "autoLimit": "AutoFirma 1.9 of nieuwer is vereist op een computer.",
+    "error": "De bewerking kon niet worden voltooid. Controleer het bestand en probeer het opnieuw.",
+    "footerTagline": "Onderteken zonder je documenten af te geven.",
+    "existingSignatureWarning": "Deze PDF bevat al digitale handtekeningen. Bewerken zou ze ongeldig maken. Gebruik AutoFirma zonder zichtbare markering om een handtekening toe te voegen.",
+    "certificateExpired": "Het certificaat is verlopen op {date}. Er is geen PDF gemaakt. Vernieuw het certificaat voordat je ondertekent.",
+    "certificateNotYetValid": "Het certificaat is pas geldig vanaf {date}. Er is geen PDF gemaakt."
+  },
+  "ko": {
+    "tagline": "기기에서 이미지나 인증서로 PDF에 서명하세요.",
+    "privacy": "개인정보 보호",
+    "heroKicker": "나의 서명. 나의 인증서. 나의 문서.",
+    "heroTitle": "내 기기에서 문서에 서명하세요.",
+    "heroLead": "서명을 그려 배치하고 문서를 다운로드하세요. 디지털 인증서로 PAdES 서명을 만들 수도 있습니다. 파일은 기기에 남아 있습니다.",
+    "local": "기기 내 처리",
+    "noAccount": "계정 없이 사용",
+    "pades": "검증 가능한 PAdES 서명",
+    "draw": "그리기",
+    "type": "이름 입력",
+    "typePlaceholder": "이름 또는 서명",
+    "clear": "그림 지우기",
+    "useSignature": "이 서명 사용",
+    "placeTitle": "문서에 서명 배치",
+    "remove": "제거",
+    "page": "쪽",
+    "previous": "이전 쪽",
+    "next": "다음 쪽",
+    "certificate": "인증서",
+    "location": "서명 장소",
+    "downloadVisual": "서명 이미지가 포함된 PDF 다운로드",
+    "p12Lead": "브라우저에서 기본적인 PAdES 디지털 서명을 만듭니다.",
+    "p12Limit": "키와 비밀번호는 메모리에서 사용하며 전송하지 않습니다. RSA 키를 사용하는 인증서를 지원합니다.",
+    "autoLead": "공식 앱을 통해 설치된 인증서, FNMT 또는 스페인 전자 신분증을 사용하세요.",
+    "autoLimit": "컴퓨터에 AutoFirma 1.9 이상이 필요합니다.",
+    "pdfAlreadySigned": "작업이 중단되었습니다. 이 PDF는 이미 서명되어 있어 이 방식으로 처리하면 기존 서명이 무효화됩니다. 서명하지 않은 원본을 쓰거나 서명 이미지 없이 AutoFirma를 사용하세요.",
+    "certificateNotYetValid": "인증서는 {date}부터 유효합니다. PDF가 생성되지 않았습니다."
+  },
+  "bar": {
+    "tagline": "PDF auf deim Gerät unterschreibn, mit Bild oder Zertifikat.",
+    "heroTitle": "Unterschreib dei Dokument auf deim Gerät.",
+    "privateNote": "De Datei geht bloß in dem Browser auf.",
+    "page": "Seitn",
+    "size": "Größ",
+    "visualLead": "Füag dei sichtbare Unterschrift ei und lad a neues PDF runter.",
+    "p12Title": "Mit .p12/.pfx-Zertifikat signiern",
+    "p12Lead": "Mach a einfache kryptografische PAdES-Signatur im Browser.",
+    "p12Limit": "Schlüssel und Passwort bleibn im Arbeitsspeicher und werdn ned verschickt. Unterstützt werdn Zertifikate mit RSA-Schlüssel.",
+    "autoLead": "Nimm a installierts Zertifikat, FNMT oder an spanischen elektronischen Ausweis über de offizielle App.",
+    "installAuto": "AutoFirma runterladn",
+    "autoLimit": "Du brauchst AutoFirma 1.9 oder neuer auf am Computer.",
+    "statusWorking": "Des Dokument werd verarbeitet…",
+    "footerTagline": "Unterschreibn, ohne dei Dokumente hergebn z’müassn.",
+    "sourceCode": "Offener Quellcode"
+  },
+  "es": {
+    "heroTitle": "Firma tu PDF con una imagen o un certificado."
+  },
+  "de": {
+    "heroTitle": "PDF mit Bild oder Zertifikat unterschreiben."
+  },
+  "it": {
+    "heroTitle": "Firma il PDF con un’immagine o un certificato."
+  },
+  "pt": {
+    "heroTitle": "Assine o PDF com uma imagem ou um certificado."
+  },
+  "ca": {
+    "heroTitle": "Signa el PDF amb una imatge o un certificat."
+  },
+  "eu": {
+    "heroTitle": "Sinatu PDFa irudi edo ziurtagiri batekin.",
+    "pades": "PAdES egiaztagarria"
+  },
+  "gl": {
+    "heroTitle": "Asina o PDF cunha imaxe ou cun certificado."
+  },
+  "zh": {
+    "heroTitle": "用签名图片或证书签署 PDF。"
+  },
+  "ja": {
+    "heroTitle": "画像または証明書でPDFに署名。"
+  },
+  "ar": {
+    "heroTitle": "وقّع PDF بصورة أو بشهادة."
+  }
+}

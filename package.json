@@ -7,17 +7,19 @@
     "prepare:vendor": "node scripts/fetch-autoscript.mjs",
     "prepare:cookies": "node scripts/generate-cookie-locales.mjs",
     "generate:seo": "node scripts/generate-seo.mjs",
-    "predev": "npm run prepare:vendor && npm run prepare:cookies && npm run generate:seo",
+    "predev": "npm run prepare:editorial && npm run prepare:vendor && npm run prepare:cookies && npm run generate:seo",
     "dev": "vite",
-    "prebuild": "npm run prepare:vendor && npm run prepare:cookies && npm run generate:seo",
+    "prebuild": "npm run prepare:editorial && npm run prepare:vendor && npm run prepare:cookies && npm run generate:seo",
     "build": "vite build && node scripts/generate-locale-shells.mjs",
     "test": "node --test",
     "validate:bundle": "node scripts/check-bundle-budget.mjs",
     "validate:site": "node scripts/validate-site.mjs dist",
     "preview": "vite preview",
-    "deploy": "npm run build && wrangler pages deploy dist --project-name firmatotal --branch main"
+    "deploy": "npm run build && wrangler pages deploy dist --project-name firmatotal --branch main",
+    "prepare:editorial": "node scripts/sync-editorial.mjs"
   },
   "dependencies": {
+    "@pdf-lib/fontkit": "1.1.1",
     "@signpdf/placeholder-pdf-lib": "^3.2.6",
     "@signpdf/signer-p12": "^3.2.4",
     "@signpdf/signpdf": "^3.2.5",

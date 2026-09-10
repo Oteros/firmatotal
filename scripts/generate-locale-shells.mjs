@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import { commonLabels, dictionaries, languages } from '../src/i18n.js'
+import { commonLabels, dictionaries, languages } from '../src/i18n-editorial.js'
 import cookieLocales from '../src/cookie-locales.generated.json' with { type: 'json' }
 
 const root = path.resolve(import.meta.dirname, '..')
@@ -19,13 +19,13 @@ function languageSelector(language, page) {
     const value = page === 'home' ? homeUrl(item.code) : `${base}/${item.code}/${segment}/`
     return `<option value="${value}"${item.code === language.code ? ' selected' : ''}>${escapeHtml(item.label)}</option>`
   }).join('')
-  return `<label class="language-label"><span class="sr-only">Language</span><select data-language-selector aria-label="Language">${options}</select></label>`
+  return `<label class="language-label"><span class="sr-only">${escapeHtml(dictionaries[language.code].languageLabel)}</span><select data-language-selector aria-label="${escapeHtml(dictionaries[language.code].languageLabel)}">${options}</select></label>`
 }
 
 function legalHeader(language, page) {
   const dict = dictionaries[language.code]
   const cookies = cookieLocales[language.code]
-  return `<header class="site-header"><a class="brand" href="/${language.code}/" aria-label="Firma Total"><span class="brand-firma">firma</span><span>total.</span></a><span class="header-dash" aria-hidden="true">·</span><a class="lab-mark" href="${chapalabUrl(language.code)}"><img src="/chapalab-mark.png" alt="" width="28" height="28"> CHAPALAB.COM</a><nav aria-label="Primary"><a href="/${language.code}/">${escapeHtml(dict.heroCta)}</a>${page !== 'privacy' ? `<a href="/${language.code}/privacidad/">${escapeHtml(dict.privacy)}</a>` : ''}${page !== 'cookies' ? `<a href="/${language.code}/cookies/">${escapeHtml(cookies.footer.cookies)}</a>` : ''}${languageSelector(language, page)}</nav></header>`
+  return `<header class="site-header"><a class="brand" href="/${language.code}/" aria-label="Firma Total"><span class="brand-firma">firma</span><span>total.</span></a><span class="header-dash" aria-hidden="true">·</span><a class="lab-mark" href="${chapalabUrl(language.code)}"><img src="/chapalab-mark.png" alt="" width="28" height="28"> CHAPALAB.COM</a><nav aria-label="${escapeHtml(dict.navigationLabel)}"><a href="/${language.code}/">${escapeHtml(dict.heroCta)}</a>${page !== 'privacy' ? `<a href="/${language.code}/privacidad/">${escapeHtml(dict.privacy)}</a>` : ''}${page !== 'cookies' ? `<a href="/${language.code}/cookies/">${escapeHtml(cookies.footer.cookies)}</a>` : ''}${languageSelector(language, page)}</nav></header>`
 }
 
 function legalFooter(language) {
@@ -91,5 +91,7 @@ for (const language of languages) {
     await fs.writeFile(path.join(directory, 'index.html'), localize(template, language, { page }), 'utf8')
   }
 }
+
+await fs.writeFile(path.join(dist, 'index.html'), localize(template, languages.find(language=>language.code==='es')), 'utf8')
 
 console.log(`Generated ${languages.length} localized application shells, privacy pages and cookie policies.`)

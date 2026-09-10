@@ -11,16 +11,24 @@ test("localized SEO pages carry intent-specific HowTo content", async () => {
   const handwritten = await read("public/es/anadir-firma-a-pdf/index.html");
   for (const page of [visible, certificate, handwritten]) {
     assert.match(page, /"@type":"HowTo"/);
-    assert.match(page, /class="intent"/);
+    const schema=JSON.parse(page.match(/<script type="application\/ld\+json">([^<]+)<\/script>/)[1]);
+    const howTo=schema['@graph'].find(item=>item['@type']==='HowTo');
+    assert.equal(howTo.step.length,3);
+    const escape=value=>value.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll("'",'&#39;');
+    for (const step of howTo.step) {
+      assert.ok(page.includes(`<h2>${escape(step.name)}</h2>`));
+      assert.ok(page.includes(`<p>${escape(step.text)}</p>`));
+      assert.ok(step.text.length>100);
+    }
     assert.match(page, /id="step-3"/);
     assert.match(page, /<firma-total-consent>/);
     assert.match(page, /data-language-selector/);
     assert.match(page, /data-cookie-settings/);
     assert.match(page, /summary_large_image/);
   }
-  assert.match(certificate, /PADES · PKCS#12/);
+  assert.match(certificate, /RSA/);
   assert.match(certificate, /PKCS#12 certificate support/);
-  assert.match(handwritten, /Dibujar · Escribir · Subir imagen/);
+  assert.match(handwritten, /evitar duplicados/);
   assert.notEqual(visible, certificate);
   assert.notEqual(certificate, handwritten);
 });
