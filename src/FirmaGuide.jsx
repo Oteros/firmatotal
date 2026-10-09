@@ -21,7 +21,7 @@ export function FirmaSources({ t }) {
 export default function FirmaGuide({locale,t}) {
   return <section className="firma-reading" aria-labelledby="firma-example-title">
     <div className="firma-reading-heading"><p className="eyebrow">Firma Total · PDF</p><h2 id="firma-example-title">{t('guide.visual.title1')}</h2></div>
-    <div className="firma-reading-grid"><img src="/guides/visual.svg" width="800" height="400" alt="" loading="lazy" />
+    <div className="firma-reading-grid"><img src="/guides/visual.svg" width="800" height="400" alt={t("guide.visual.title1")} loading="lazy" />
       <div><p>{t('guide.visual.body1')}</p>{[2,3].map(index=><article key={index}><h3>{t(`guide.visual.title${index}`)}</h3><p>{t(`guide.visual.body${index}`)}</p></article>)}</div>
     </div>
     <FirmaVideo locale={locale} t={t}/>

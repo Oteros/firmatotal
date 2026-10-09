@@ -29,7 +29,7 @@ function Header({ locale, setLocale, t }) {
       </a>
       <span className="header-dash" aria-hidden="true">·</span>
       <a className="lab-mark" href={chapalabUrl(locale)} rel="noreferrer">
-        <img src="/chapalab-mark.png" alt="" width="28" height="28" /> CHAPALAB.COM
+        <img src="/chapalab-mark.png" alt="Chapa Lab" aria-hidden="true" width="28" height="28" /> CHAPALAB.COM
       </a>
       <nav aria-label={t("navigationLabel")}>
         <a href="#how">{t("how")}</a>
@@ -65,7 +65,7 @@ function Footer({ t, locale }) {
         <p>{t("footerTagline")}</p>
         <div>
           <a className="footer-lab" href={chapalabUrl(locale)} rel="noreferrer">
-            <img src="/chapalab-mark.png" alt="" width="22" height="22" /> CHAPALAB.COM
+            <img src="/chapalab-mark.png" alt="Chapa Lab" aria-hidden="true" width="22" height="22" /> CHAPALAB.COM
           </a>
           <a href="https://github.com/Oteros/firmatotal" target="_blank" rel="noreferrer">{t("sourceCode")} ↗</a>
           <a href="#how">{t("how")}</a>
@@ -89,9 +89,9 @@ function GuideLinks({ locale, t }) {
     <section className="guide-links" aria-labelledby="guide-links-title">
       <div><p className="eyebrow">Firma Total</p><h2 id="guide-links-title">{t("how")}</h2></div>
       <div className="guide-grid">
-        <a href={`/${locale}/${paths[0]}/`}><span>01</span><img src="/guides/visual.svg" width="800" height="400" alt="" loading="lazy"/><strong>{t("downloadVisual")}</strong><small>{t("guide.visual.title1")}</small></a>
-        <a href={`/${locale}/${paths[1]}/`}><span>02</span><img src="/guides/certificate.svg" width="800" height="400" alt="" loading="lazy"/><strong>{t("p12Title")}</strong><small>{t("guide.certificate.title1")}</small></a>
-        <a href={`/${locale}/${paths[2]}/`}><span>03</span><img src="/guides/placement.svg" width="800" height="400" alt="" loading="lazy"/><strong>{t("signatureTitle")}</strong><small>{t("guide.placement.title2")}</small></a>
+        <a href={`/${locale}/${paths[0]}/`}><span>01</span><img src="/guides/visual.svg" width="800" height="400" alt={t("downloadVisual")} loading="lazy"/><strong>{t("downloadVisual")}</strong><small>{t("guide.visual.title1")}</small></a>
+        <a href={`/${locale}/${paths[1]}/`}><span>02</span><img src="/guides/certificate.svg" width="800" height="400" alt={t("p12Title")} loading="lazy"/><strong>{t("p12Title")}</strong><small>{t("guide.certificate.title1")}</small></a>
+        <a href={`/${locale}/${paths[2]}/`}><span>03</span><img src="/guides/placement.svg" width="800" height="400" alt={t("signatureTitle")} loading="lazy"/><strong>{t("signatureTitle")}</strong><small>{t("guide.placement.title2")}</small></a>
       </div>
     </section>
   );
@@ -309,7 +309,7 @@ function PdfStage({ pdfDoc, currentPage, setCurrentPage, placements, setPlacemen
                 setPlacements(items => items.map(item => item.id === placement.id ? {...item,
                   x:Math.max(0,Math.min(1-item.width,item.x+delta[0])),
                   y:Math.max(0,Math.min(1-item.height,item.y+delta[1]))} : item));
-              }}><img src={signature} alt="" draggable="false" /></button>
+              }}><img src={signature} alt={t("signatureTitle")} draggable="false" /></button>
             <button type="button" className="signature-remove" aria-label={`${t("remove")} · ${t("page")} ${currentPage + 1}`} onClick={(event) => {
               event.stopPropagation();
               setPlacements((items) => items.filter((item) => item.id !== placement.id));
