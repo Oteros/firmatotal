@@ -76,7 +76,7 @@ function localize(html, language, { page = 'home' } = {}) {
     output = output.replace('<div id="root"></div>', page === 'privacy' ? privacyMarkup(language) : cookiesMarkup(language))
     output = output
       .replace(/\s*<script\b(?=[^>]*type="module")(?=[^>]*src="\/assets\/)[^>]*><\/script>/g, '')
-      .replace(/\s*<script\b[^>]*src="\/vendor\/autoscript\.js"[^>]*><\/script>/g, '')
+      .replace(/\s*<script\b[^>]*src="\/assets\/autoscript-client\.js"[^>]*><\/script>/g, '')
   } else {
     output = output.replace('<div id="root"></div>', `<div id="root"><main style="max-width:980px;margin:8vh auto;padding:32px"><p>FIRMA TOTAL</p><h1>${escapeHtml(dict.heroTitle)}</h1><p>${escapeHtml(dict.heroLead)}</p><p>${escapeHtml(dict.local)} · ${escapeHtml(dict.noAccount)} · ${escapeHtml(dict.pades)}</p></main></div>`)
   }

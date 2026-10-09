@@ -36,4 +36,7 @@ if (!(await currentIsValid())) {
 }
 
 console.log(`AutoScript ${expectedGitBlobSha.slice(0, 12)} ready`)
+const publicAsset = resolve(root, 'public/assets/autoscript-client.js')
+await mkdir(dirname(publicAsset), { recursive: true })
+await writeFile(publicAsset, await readFile(output))
 
